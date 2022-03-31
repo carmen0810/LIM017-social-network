@@ -1,44 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>petworld</title>
 </head>
+
 <body>
+  <main>
+    <section>
+      <header>
+        <img src="img/logo.png" alt="logo" height="250px">
+        <h1>INICIAR SESION</h1>
+      </header>
+      <div class="login">
+        <label for="email"></label>
+        <input id="email" type="email" placeholder="Correo" required>
+        <label for="password"></label>
+        <input id="password" type="password" placeholder="contraseña" required>
+        <p>¿Olvidaste tu contraseña?</p>
+        <button class="into">INGRESAR</button>
+        <p>o ingresa con</p>
+        <img src="img/facebook (2).png" alt="facebook" height="50px">
+        <img src="img/google.png" alt="google" height="50px">
+        <p>¿eres nuevo en petworld?</p>
+        <button class="buttonCreate">Crea tu cuenta</button>
+      </div>
+      <div class="imgMobile">
+        <img src="img/fondoConlogo.jpg"alt="fondo del logo" height="250px">
+        <h2>UNETE A PETWORLD</h2>
+        <p>Crea tu cuenta en pocos pasos</p>
+        <button class="into">SIGUIENTE</button>
+        <a id="loginBack">¿Ya tienes una cuenta?</a>
+      </div>
+    </section>
+  </main>
 
-  <h1>hola mundi</h1>
 
-  <h1>mascotas.com</h1>
-  <p>esta es una pagina aun no echa</p>
-  <button>Cliquea Aquí</button>
-  <h2>Seguimos probando</h2>
-  <button>mascotas en adopcion</button>
-  <p>esta en veremos el tema del proyecto</p>
+
+
+
+
+
+
   <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "firebase/app";
-  import { getAnalytics } from "firebase/analytics";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-  
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyBykqjBMN0TmG9EYdZ_8bEP-dsXLU8NiN4",
-    authDomain: "petworld-d9893.firebaseapp.com",
-    projectId: "petworld-d9893",
-    storageBucket: "petworld-d9893.appspot.com",
-    messagingSenderId: "568333305080",
-    appId: "1:568333305080:web:07d1e21cd73ddbef3ba70d",
-    measurementId: "G-YC6Z27BTF4"
-  };
-  
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "firebase/app";
+    import { getAnalytics } from "firebase/analytics";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyBykqjBMN0TmG9EYdZ_8bEP-dsXLU8NiN4",
+      authDomain: "petworld-d9893.firebaseapp.com",
+      projectId: "petworld-d9893",
+      storageBucket: "petworld-d9893.appspot.com",
+      messagingSenderId: "568333305080",
+      appId: "1:568333305080:web:07d1e21cd73ddbef3ba70d",
+      measurementId: "G-YC6Z27BTF4"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
   </script>
   <script type="module" src="main.js"></script>
 </body>
+
 </html>
