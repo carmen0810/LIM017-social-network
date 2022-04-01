@@ -1,4 +1,4 @@
-const register = () => {
+const register1 = () => {
   const registerDiv1 = document.createElement('div');
   const imgLogoBackground = document.createElement('img');
   imgLogoBackground.setAttribute('src', 'img/backgroundMobile.png');
@@ -10,11 +10,11 @@ const register = () => {
   intoButton.textContent = 'SIGUIENTE';
   const login = document.createElement('a');
   login.textContent = '¿Ya tienes una cuenta?';
-  registerDiv.appendChild(imgLogoBackground);
-  registerDiv.appendChild(joinTitle);
-  registerDiv.appendChild(intoCreateAccount);
-  registerDiv.appendChild(intoButton);
-  registerDiv.appendChild(login);
+  registerDiv1.appendChild(imgLogoBackground);
+  registerDiv1.appendChild(joinTitle);
+  registerDiv1.appendChild(intoCreateAccount);
+  registerDiv1.appendChild(intoButton);
+  registerDiv1.appendChild(login);
   return registerDiv1;
 };
 
@@ -36,14 +36,14 @@ const register2 = () => {
   inputLastName.setAttribute('required', '');
   const intoButton = document.createElement('button');
   intoButton.textContent = 'SIGUIENTE';
-  register2Div.appendChild(imgLogoBackground2);
-  register2Div.appendChild(intoCreateAccount);
-  register2Div.appendChild(intoText);
-  register2Div.appendChild(inputName);
-  register2Div.appendChild(inputLastName);
-  register2Div.appendChild(intoButton);
+  registerDiv2.appendChild(imgLogoBackground2);
+  registerDiv2.appendChild(intoCreateAccount);
+  registerDiv2.appendChild(intoText);
+  registerDiv2.appendChild(inputName);
+  registerDiv2.appendChild(inputLastName);
+  registerDiv2.appendChild(intoButton);
 
   return registerDiv2;
 };
 
-export { registerDiv1, registerDiv2 };
+export { register1, register2 };
