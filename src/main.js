@@ -1,6 +1,7 @@
 // Este es el punto de entrada de tu aplicacion
 
-import { home } from './components/Home.js';
+import { home } from './components/home.js';
+import { register1, register2 } from './components/register.js';
 
 // myFunction();
 
@@ -8,6 +9,8 @@ const rootDiv = document.getElementById('root');
 
 const routes = {
   '/': home,
+  '/register1': register1,
+  '/register2': register2,
 };
 
 export const onNavigate = (pathname) => {
@@ -16,7 +19,6 @@ export const onNavigate = (pathname) => {
     pathname,
     window.location.origin + pathname,
   );
-
   rootDiv.appendChild(routes[pathname]());
 };
 
