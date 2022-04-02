@@ -5,7 +5,6 @@ import { register1, register2, register3, register4 } from './components/registe
 
 // myFunction();
 
-
 const rootDiv = document.getElementById('root');
 
 const routes = {
