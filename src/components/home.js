@@ -1,5 +1,6 @@
 // import {onNavigate} from '../main.js';
 //import { loginFirebase } from '';
+
 export const home = () => {
   const homeDiv = document.createElement('div');
   const emailInput = document.createElement('input');
@@ -25,6 +26,7 @@ export const home = () => {
 
   intoParagraph.textContent = 'O ingresa con';
   imgIconFacebook.setAttribute('src', 'img/facebook (2).png');
+  imgIconFacebook.setAttribute('id', 'iconFacebook');
   imgIconGmail.setAttribute('src', 'img/google.png');
   newParagraph.textContent = '¿Eres nuevo en PetWorld?';
   createAccount.textContent = 'Crea tu cuenta';
@@ -39,3 +41,8 @@ export const home = () => {
   homeDiv.appendChild(createAccount);
   return homeDiv;
 };
+
+const btnLogin = document.getElementById('btnLogin');
+btnLogin.addEventListener('click', () => {
+  loginFacebook();
+});

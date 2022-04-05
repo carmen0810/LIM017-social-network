@@ -7,6 +7,7 @@ import {
   register3,
   register4,
 } from './components/register.js';
+// import { loginFacebook } from '../authFirebase/authentication.js';
 
 // myFunction();
 
