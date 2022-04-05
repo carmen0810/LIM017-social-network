@@ -97,4 +97,9 @@ const register4 = () => {
   return loginDiv;
 };
 
-export { register1, register2, register3, register4 };
+export {
+  register1,
+  register2,
+  register3,
+  register4,
+};
