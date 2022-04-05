@@ -7,21 +7,19 @@ export const loginFirebase = (email, password) => {
   const authLoginFirebase = signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
     // Signed in
-    console.log("tu correo que logeaste es: " + userCredential.user.email);
-        console.log(userCredential);
+      alert("Bienvenid@ " + userCredential.user.email);
     })
     .catch((error) => {
-        console.log("error");
-        console.log(error);
+      alert("cuenta no valida");
     });
-    return authLoginFirebase;
-    };
+  return authLoginFirebase;
+};
 
-const registerFirebase = (email, password) => {
+export const registerFirebase = (email, password) => {
       //const messageSignUpError = document.querySelector('.messageSignUpError');
       //register();
-      const registerBefit = createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
+  const registerBefit = createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
           // const user = userCredential.user;
           // // onNavigate('/');
           // registerToHome();
@@ -32,23 +30,22 @@ const registerFirebase = (email, password) => {
           // console.log(user);
           // // eslint-disable-next-line no-use-before-define
           // getDates();
-          console.log("ok");
-          console.log(userCredential);
-        })
-        .catch((error) => {
+      console.log("ok");
+      console.log(userCredential);
+    })
+    .catch((error) => {
           //const errorCode = error.code;
           //console.log(errorCode);
           //const errorMessage = error.message;
-          console.log("error");
-          console.log(error);
+      console.log("error");
+      console.log(error);
           //messageSignUpError.innerHTML = errorMessage;
-        });
-      console.log(registerBefit);
+    });
+  console.log(registerBefit);
       // eslint-disable-next-line no-use-before-define
-      return registerBefit;
-    };
-
-    //llamado a la funcion de registrar cuenta
+  return registerBefit;
+}; 
+//llamado a la funcion de registrar cuenta
     //registerFirebase("carmen@gmail.com", "1234567890");
     //loginFirebase("nina@gmail.com", '123123123');
     // const email = docuement.getElemtnybyid("");

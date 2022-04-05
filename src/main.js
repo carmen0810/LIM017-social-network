@@ -1,18 +1,21 @@
 // Este es el punto de entrada de tu aplicacion
 
-import { home } from './components/home.js';
+import { login } from './components/login.js';
 import { register1, register2, register3, register4 } from './components/register.js';
+import { homePetworld } from './components/home.js';
+import { loginFirebase } from '../authFirebase/authentication.js';
 
 // myFunction();
 
 const rootDiv = document.getElementById('root');
 
 const routes = {
-  '/': home,
+  '/': login,
   '/register1': register1,
   '/register2': register2,
   '/register3': register3,
   '/register4': register4,
+  '/homePetworld': homePetworld,
 };
 
 export const onNavigate = (pathname) => {
@@ -26,3 +29,13 @@ export const onNavigate = (pathname) => {
 
 const component = routes[window.location.pathname];
 rootDiv.appendChild(component());
+    
+//eventos de Login onNavigate('/homePetworld')
+
+const ingresaHome = document.getElementById('btnLogin');
+
+ingresaHome.addEventListener('click', () => {
+  const ingresaHomeEmail = document.getElementById('emailInto').value;
+  const ingresaHomePassword = document.getElementById('passwordInto').value;
+  loginFirebase(ingresaHomeEmail, ingresaHomePassword);
+});

@@ -1,7 +1,7 @@
 // import {onNavigate} from '../main.js';
 
 const register1 = () => {
-  const homeDiv = document.createElement('div');
+  const loginDiv = document.createElement('div');
   const imgLogoBackground = document.createElement('img');
   imgLogoBackground.setAttribute('src', 'img/backgroundMobile.png');
   const joinTitle = document.createElement('h2');
@@ -12,16 +12,16 @@ const register1 = () => {
   intoButton.textContent = 'SIGUIENTE';
   const login = document.createElement('a');
   login.textContent = '¿Ya tienes una cuenta?';
-  homeDiv.appendChild(imgLogoBackground);
-  homeDiv.appendChild(joinTitle);
-  homeDiv.appendChild(intoCreateAccount);
-  homeDiv.appendChild(intoButton);
-  homeDiv.appendChild(login);
-  return homeDiv;
+  loginDiv.appendChild(imgLogoBackground);
+  loginDiv.appendChild(joinTitle);
+  loginDiv.appendChild(intoCreateAccount);
+  loginDiv.appendChild(intoButton);
+  loginDiv.appendChild(login);
+  return loginDiv;
 };
 
 const register2 = () => {
-  const homeDiv = document.createElement('div');
+  const loginDiv = document.createElement('div');
   const imgLogoBackground2 = document.createElement('img');
   imgLogoBackground2.setAttribute('src', 'img/backgroundMobile.png');
   const intoCreateAccount = document.createElement('h2');
@@ -38,18 +38,18 @@ const register2 = () => {
   inputLastName.setAttribute('required', '');
   const intoButton = document.createElement('button');
   intoButton.textContent = 'SIGUIENTE';
-  homeDiv.appendChild(imgLogoBackground2);
-  homeDiv.appendChild(intoCreateAccount);
-  homeDiv.appendChild(intoText);
-  homeDiv.appendChild(inputName);
-  homeDiv.appendChild(inputLastName);
-  homeDiv.appendChild(intoButton);
+  loginDiv.appendChild(imgLogoBackground2);
+  loginDiv.appendChild(intoCreateAccount);
+  loginDiv.appendChild(intoText);
+  loginDiv.appendChild(inputName);
+  loginDiv.appendChild(inputLastName);
+  loginDiv.appendChild(intoButton);
 
-  return homeDiv;
+  return loginDiv;
 };
 
 const register3 = () => {
-  const homeDiv = document.createElement('div');
+  const loginDiv = document.createElement('div');
   const registerTitle = document.createElement('h1');
   registerTitle.textContent = 'CREA TU CUENTA';
   const emailRegister = document.createElement('input');
@@ -67,16 +67,16 @@ const register3 = () => {
   const Nextbutton = document.createElement('button');
   Nextbutton.textContent = 'Siguiente';
 
-  homeDiv.appendChild(registerTitle);
-  homeDiv.appendChild(emailRegister);
-  homeDiv.appendChild(passwordRegister);
-  homeDiv.appendChild(repeatPassword);
-  homeDiv.appendChild(Nextbutton);
+  loginDiv.appendChild(registerTitle);
+  loginDiv.appendChild(emailRegister);
+  loginDiv.appendChild(passwordRegister);
+  loginDiv.appendChild(repeatPassword);
+  loginDiv.appendChild(Nextbutton);
 
-  return homeDiv;
+  return loginDiv;
 };
 const register4 = () => {
-  const homeDiv = document.createElement('div');
+  const loginDiv = document.createElement('div');
   const birthDateTitle = document.createElement('h2');
   birthDateTitle.textContent = 'Fecha de Nacimiento';
   const birthDate = document.createElement('input');
@@ -89,12 +89,12 @@ const register4 = () => {
   const buttonRegister = document.createElement('button');
   buttonRegister.textContent = 'REGISTRARSE';
 
-  homeDiv.appendChild(birthDateTitle);
-  homeDiv.appendChild(birthDate);
-  homeDiv.appendChild(termConditions);
-  homeDiv.appendChild(checkTerms);
-  homeDiv.appendChild(buttonRegister);
-  return homeDiv;
+  loginDiv.appendChild(birthDateTitle);
+  loginDiv.appendChild(birthDate);
+  loginDiv.appendChild(termConditions);
+  loginDiv.appendChild(checkTerms);
+  loginDiv.appendChild(buttonRegister);
+  return loginDiv;
 };
 
 export { register1, register2, register3, register4 };
