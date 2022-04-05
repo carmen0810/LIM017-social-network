@@ -1,4 +1,5 @@
 // import {onNavigate} from '../main.js';
+//import { loginFirebase } from '';
 export const home = () => {
   const homeDiv = document.createElement('div');
   const emailInput = document.createElement('input');
@@ -20,6 +21,8 @@ export const home = () => {
   passwordInput.setAttribute('required', '');
   passwordForget.textContent = '¿Olvidaste tu contraseña?';
   intoButton.textContent = 'INGRESAR';
+  intoButton.setAttribute('id', 'btnLogin');
+
   intoParagraph.textContent = 'O ingresa con';
   imgIconFacebook.setAttribute('src', 'img/facebook (2).png');
   imgIconGmail.setAttribute('src', 'img/google.png');
