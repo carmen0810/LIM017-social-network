@@ -1,0 +1,42 @@
+
+export const login = () => {
+  const loginDiv = document.createElement('div');
+  const emailInput = document.createElement('input');
+  const passwordInput = document.createElement('input');
+  const passwordForget = document.createElement('a');
+  const intoButton = document.createElement('button');
+  const intoParagraph = document.createElement('p');
+  const imgIconFacebook = document.createElement('img');
+  const imgIconGmail = document.createElement('img');
+  const newParagraph = document.createElement('p');
+  const createAccount = document.createElement('button');
+  emailInput.setAttribute('id', 'emailInto');
+  emailInput.textContent = 'Correo';
+  emailInput.setAttribute('type', 'email');
+  emailInput.setAttribute('placeholder', 'Correo');
+  emailInput.setAttribute('required', '');
+  passwordInput.setAttribute('id', 'passwordInto');
+  passwordInput.textContent = 'Contraseña';
+  passwordInput.setAttribute('type', 'password');
+  passwordInput.setAttribute('placeholder', 'Contraseña');
+  passwordInput.setAttribute('required', '');
+  passwordForget.textContent = '¿Olvidaste tu contraseña?';
+  intoButton.textContent = 'INGRESAR';
+  intoButton.setAttribute('id', 'btnLogin');
+  intoParagraph.textContent = 'O ingresa con';
+  imgIconFacebook.setAttribute('src', 'img/facebook (2).png');
+  imgIconGmail.setAttribute('src', 'img/google.png');
+  newParagraph.textContent = '¿Eres nuevo en PetWorld?';
+  createAccount.textContent = 'Crea tu cuenta';
+  loginDiv.appendChild(emailInput);
+  loginDiv.appendChild(passwordInput);
+  loginDiv.appendChild(passwordForget);
+  loginDiv.appendChild(intoButton);
+  loginDiv.appendChild(intoParagraph);
+  loginDiv.appendChild(imgIconFacebook);
+  loginDiv.appendChild(imgIconGmail);
+  loginDiv.appendChild(newParagraph);
+  loginDiv.appendChild(createAccount);
+
+  return loginDiv;
+};
