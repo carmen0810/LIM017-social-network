@@ -1,5 +1,5 @@
 // import {onNavigate} from '../main.js';
-//import { loginFirebase } from '';
+// import { loginFirebase } from '';
 export const home = () => {
   const homeDiv = document.createElement('div');
   const emailInput = document.createElement('input');
@@ -11,10 +11,12 @@ export const home = () => {
   const imgIconGmail = document.createElement('img');
   const newParagraph = document.createElement('p');
   const createAccount = document.createElement('button');
+  emailInput.setAttribute('id', 'emailInto');
   emailInput.textContent = 'Correo';
   emailInput.setAttribute('type', 'email');
   emailInput.setAttribute('placeholder', 'Correo');
   emailInput.setAttribute('required', '');
+  passwordInput.setAttribute('id', 'passwordInto');
   passwordInput.textContent = 'Contraseña';
   passwordInput.setAttribute('type', 'password');
   passwordInput.setAttribute('placeholder', 'Contraseña');
@@ -25,6 +27,7 @@ export const home = () => {
 
   intoParagraph.textContent = 'O ingresa con';
   imgIconFacebook.setAttribute('src', 'img/facebook (2).png');
+  imgIconGmail.setAttribute('id', 'intoWithGoogle');
   imgIconGmail.setAttribute('src', 'img/google.png');
   newParagraph.textContent = '¿Eres nuevo en PetWorld?';
   createAccount.textContent = 'Crea tu cuenta';
