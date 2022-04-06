@@ -1,4 +1,4 @@
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
 import { app } from './fbconfig.js';
 
 const auth = getAuth(app);
@@ -7,10 +7,10 @@ export const loginFirebase = (email, password) => {
   const authLoginFirebase = signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
     // Signed in
-      alert("Bienvenid@ " + userCredential.user.email);
+      alert('Bienvenid@' + userCredential.user.email);
     })
     .catch((error) => {
-      alert("cuenta no valida");
+      alert('cuenta no valida');
     });
   return authLoginFirebase;
 };
@@ -30,14 +30,14 @@ export const registerFirebase = (email, password) => {
       // console.log(user);
       // eslint-disable-next-line no-use-before-define
       // getDates();
-      console.log("ok");
+      console.log('ok');
       console.log(userCredential);
     })
     .catch((error) => {
       // const errorCode = error.code;
       // console.log(errorCode);
       // const errorMessage = error.message;
-      console.log("error");
+      console.log('error');
       console.log(error);
       // messageSignUpError.innerHTML = errorMessage;
     });
@@ -61,7 +61,6 @@ export const registerFirebase = (email, password) => {
 //   .then((userCredential) => {
 //     // Signed in
 //     const user = userCredential.user;
-
 //   })
 
 //   .catch((error) => {
@@ -82,3 +81,7 @@ export const registerFirebase = (email, password) => {
 // fb
 
 // cerrar sesion
+
+// function loginFacebook () => {
+
+// }

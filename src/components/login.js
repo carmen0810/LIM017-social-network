@@ -8,7 +8,7 @@ export const login = () => {
   const intoButton = document.createElement('button');
   const intoParagraph = document.createElement('p');
   const divIcons = document.createElement('div');
-  divIcons.setAttribute('class', 'icoDivLogin');
+  divIcons.setAttribute('class', 'iconDivLogin');
   const imgIconFacebook = document.createElement('img');
   const imgIconGmail = document.createElement('img');
   const newParagraph = document.createElement('p');
@@ -35,10 +35,10 @@ export const login = () => {
   intoParagraph.setAttribute('id', 'textIntoParagraph');
   divIcons.appendChild(imgIconFacebook);
   divIcons.appendChild(imgIconGmail);
-  imgIconFacebook.setAttribute('src', 'img/facebook (2).png');
   imgIconFacebook.setAttribute('class', 'iconInto');
-  imgIconGmail.setAttribute('src', 'img/google.png');
+  imgIconFacebook.setAttribute('src', 'img/facebook (2).png');
   imgIconGmail.setAttribute('class', 'iconInto');
+  imgIconGmail.setAttribute('src', 'img/google.png');
   newParagraph.textContent = '¿Eres nuevo en PetWorld?';
   newParagraph.setAttribute('id', 'textNewParagraph');
   createAccount.textContent = 'Crea tu cuenta';

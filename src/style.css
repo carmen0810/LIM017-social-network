@@ -1,0 +1,42 @@
+*{
+    margin:0;
+    box-sizing: border-box;
+    
+}
+/* Estilos del login*/
+.iconInto{
+    width:10%;
+}
+.loginView{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#emailInto, #passwordInto{
+    margin:8px;
+    border-radius:15px;
+    width:250px;
+    
+}
+
+.iconDivLogin{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.iconInto{
+    margin: 4px;
+}
+
+.btnLogin {
+    margin: 12px;
+    border-radius: 4px;
+    width: 120px;
+    background-color: #450761;
+    color: #ffffff;
+}
+#logo{
+    Height: 250px;
+}
