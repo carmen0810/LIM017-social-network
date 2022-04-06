@@ -3,6 +3,30 @@
     box-sizing: border-box;
 }
 /* Estilos del login*/
-#iconFacebook{
+.iconInto{
     width:10%;
 }
+.loginView{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#emailInto, #passwordInto{
+    margin:8px;
+    border-radius:15px;
+    width:250px;
+    
+}
+
+.iconDivLogin{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.iconInto{
+    margin: 10px;
+}
+
+
