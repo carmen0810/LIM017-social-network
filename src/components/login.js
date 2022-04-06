@@ -35,10 +35,10 @@ export const login = () => {
   intoParagraph.setAttribute('id', 'textIntoParagraph');
   divIcons.appendChild(imgIconFacebook);
   divIcons.appendChild(imgIconGmail);
-  imgIconFacebook.setAttribute('src', 'img/facebook (2).png');
   imgIconFacebook.setAttribute('class', 'iconInto');
-  imgIconGmail.setAttribute('src', 'img/google.png');
+  imgIconFacebook.setAttribute('src', 'img/facebook (2).png');
   imgIconGmail.setAttribute('class', 'iconInto');
+  imgIconGmail.setAttribute('src', 'img/google.png');
   newParagraph.textContent = '¿Eres nuevo en PetWorld?';
   newParagraph.setAttribute('id', 'textNewParagraph');
   createAccount.textContent = 'Crea tu cuenta';
@@ -57,4 +57,3 @@ export const login = () => {
 
   return loginDiv;
 };
-

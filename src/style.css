@@ -1,6 +1,7 @@
 *{
     margin:0;
     box-sizing: border-box;
+    
 }
 /* Estilos del login*/
 .iconInto{
@@ -47,3 +48,18 @@
 /* @media screen (max-width:){
     
 } */
+
+.iconInto{
+    margin: 4px;
+}
+
+.btnLogin {
+    margin: 12px;
+    border-radius: 4px;
+    width: 120px;
+    background-color: #450761;
+    color: #ffffff;
+}
+#logo{
+    Height: 250px;
+}
