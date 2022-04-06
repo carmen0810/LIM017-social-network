@@ -1,23 +1,23 @@
 // import {onNavigate} from '../main.js';
 
 const register1 = () => {
-  const loginDiv = document.createElement('div');
-  const imgLogoBackground = document.createElement('img');
-  imgLogoBackground.setAttribute('src', 'img/backgroundMobile.png');
-  const joinTitle = document.createElement('h2');
-  joinTitle.textContent = 'ÚNETE A PETWORLD';
-  const intoCreateAccount = document.createElement('p');
-  intoCreateAccount.textContent = 'Crea tu cuenta en pocos pasos';
-  const intoButton = document.createElement('button');
-  intoButton.textContent = 'SIGUIENTE';
-  const login = document.createElement('a');
-  login.textContent = '¿Ya tienes una cuenta?';
-  loginDiv.appendChild(imgLogoBackground);
-  loginDiv.appendChild(joinTitle);
-  loginDiv.appendChild(intoCreateAccount);
-  loginDiv.appendChild(intoButton);
-  loginDiv.appendChild(login);
-  return loginDiv;
+  // const loginDiv = document.createElement('div');
+  // const imgLogoBackground = document.createElement('img');
+  // imgLogoBackground.setAttribute('src', 'img/backgroundMobile.png');
+  // const joinTitle = document.createElement('h2');
+  // joinTitle.textContent = 'ÚNETE A PETWORLD';
+  // const intoCreateAccount = document.createElement('p');
+  // intoCreateAccount.textContent = 'Crea tu cuenta en pocos pasos';
+  // const intoButton = document.createElement('button');
+  // intoButton.textContent = 'SIGUIENTE';
+  // const login = document.createElement('a');
+  // login.textContent = '¿Ya tienes una cuenta?';
+  // loginDiv.appendChild(imgLogoBackground);
+  // loginDiv.appendChild(joinTitle);
+  // loginDiv.appendChild(intoCreateAccount);
+  // loginDiv.appendChild(intoButton);
+  // loginDiv.appendChild(login);
+  // return loginDiv;
 };
 
 const register2 = () => {
