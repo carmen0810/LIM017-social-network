@@ -5,13 +5,6 @@ import { register1, register2, register3, register4 } from './components/registe
 import { homePetworld } from './components/home.js';
 import { loginFirebase } from '../authFirebase/authentication.js';
 
-import {
-  register1,
-  register2,
-  register3,
-  register4,
-} from './components/register.js';
-
 // myFunction();
 
 const rootDiv = document.getElementById('root');
@@ -36,7 +29,7 @@ export const onNavigate = (pathname) => {
 
 const component = routes[window.location.pathname];
 rootDiv.appendChild(component());
-    
+
 //eventos de Login onNavigate('/homePetworld')
 
 const ingresaHome = document.getElementById('btnLogin');
