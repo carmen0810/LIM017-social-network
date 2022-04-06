@@ -1,24 +1,47 @@
 *{
     margin:0;
     box-sizing: border-box;
+    font-family: 'PT Sans', sans-serif;
     
 }
+
+.containerMain{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+}
+
 /* Estilos del login*/
 .iconInto{
     width:7%;
     margin: 10px;
 }
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#logo{
+    Height: 250px;
+}
+
+#titleLogin{
+    margin-bottom: 45px;
+}
+
 .loginView{
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+
 #emailInto, #passwordInto{
     margin:8px;
     border-radius:15px;
     width:250px;
-    
+    padding: 10px;
 }
 
 .iconDivLogin{
@@ -27,15 +50,17 @@
     justify-content: center;
     align-items: center;
 }
+
 .textCreateAccount{
     text-transform: uppercase;
     padding: 10px;
     border-radius: 20px;
     border-color: rgb(82 19 80);
-    margin: 10px;
+    margin: 40px;
     background: #f4f7f9;
     border-style: groove;
 }
+
 #footerPetworld{
     display:flex;
     align-items: center;
@@ -44,10 +69,6 @@
     background: rgb(238,174,202);
     background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(189,181,219,1) 55%, rgba(148,187,233,1) 100%);
 }
-
-/* @media screen (max-width:){
-    
-} */
 
 .iconInto{
     margin: 4px;
@@ -59,7 +80,30 @@
     width: 120px;
     background-color: #450761;
     color: #ffffff;
+    padding: 13px;
 }
-#logo{
-    Height: 250px;
+
+#textNewParagraph,#textIntoParagraph,#textPasswordForget{ 
+    margin:10px;
 }
+
+@media screen and (min-width:768px){
+    .containerViewFirst {
+        display: flex;
+        flex-direction: row;
+        height: 90vh;
+    }
+    #titleLogin{
+        margin-top: 25px;
+    }
+    header{
+        max-width: 50vw;
+        background: rgb(231, 146, 183);
+        background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(189,181,219,1) 55%, rgb(196, 139, 158) 100%);
+    }
+    #footerPetworld{
+        margin-bottom: 0px;
+    }
+}
+
+

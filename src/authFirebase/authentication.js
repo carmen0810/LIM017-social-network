@@ -10,7 +10,7 @@ export const loginFirebase = (email, password) => {
       alert('Bienvenid@' + userCredential.user.email);
     })
     .catch((error) => {
-      alert('cuenta no valida');
+      alert('cuenta no válida');
     });
   return authLoginFirebase;
 };
