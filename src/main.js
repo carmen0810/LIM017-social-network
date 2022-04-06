@@ -7,7 +7,7 @@ import {
 } from './components/register.js';
 
 import { homePetworld } from './components/home.js';
-import { loginFirebase } from '../authFirebase/authentication.js';
+//import { loginFirebase } from '../authFirebase/authentication.js';
 
 const rootDiv = document.getElementById('root');
 
@@ -26,14 +26,21 @@ export const onNavigate = (pathname) => {
     pathname,
     window.location.origin + pathname,
   );
-  rootDiv.appendChild(routes[pathname]());
-};
 
-const component = routes[window.location.pathname];
-rootDiv.appendChild(component());
+  rootDiv.appendChild(routes[pathname]());
+  // rootDiv.innerHTML = routes[pathname]();
+};
+window.onpopstate = () => {
+  rootDiv.innerHTML = routes[window.location.pathname]();
+};
+onNavigate('/');
+
+
+//const component = routes[window.location.pathname];
+//rootDiv.appendChild(component());
 // eventos de Login onNavigate('/homePetworld')
 
-const ingresaHome = document.getElementById('btnLogin');
+//const ingresaHome = document.getElementById('btnLogin');
 
 ingresaHome.addEventListener('click', () => {
   const ingresaHomeEmail = document.getElementById('emailInto').value;
