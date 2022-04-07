@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
 
 export const login = () => {
@@ -12,7 +13,7 @@ export const login = () => {
   loginElem.innerHTML = loginDiv;
   loginElem.querySelector('#btn').addEventListener('click', () => {
     onNavigate('/register1');
-    document.querySelector('.loginView').style.display = "none";
+    document.querySelector('.loginView').style.display = 'none';
   });
   loginElem.querySelector('#password').addEventListener('input', (e) => {
     console.log(e.target.value);

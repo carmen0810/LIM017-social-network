@@ -1,13 +1,13 @@
+// eslint-disable-next-line import/no-cycle
 import { login } from './components/login.js';
+
 import {
-  register1,
-  register2,
-  register3,
-  register4,
+  register1, register2,
 } from './components/register.js';
 
 import { homePetworld } from './components/home.js';
-//import { loginFirebase } from '../authFirebase/authentication.js';
+
+// import { loginFirebase } from '../authFirebase/authentication.js';
 
 const rootDiv = document.getElementById('root');
 
@@ -15,8 +15,8 @@ const routes = {
   '/': login,
   '/register1': register1,
   '/register2': register2,
-  '/register3': register3,
-  '/register4': register4,
+  // '/register3': register3,
+  // '/register4': register4,
   '/homePetworld': homePetworld,
 };
 
@@ -35,15 +35,14 @@ window.onpopstate = () => {
 };
 onNavigate('/');
 
-
-//const component = routes[window.location.pathname];
-//rootDiv.appendChild(component());
+// const component = routes[window.location.pathname];
+// rootDiv.appendChild(component());
 // eventos de Login onNavigate('/homePetworld')
 
-//const ingresaHome = document.getElementById('btnLogin');
+// const ingresaHome = document.getElementById('btnLogin');
 
-ingresaHome.addEventListener('click', () => {
-  const ingresaHomeEmail = document.getElementById('emailInto').value;
-  const ingresaHomePassword = document.getElementById('passwordInto').value;
-  loginFirebase(ingresaHomeEmail, ingresaHomePassword);
-});
+// ingresaHome.addEventListener('click', () => {
+//   const ingresaHomeEmail = document.getElementById('emailInto').value;
+//   const ingresaHomePassword = document.getElementById('passwordInto').value;
+//   loginFirebase(ingresaHomeEmail, ingresaHomePassword);
+// });
