@@ -85,3 +85,23 @@ export const registerFirebase = (email, password) => {
 // function loginFacebook () => {
 
 // }
+
+//  authLoginFacebook() {
+//   const provider = new FacebookAuthProvider();
+//   const auth = getAuth();
+//   signInWithPopup(auth, provider);
+//   .then((result) => {
+//     // The signed-in user info.
+//     const user = result.user;
+//     const credential = FacebookAuthProvider.credentialFromResult(result);
+//     const accessToken = credential.accessToken;
+//   })
+//   .catch((error) => {
+//       // Handle Errors here.
+//       const errorCode = error.code;
+//       const errorMessage = error.message;
+//       // The email of the user's account used.
+//       const email = error.email;
+//       // The AuthCredential type that was used.
+//       const credential = FacebookAuthProvider.credentialFromError(error);
+//   });
