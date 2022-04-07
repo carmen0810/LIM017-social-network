@@ -18,7 +18,32 @@ export const loginFirebase = (email, password) => {
 export const registerFirebase = (email, password) => {
   // const messageSignUpError = document.querySelector('.messageSignUpError');
 //   // register();
-  const registerPetworld = createUserWithEmailAndPassword(auth, email, password);
+  const registerPetworld = createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      
+    })
+    .catch((error) => {
+     
+      const errorMessage = error.message;
+      switch (errorMessage) {
+        case 'Firebase: Error (auth/email-already-in-use).':
+          alert('email ya registrado');
+          break;
+        case 'Firebase: Error (auth/internal-error).':
+          alert('ingresar contraseña' );
+          break;
+        case 'Firebase: Error (auth/invalid-email).':
+          alert('email invalido');
+          break;
+        default:
+          break;
+      }
+      // const errorCode = error.code;
+      // const errorMessage = error.message;
+      // const 
+    })
+  
   //     .then((userCredential) => {
   //       // const user = userCredential.user;
   //       // onNavigate('/');
@@ -45,27 +70,7 @@ export const registerFirebase = (email, password) => {
   //   // eslint-disable-next-line no-use-before-define
   //   return registerBefit;
   // };
-  // llamado a la funcion de registrar cuenta
-  // registerFirebase("carmen@gmail.com", "1234567890");
-  // loginFirebase("nina@gmail.com", '123123123');
-  // const email = docuement.getElemtnybyid("");
-  // if (email != "" && password != ""){ //si ambos estan con informacion
-  // loginFirebase(email, password);
-  // }else{
-  // el campo email esta vacio || el campo passw
-  // }
-  // //const auth = getAuth();
-  // createUserWithEmailAndPassword(auth, email, password)
-  //   .then((userCredential) => {
-  //     // Signed in
-  //     const user = userCredential.user;
-  //   })
-  //   .catch((error) => {
-  //     const errorCode = error.code;
-  //     const errorMessage = error.message;
-  //     // ..
-  //   });
-  //   console.log(userCredential);
+ 
   // mi funcion de registro
   // mi funcion de logeo
   // mi funcion de logeo con google

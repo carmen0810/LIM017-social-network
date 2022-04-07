@@ -1,4 +1,5 @@
 import { onNavigate } from '../main.js';
+import { registerFirebase } from '../authFirebase/authentication.js';
 
 export const register1 = () => {
   const registerElement = document.createElement('div');
@@ -58,6 +59,11 @@ export const register3 = () => {
       document.querySelector('.registerPage3').style.display = 'none';
     });
   }, 0);
+  registerElement.querySelector('#btnNext3').addEventListener('click', () => {
+    const intoRegisterEmail = document.getElementById('emailRegister').value;
+    const intoRegisterPassword = document.getElementById('passwordRegister').value;
+    registerFirebase(intoRegisterEmail, intoRegisterPassword);
+  });
   return registerElement;
 };
 export const register4 = () => {
@@ -66,10 +72,9 @@ export const register4 = () => {
   const registerDiv4 = `
        <h2>Fecha de Nacimiento</h2>
        <label>Fecha de Nacimiento</label>
-       <input id="date" type="date" required>
+       <input id="dateBirth" type="date" required>
        <a class="termsConditions">Términos y Condiciones</a>
        <input id="checkConditions" type="checkbox"  required>
-       <label class="inputLabel">Confirme su Contraseña</label>
        <button id="btnRegister">REGISTRARSE</button>`;
   registerElement.innerHTML = registerDiv4;
   setTimeout(() => {

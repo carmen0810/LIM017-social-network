@@ -6,6 +6,7 @@ export const login = () => {
   const loginElement = document.createElement('div');
   loginElement.setAttribute('class', 'loginView');
   const loginDiv = `
+     <h1>INICIAR SESIÓN</h1>   
      <label for="email"></label>
      <input id="emailInto" type="email" placeholder="Correo" required>
      <label for="password"></label>
@@ -29,7 +30,13 @@ export const login = () => {
   loginElement.querySelector('.btnLogin').addEventListener('click', () => {
     const intoHomeEmail = document.getElementById('emailInto').value;
     const intoHomePassword = document.getElementById('passwordInto').value;
+   if(intoHomeEmail===''||intoHomePassword===''){
+     alert('llene sus campos')
+   }
+  else{
     loginFirebase(intoHomeEmail, intoHomePassword);
+  }
+    
   });
   return loginElement;
 };
