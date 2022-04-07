@@ -1,13 +1,8 @@
-// eslint-disable-next-line import/no-cycle
 import { login } from './components/login.js';
 
-import {
-  register1, register2, register3, register4,
-} from './components/register.js';
+import { register1, register2, register3, register4 } from './components/register.js';
 
 import { homePetworld } from './components/home.js';
-
-// import { loginFirebase } from '../authFirebase/authentication.js';
 
 const rootDiv = document.getElementById('root');
 
@@ -28,21 +23,9 @@ export const onNavigate = (pathname) => {
   );
 
   rootDiv.appendChild(routes[pathname]());
-  // rootDiv.innerHTML = routes[pathname]();
 };
+
 window.onpopstate = () => {
   rootDiv.innerHTML = routes[window.location.pathname]();
 };
 onNavigate('/');
-
-// const component = routes[window.location.pathname];
-// rootDiv.appendChild(component());
-// eventos de Login onNavigate('/homePetworld')
-
-// const ingresaHome = document.getElementById('btnLogin');
-
-// ingresaHome.addEventListener('click', () => {
-//   const ingresaHomeEmail = document.getElementById('emailInto').value;
-//   const ingresaHomePassword = document.getElementById('passwordInto').value;
-//   loginFirebase(ingresaHomeEmail, ingresaHomePassword);
-// });
