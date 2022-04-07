@@ -2,7 +2,7 @@
 import { login } from './components/login.js';
 
 import {
-  register1, register2,
+  register1, register2, register3, register4,
 } from './components/register.js';
 
 import { homePetworld } from './components/home.js';
@@ -15,8 +15,8 @@ const routes = {
   '/': login,
   '/register1': register1,
   '/register2': register2,
-  // '/register3': register3,
-  // '/register4': register4,
+  '/register3': register3,
+  '/register4': register4,
   '/homePetworld': homePetworld,
 };
 

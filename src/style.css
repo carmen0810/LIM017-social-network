@@ -51,7 +51,7 @@ header{
     align-items: center;
 }
 
-.textCreateAccount{
+.btnCreateAccount{
     text-transform: uppercase;
     padding: 10px;
     border-radius: 20px;
@@ -60,6 +60,7 @@ header{
     background: #f4f7f9;
     border-style: groove;
 }
+
 
 #footerPetworld{
     display:flex;
