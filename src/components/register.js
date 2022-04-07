@@ -64,10 +64,9 @@ export const register4 = () => {
   registerElement4.setAttribute('class', 'registerPage4');
   const registerDiv4 = `<h2>Fecha de Nacimiento</h2>
                         <label>Fecha de Nacimiento</label>
-                        <input id="date"  required >
+                        <input id="dateBirth" type="date" required >
                         <a class="termsConditions">Términos y Condiciones</a>
                         <input id="checkConditions" type="checkbox"  required >
-                        <label class="inputLabel">Confirme su Contraseña</label>
                         <button id="btnRegister">REGISTRARSE</button>`;
   registerElement4.innerHTML = registerDiv4;
   setTimeout(() => {
