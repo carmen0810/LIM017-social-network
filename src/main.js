@@ -42,8 +42,8 @@ onNavigate('/');
 
 //const ingresaHome = document.getElementById('btnLogin');
 
-ingresaHome.addEventListener('click', () => {
-  const ingresaHomeEmail = document.getElementById('emailInto').value;
-  const ingresaHomePassword = document.getElementById('passwordInto').value;
-  loginFirebase(ingresaHomeEmail, ingresaHomePassword);
-});
+// ingresaHome.addEventListener('click', () => {
+//   const ingresaHomeEmail = document.getElementById('emailInto').value;
+//   const ingresaHomePassword = document.getElementById('passwordInto').value;
+//   loginFirebase(ingresaHomeEmail, ingresaHomePassword);
+// });

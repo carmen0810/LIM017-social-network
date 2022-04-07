@@ -5,18 +5,26 @@ export const login = () => {
   loginElem.setAttribute('class', 'loginView');
   const loginDiv = `
      <label for="email"></label>
-     <input id="email" type="email" placeholder="Correo" required>
+     <input id="emailInto" type="email" placeholder="Correo" required>
      <label for="password"></label>
-     <input id="password" type="password" placeholder="contraseña" required> 
-     <button id ="btn">next </button>`;
+     <input id="passwordInto" type="password" placeholder="contraseña" required> 
+     <p>¿Olvidaste tu contraseña?</p>
+     <button class="btnLogin">INGRESAR</button>
+     <p>o ingresa con</p>
+     <img src="img/facebook (2).png" alt="facebook" class="iconInto">
+     <img src="img/google.png" alt="google" class="iconInto">
+     <p>¿eres nuevo en petworld?</p>
+     <button class="btnCreateAccount">Crea tu cuenta</button>`;
   loginElem.innerHTML = loginDiv;
-  loginElem.querySelector('#btn').addEventListener('click', () => {
+  loginElem.querySelector('.btnLogin').addEventListener('click', () => {
+    onNavigate('/homePetworld');
+    document.querySelector('.loginView').style.display = 'none';
+  });
+  loginElem.querySelector('.btnCreateAccount').addEventListener('click', () => {
     onNavigate('/register1');
-    document.querySelector('.loginView').style.display = "none";
+    document.querySelector('.loginView').style.display = 'none';
   });
-  loginElem.querySelector('#password').addEventListener('input', (e) => {
-    console.log(e.target.value);
-  });
+
   return loginElem;
 };
 
