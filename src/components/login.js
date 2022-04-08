@@ -20,23 +20,15 @@ export const login = () => {
      <button class="btnCreateAccount">Crea tu cuenta</button>`;
   loginElement.innerHTML = loginDiv;
   loginElement.querySelector('.btnLogin').addEventListener('click', () => {
-    onNavigate('/homePetworld');
-    document.querySelector('.loginView').style.display = 'none';
-  });
-  loginElement.querySelector('.btnCreateAccount').addEventListener('click', () => {
-    onNavigate('/register1');
-    document.querySelector('.loginView').style.display = 'none';
-  });
-  loginElement.querySelector('.btnLogin').addEventListener('click', () => {
     const intoHomeEmail = document.getElementById('emailInto').value;
     const intoHomePassword = document.getElementById('passwordInto').value;
-   if(intoHomeEmail===''||intoHomePassword===''){
-     alert('llene sus campos')
-   }
-  else{
-    loginFirebase(intoHomeEmail, intoHomePassword);
-  }
-    
+    if (intoHomeEmail === '' && intoHomePassword === '') {
+      alert('llene sus campos');
+    } else {
+      loginFirebase(intoHomeEmail, intoHomePassword);
+      onNavigate('/homePetworld');
+      document.querySelector('.loginView').style.display = 'none';
+    }
   });
   return loginElement;
 };
