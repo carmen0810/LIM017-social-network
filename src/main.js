@@ -1,6 +1,6 @@
 import { login } from './components/login.js';
 
-import {/* register,*/ register1, register2, register3, register4 } from './components/register.js';
+import { register1, register2, register3, register4 } from './components/register.js';
 
 import { homePetworld } from './components/home.js';
 
@@ -8,7 +8,6 @@ const rootDiv = document.getElementById('root');
 
 const routes = {
   '/': login,
-  // '/register': register1,
   '/register1': register1,
   '/register2': register2,
   '/register3': register3,
@@ -30,6 +29,3 @@ window.onpopstate = () => {
   rootDiv.innerHTML = routes[window.location.pathname]();
 };
 onNavigate('/');
-
-//
-
