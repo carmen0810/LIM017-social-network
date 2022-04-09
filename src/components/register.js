@@ -59,11 +59,7 @@ export const register3 = () => {
       document.querySelector('.registerPage3').style.display = 'none';
     });
   }, 0);
-  registerElement.querySelector('#btnNext3').addEventListener('click', () => {
-    const intoRegisterEmail = document.getElementById('emailRegister').value;
-    const intoRegisterPassword = document.getElementById('passwordRegister').value;
-    registerFirebase(intoRegisterEmail, intoRegisterPassword);
-  });
+
   return registerElement;
 };
 export const register4 = () => {
@@ -80,6 +76,12 @@ export const register4 = () => {
   setTimeout(() => {
     registerElement.querySelector('#btnRegister').addEventListener('click', () => {
       onNavigate('/');
+      const inputEmail = document.getElementById('emailRegister').value;
+      const inputPassword = document.getElementById('passwordRegister').value;
+      const inputBirth = document.getElementById('dateBirth').value;
+      const inputName = document.getElementById('name').value;
+      const inputLastName = document.getElementById('lastName').value;
+      registerFirebase(inputEmail, inputPassword, inputBirth, inputName, inputLastName);
       document.querySelector('.registerPage4').style.display = 'none';
     });
   }, 0);

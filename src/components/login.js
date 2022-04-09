@@ -33,6 +33,10 @@ export const login = () => {
       document.querySelector('.loginView').style.display = 'none';
     }
   });
+  loginElement.querySelector('.btnCreateAccount').addEventListener('click', () => {
+    onNavigate('/register1');
+    document.querySelector('.loginView').style.display = 'none';
+  });
   // loginElement.querySelector('.btnCreateAccount').addEventListener('click', () => {
   //   onNavigate('/register');
   // });
