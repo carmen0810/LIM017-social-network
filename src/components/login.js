@@ -1,5 +1,5 @@
 import { onNavigate } from '../main.js';
-
+//import { register } from '../register.js';
 import { loginFirebase } from '../authFirebase/authentication.js';
 
 export const login = () => {
@@ -14,9 +14,12 @@ export const login = () => {
      <p>¿Olvidaste tu contraseña?</p>
      <button class="btnLogin">INGRESAR</button>
      <p>o ingresa con</p>
-     <img src="img/facebook (2).png" alt="facebook" class="iconInto">
-     <img src="img/google.png" alt="google" class="iconInto">
+     <div class="iconDivLogin">
+        <img src="img/facebook (2).png" alt="facebook" class="iconInto">
+        <img src="img/google.png" alt="google" class="iconInto">
+     </div>
      <p>¿eres nuevo en petworld?</p>
+     <button class="btnCreateAccountDestokp ">Crea tu cuenta</button>
      <button class="btnCreateAccount">Crea tu cuenta</button>`;
   loginElement.innerHTML = loginDiv;
   loginElement.querySelector('.btnLogin').addEventListener('click', () => {
@@ -34,5 +37,8 @@ export const login = () => {
     onNavigate('/register1');
     document.querySelector('.loginView').style.display = 'none';
   });
+  // loginElement.querySelector('.btnCreateAccount').addEventListener('click', () => {
+  //   onNavigate('/register');
+  // });
   return loginElement;
 };
