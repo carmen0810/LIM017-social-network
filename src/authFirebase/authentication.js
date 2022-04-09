@@ -1,7 +1,7 @@
 import {
-  getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification,
+  getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword/*, sendEmailVerification,*/
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
-import { collection, addDoc, getDocs } from 'firebase/firestore';
+//import { collection, addDoc, getDocs } from 'firebase/firestore';
 import { app } from './fbconfig.js';
 
 const auth = getAuth(app);
