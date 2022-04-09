@@ -60,8 +60,20 @@ header{
     background: #f4f7f9;
     border-style: groove;
 }
-
-
+/* 
+.hide{
+    display: none;
+} */
+/* .btnCreateAccountDestokp {
+    text-transform: uppercase;
+    padding: 10px;
+    border-radius: 20px;
+    border-color: rgb(82 19 80);
+    margin: 40px;
+    background: #f4f7f9;
+    border-style: groove;
+    display: none;
+} */
 #footerPetworld{
     display:flex;
     align-items: center;
@@ -91,6 +103,7 @@ header{
         flex-direction: row;
         height: 90vh;
     }
+
     #titleLogin{
         margin-top: 25px;
     }
@@ -102,6 +115,15 @@ header{
     #footerPetworld{
         margin-bottom: 0px;
     }
+    /* .btnCreateAccount{
+    display: none;
+    }
+    .btnCreateAccountDestokp{
+        display: block;
+    } */
+    /* .registerPage1, .registerPage2, .registerPage3, .registerPage4{
+        display: none;
+    } */
 }
 
 
