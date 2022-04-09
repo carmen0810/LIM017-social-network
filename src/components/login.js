@@ -1,5 +1,4 @@
 import { onNavigate } from '../main.js';
-
 import { loginFirebase } from '../authFirebase/authentication.js';
 
 export const login = () => {

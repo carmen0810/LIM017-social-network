@@ -45,9 +45,6 @@ export const loginFirebase = (email, password) => {
     .catch((error) => {
       const errorMessage = error.message;
       switch (errorMessage) {
-        case 'Firebase: Error (auth/email-already-in-use).':
-          alert('email ya registrado');
-          break;
         case 'Firebase: Error (auth/internal-error).':
           alert('ingresar contraseña');
           break;
