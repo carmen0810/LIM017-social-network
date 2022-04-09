@@ -30,13 +30,11 @@ export const login = () => {
   loginElement.querySelector('.btnLogin').addEventListener('click', () => {
     const intoHomeEmail = document.getElementById('emailInto').value;
     const intoHomePassword = document.getElementById('passwordInto').value;
-   if(intoHomeEmail===''||intoHomePassword===''){
-     alert('llene sus campos')
-   }
-  else{
-    loginFirebase(intoHomeEmail, intoHomePassword);
-  }
-    
+    if (intoHomeEmail === '' || intoHomePassword === '') {
+      alert('llene sus campos');
+    } else {
+      loginFirebase(intoHomeEmail, intoHomePassword);
+    }
   });
   return loginElement;
 };
