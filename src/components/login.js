@@ -37,7 +37,7 @@ export const login = () => {
       document.querySelector('.loginView').style.display = 'none';
     });
   }, 0);
-  //segundo método ( este de aca funciona con el descomentado del primer y segundo método)
+  // segundo método ( este de aca funciona con el descomentado del primer y segundo método
   setTimeout(() => {
     loginElement.querySelector('.btnCreateAccountDestokp').addEventListener('click', () => {
       onNavigate('/register');

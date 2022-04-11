@@ -126,4 +126,3 @@ export const register = () => {
   }, 0);
   return registerElement;
 };
-
