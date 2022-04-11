@@ -12,7 +12,7 @@
 }
 
 /* Estilos del login*/
-#iconFacebook, #iconGmail{
+.iconInto{
     width:7%;
     margin: 10px;
 }

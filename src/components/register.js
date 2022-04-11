@@ -13,7 +13,6 @@ export const register1 = () => {
   setTimeout(() => {
     registerElement.querySelector('#btnNext1').addEventListener('click', () => {
       onNavigate('/register2');
-      document.querySelector('.registerPage1').style.display = 'none';
     });
   }, 0);
   return registerElement;
@@ -34,7 +33,6 @@ export const register2 = () => {
   setTimeout(() => {
     registerElement.querySelector('#btnNext2').addEventListener('click', () => {
       onNavigate('/register3');
-      document.querySelector('.registerPage2').style.display = 'none';
     });
   }, 0);
 
@@ -56,7 +54,6 @@ export const register3 = () => {
   setTimeout(() => {
     registerElement.querySelector('#btnNext3').addEventListener('click', () => {
       onNavigate('/register4');
-      document.querySelector('.registerPage3').style.display = 'none';
     });
   }, 0);
 
@@ -81,7 +78,6 @@ export const register4 = () => {
       const inputName = document.getElementById('name').value;
       const inputLastName = document.getElementById('lastName').value;
       registerFirebase(inputEmail, inputPassword, inputBirth, inputName, inputLastName);
-      document.querySelector('.registerPage4').style.display = 'none';
     });
   }, 0);
   return registerElement;
@@ -95,20 +91,20 @@ export const register = () => {
      <p class="textCreateAccount">¡Es súper rápido y fácil!</p>
      <div>
        <label for="name"></label>
-       <input id="name" type="text" placeholder="*Nombres" required>
+       <input id="name" type="text" name="nameDesktop" placeholder="*Nombres" required>
        <label for="lastName"></label>
-       <input id="lastName" type="text" placeholder="*Apellidos" required>
+       <input id="lastName" type="text" name="lastName" placeholder="*Apellidos" required>
      </div>
      <label for="emailRegister"></label>
-     <input id="emailRegister" type="email" placeholder="Ingrese su Correo eléctrónico" required>
+     <input id="emailRegister" type="email" name="emailRegister" placeholder="Ingrese su Correo eléctrónico" required>
      <label for="passwordRegister" class="inputLabel"></label>
-     <input id="passwordRegister" type="password" placeholder="Crea una contraseña nueva" required>
+     <input id="passwordRegister" type="password" name="passwordRegister" placeholder="Crea una contraseña nueva" required>
      <label for="repeatPassword" class="inputLabel">Confirme su nueva Contraseña</label>
-     <input id="repeatPassword" type="password" placeholder="Confirme su contraseña" required>
+     <input id="repeatPassword" type="password" name="repeatPassword" placeholder="Confirme su contraseña" required>
      <label for="dateBirth">Fecha de Nacimiento</label>
-     <input id="dateBirth" type="date" required>
+     <input id="dateBirth" name="dateBirth" type="date" required>
      <label for="checkConditions"><a class="termsConditions">Términos y Condiciones</a></label>
-     <input id="checkConditions" type="checkbox"  required>
+     <input id="checkConditions" name="checkConditions" type="checkbox"  required>
      <button type="submit" id="btnRegister">REGISTRARSE</button>
      <a class="questionDesktop">¿Ya tienes una cuenta?</a>`;
   registerElement.innerHTML = registerForm;
@@ -121,9 +117,7 @@ export const register = () => {
       const inputName = document.getElementById('name').value;
       const inputLastName = document.getElementById('lastName').value;
       registerFirebase(inputEmail, inputPassword, inputBirth, inputName, inputLastName);
-      document.querySelector('.registerPage').style.display = 'none';
     });
   }, 0);
   return registerElement;
 };
-
