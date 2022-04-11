@@ -1,6 +1,6 @@
 import { login } from './components/login.js';
 
-import { register1, register2, register3, register4 } from './components/register.js';
+import { register, register1, register2, register3, register4 } from './components/register.js';
 
 import { homePetworld } from './components/home.js';
 
@@ -8,6 +8,7 @@ const rootDiv = document.getElementById('root');
 
 const routes = {
   '/': login,
+  '/register': register,
   '/register1': register1,
   '/register2': register2,
   '/register3': register3,
