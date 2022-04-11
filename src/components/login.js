@@ -1,6 +1,6 @@
 import { onNavigate } from '../main.js';
 
-import { loginFirebase } from '../authFirebase/authentication.js';
+import { loginFirebase, loginGmail } from '../authFirebase/authentication.js';
 
 export const login = () => {
   const loginElement = document.createElement('div');
@@ -15,8 +15,8 @@ export const login = () => {
      <button type="submit" class="btnLogin">INGRESAR</button>
      <p>o ingresa con</p>
      <div class= "iconDivLogin">
-        <img src="img/facebook (2).png" alt="facebook" class="iconInto">
-        <img src="img/google.png" alt="google" class="iconInto">
+        <img src="img/facebook (2).png" alt="facebook" id="iconFacebook" class="iconInto">
+        <img src="img/google.png" alt="google" id="iconGmail" class="iconInto">
      </div>
      <p>¿eres nuevo en petworld?</p>
      <button type="submit" class="btnCreateAccountDestokp hide ">Crea tu cuenta</button>
@@ -42,6 +42,8 @@ export const login = () => {
       onNavigate('/register');
     });
   }, 0);
-
+  loginElement.querySelector('#iconGmail').addEventListener('click', () => {
+    loginGmail();
+  });
   return loginElement;
 };
