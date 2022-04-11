@@ -9,6 +9,7 @@ const dbfirestore = getFirestore(app);
 
 let user = '';
 
+// Registro nuevo usuario Petworld
 export const registerFirebase = (email, password, birth, name, lastName) => {
   const registerPetworld = createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
@@ -39,6 +40,7 @@ export const registerFirebase = (email, password, birth, name, lastName) => {
   return registerPetworld;
 };
 
+// Ingreso a Petworld con correo y contraseña
 export const loginFirebase = (email, password) => {
   const authLoginFirebase = signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
@@ -60,6 +62,7 @@ export const loginFirebase = (email, password) => {
   return authLoginFirebase;
 };
 
+// Ingreso a Petworld con Gmail
 export const loginGmail = () => {
   const authWithGmail = signInWithPopup(auth, provider)
     .then((result) => {
