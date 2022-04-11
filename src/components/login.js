@@ -12,12 +12,13 @@ export const login = () => {
      <label for="password"></label>
      <input id="passwordInto" type="password" placeholder="contraseña" required> 
      <p>¿Olvidaste tu contraseña?</p>
-     <button class="btnLogin">INGRESAR</button>
+     <button type="submit" class="btnLogin">INGRESAR</button>
      <p>o ingresa con</p>
      <img src="img/facebook (2).png" alt="facebook" id="iconFacebook">
      <img src="img/google.png" alt="google" id="iconGmail">
      <p>¿eres nuevo en petworld?</p>
-     <button class="btnCreateAccount">Crea tu cuenta</button>`;
+     <button type="submit" class="btnCreateAccountDestokp hide ">Crea tu cuenta</button>
+     <button type="submit" class="btnCreateAccount">Crea tu cuenta</button>`;
   loginElement.innerHTML = loginDiv;
   loginElement.querySelector('.btnLogin').addEventListener('click', () => {
     const intoHomeEmail = document.getElementById('emailInto').value;
@@ -30,6 +31,19 @@ export const login = () => {
       document.querySelector('.loginView').style.display = 'none';
     }
   });
+  setTimeout(() => {
+    loginElement.querySelector('.btnCreateAccount').addEventListener('click', () => {
+      onNavigate('/register1');
+      document.querySelector('.loginView').style.display = 'none';
+    });
+  }, 0);
+  //segundo método ( este de aca funciona con el descomentado del primer y segundo método)
+  setTimeout(() => {
+    loginElement.querySelector('.btnCreateAccountDestokp').addEventListener('click', () => {
+      onNavigate('/register');
+      document.querySelector('.loginView').style.display = 'none';
+    });
+  }, 0);
   loginElement.querySelector('.btnCreateAccount').addEventListener('click', () => {
     onNavigate('/register1');
     document.querySelector('.loginView').style.display = 'none';

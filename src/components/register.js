@@ -45,11 +45,11 @@ export const register3 = () => {
   registerElement.setAttribute('class', 'registerPage3');
   const registerDiv3 = `
        <h1>CREA TU CUENTA</h1>
-       <label>Ingresa tu Correo</label>
+       <label for="emailRegister">Ingresa tu Correo</label>
        <input id="emailRegister" type="email" placeholder="Ingrese su Correo" required>
-       <label class="inputLabel">Crea su Contraseña</label>
+       <label for="passwordRegister" class="inputLabel">Crea su Contraseña</label>
        <input id="passwordRegister" type="password" placeholder="contraseña" required>
-       <label class="inputLabel">Confirme su Contraseña</label>
+       <label for="repeatPassword" class="inputLabel">Confirme su Contraseña</label>
        <input id="repeatPassword" type="password" placeholder="Confirme su contraseña" required>
        <button id="btnNext3">SIGUIENTE</button>`;
   registerElement.innerHTML = registerDiv3;
@@ -66,12 +66,11 @@ export const register4 = () => {
   const registerElement = document.createElement('div');
   registerElement.setAttribute('class', 'registerPage4');
   const registerDiv4 = `
-       <h2>Fecha de Nacimiento</h2>
-       <label>Fecha de Nacimiento</label>
+       <label for="dateBirth">Fecha de Nacimiento</label>
        <input id="dateBirth" type="date" required>
-       <a class="termsConditions">Términos y Condiciones</a>
+       <label for="checkConditions"><a class="termsConditions">Términos y Condiciones</a></label>
        <input id="checkConditions" type="checkbox"  required>
-       <button id="btnRegister">REGISTRARSE</button>`;
+       <button type="submit" id="btnRegister">REGISTRARSE</button>`;
   registerElement.innerHTML = registerDiv4;
   setTimeout(() => {
     registerElement.querySelector('#btnRegister').addEventListener('click', () => {
@@ -87,3 +86,44 @@ export const register4 = () => {
   }, 0);
   return registerElement;
 };
+export const register = () => {
+  const registerElement = document.createElement('form');
+  registerElement.setAttribute('class', 'registerPage');
+  const registerForm = `
+     <h2 class="intoTitle">REGÍSTRATE Y ÚNETE A PETWORLD</h2>
+     <p class="textCreateAccount">Crea tu cuenta en pocos pasos</p>
+     <p class="textCreateAccount">¡Es súper rápido y fácil!</p>
+     <div>
+       <label for="name"></label>
+       <input id="name" type="text" placeholder="*Nombres" required>
+       <label for="lastName"></label>
+       <input id="lastName" type="text" placeholder="*Apellidos" required>
+     </div>
+     <label for="emailRegister"></label>
+     <input id="emailRegister" type="email" placeholder="Ingrese su Correo eléctrónico" required>
+     <label for="passwordRegister" class="inputLabel"></label>
+     <input id="passwordRegister" type="password" placeholder="Crea una contraseña nueva" required>
+     <label for="repeatPassword" class="inputLabel">Confirme su nueva Contraseña</label>
+     <input id="repeatPassword" type="password" placeholder="Confirme su contraseña" required>
+     <label for="dateBirth">Fecha de Nacimiento</label>
+     <input id="dateBirth" type="date" required>
+     <label for="checkConditions"><a class="termsConditions">Términos y Condiciones</a></label>
+     <input id="checkConditions" type="checkbox"  required>
+     <button type="submit" id="btnRegister">REGISTRARSE</button>
+     <a class="questionDesktop">¿Ya tienes una cuenta?</a>`;
+  registerElement.innerHTML = registerForm;
+  setTimeout(() => {
+    registerElement.querySelector('#btnRegister').addEventListener('click', () => {
+      onNavigate('/');
+      const inputEmail = document.getElementById('emailRegister').value;
+      const inputPassword = document.getElementById('passwordRegister').value;
+      const inputBirth = document.getElementById('dateBirth').value;
+      const inputName = document.getElementById('name').value;
+      const inputLastName = document.getElementById('lastName').value;
+      registerFirebase(inputEmail, inputPassword, inputBirth, inputName, inputLastName);
+      document.querySelector('.registerPage').style.display = 'none';
+    });
+  }, 0);
+  return registerElement;
+};
+
