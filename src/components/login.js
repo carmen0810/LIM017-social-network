@@ -14,8 +14,10 @@ export const login = () => {
      <p>¿Olvidaste tu contraseña?</p>
      <button type="submit" class="btnLogin">INGRESAR</button>
      <p>o ingresa con</p>
-     <img src="img/facebook (2).png" alt="facebook" id="iconFacebook">
-     <img src="img/google.png" alt="google" id="iconGmail">
+     <div class= "iconDivLogin">
+        <img src="img/facebook (2).png" alt="facebook" id="iconFacebook" class="iconInto">
+        <img src="img/google.png" alt="google" id="iconGmail" class="iconInto">
+     </div>
      <p>¿eres nuevo en petworld?</p>
      <button type="submit" class="btnCreateAccountDestokp hide ">Crea tu cuenta</button>
      <button type="submit" class="btnCreateAccount">Crea tu cuenta</button>`;
@@ -28,26 +30,18 @@ export const login = () => {
     } else {
       loginFirebase(intoHomeEmail, intoHomePassword);
       onNavigate('/homePetworld');
-      document.querySelector('.loginView').style.display = 'none';
     }
   });
   setTimeout(() => {
     loginElement.querySelector('.btnCreateAccount').addEventListener('click', () => {
       onNavigate('/register1');
-      document.querySelector('.loginView').style.display = 'none';
     });
   }, 0);
-  // segundo método ( este de aca funciona con el descomentado del primer y segundo método
   setTimeout(() => {
     loginElement.querySelector('.btnCreateAccountDestokp').addEventListener('click', () => {
       onNavigate('/register');
-      document.querySelector('.loginView').style.display = 'none';
     });
   }, 0);
-  loginElement.querySelector('.btnCreateAccount').addEventListener('click', () => {
-    onNavigate('/register1');
-    document.querySelector('.loginView').style.display = 'none';
-  });
   loginElement.querySelector('#iconGmail').addEventListener('click', () => {
     loginGmail();
   });
