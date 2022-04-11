@@ -17,16 +17,17 @@ const routes = {
 };
 
 export const onNavigate = (pathname) => {
+  rootDiv.innerHTML = '';
   window.history.pushState(
     {},
     pathname,
     window.location.origin + pathname,
   );
-
   rootDiv.appendChild(routes[pathname]());
 };
 
 window.onpopstate = () => {
-  rootDiv.innerHTML = routes[window.location.pathname]();
+  rootDiv.innerHTML = '';
+  rootDiv.appendChild(routes[window.location.pathname]());
 };
 onNavigate('/');
