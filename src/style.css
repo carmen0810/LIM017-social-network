@@ -71,7 +71,6 @@ header{
     border-style: groove;
 }
 
-
 .btnCreateAccountDestokp {
     text-transform: uppercase;
     padding: 10px;
@@ -95,7 +94,6 @@ header{
     background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(189,181,219,1) 55%, rgba(148,187,233,1) 100%);
 }
 
-
 .btnLogin {
     margin: 12px;
     border-radius: 4px;
@@ -105,15 +103,10 @@ header{
     padding: 13px;
 }
 
-/* #textNewParagraph,#textIntoParagraph,#textPasswordForget{ 
-    margin:10px;
-} */
-/*estilos para el register*/
 .loginView input, .registerPage input, .registerPage1>input, .registerPage2>input, .registerPage3>input, .registerPage4>input{
     margin:10px;
     border-radius: 5px;
 }
-
 
 @media screen and (min-width:768px){
     .containerViewFirst {
@@ -161,7 +154,6 @@ header{
     }
    
 }
-
 
 .iconProfile{
     width:45%;

@@ -1,4 +1,5 @@
-import { onNavigate /* , validatePassword, repeatPasswordValid */ } from '../main.js';
+import { onNavigate } from '../main.js';
+
 import { registerFirebase } from '../authFirebase/authentication.js';
 
 export const register1 = () => {
@@ -40,27 +41,24 @@ export const register2 = () => {
        <p id="errorMessageComplete"></p>
        <button id="btnNext2">SIGUIENTE</button>`;
   registerElement.innerHTML = registerDiv2;
-  const inputName = registerElement.querySelector('#name');
-  const inputLastName = registerElement.querySelector('#lastName');
-    registerElement.querySelector('#btnNext2').addEventListener('click', () => {
-      // aqui valida si el campo nombre y apellido estan completos
-      const registerName = document.getElementById('name').value;
-      const registerLastName = document.getElementById('lastName').value;
-      if (registerName === '' && registerLastName === '') {
-        const errorMessageComplete = document.querySelector('#errorMessageComplete');
-        errorMessageComplete.textContent = 'Debes completar todos los campos solicitados';
-      } else {
+  registerElement.querySelector('#btnNext2').addEventListener('click', () => {
+    // aqui valida si el campo nombre y apellido estan completos
+    const registerName = document.getElementById('name').value;
+    const registerLastName = document.getElementById('lastName').value;
+    if (registerName === '' && registerLastName === '') {
+      const errorMessageComplete = document.querySelector('#errorMessageComplete');
+      errorMessageComplete.textContent = 'Debes completar todos los campos solicitados';
+    } else {
       // De ser asi va a proceder a la siguientes lineas
-        localStorage.setItem('NAME', document.getElementById('name').value);
-        localStorage.setItem('LASTNAME', document.getElementById('lastName').value);  
-        onNavigate('/register3');
-      }
-    });
+      localStorage.setItem('NAME', document.getElementById('name').value);
+      localStorage.setItem('LASTNAME', document.getElementById('lastName').value);
+      onNavigate('/register3');
+    }
+  });
   return registerElement;
 };
 
 const MessageData = (input, showMessage) => {
-  //const formData = input.parentElement;
   input.innerText = showMessage;
 };
 export const register3 = () => {
@@ -89,8 +87,8 @@ export const register3 = () => {
        <p id="messageComplete"></p>
        <button id="btnNext3">SIGUIENTE</button>`;
   registerElement.innerHTML = registerDiv3;
-  const inputEmail = registerElement.querySelector('#emailRegister');
-  const inputPassword = registerElement.querySelector('#passwordRegister');
+  const ipEmail = registerElement.querySelector('#emailRegister');
+  const ipPass = registerElement.querySelector('#passwordRegister');
   const inputRepeatPassword = registerElement.querySelector('#repeatPassword');
   const btnNext3 = registerElement.querySelector('#btnNext3');
   const msnerrorRegister = registerElement.querySelector('.msnerrorRegister');
@@ -98,63 +96,21 @@ export const register3 = () => {
 
   function validarPassword() {
     const expRegular = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,18}$/;
-    if (!inputPassword) {
+    if (!ipPass) {
       MessageData(msnerrorRegister, 'Campo obligatorio');
-    } else if (inputPassword.value.length >= 4 && inputPassword.value.length <= 8) {
+    } else if (ipPass.value.length >= 4 && ipPass.value.length <= 8) {
       MessageData(msnerrorRegister, 'Debe tener 4-8 caracteres.');
-    } else if (!inputPassword.value.match(expRegular)) {
+    } else if (!ipPass.value.match(expRegular)) {
       MessageData(msnerrorRegister, 'Debe tener al menos una mayúscula, una minúscula y un número');
     } else {
       MessageData(msnerrorRegister, '');
     }
   }
-  // preguntar si las dos funcion deben estar arriba antes de inciiar las funciones
-  inputPassword.onblur = function () { validarPassword(); };
-  inputPassword.onkeyup = function () { validarPassword(); };      
-  registerElement.innerHTML = registerDiv3;
-  registerElement.querySelector('.iconEye2').addEventListener('click', () => {
-    const inputPassword = document.querySelector('#passwordRegister');
-    const icon = document.querySelector('i');
-    if (inputPassword.type === 'password') {
-      inputPassword.type = 'text';
-      icon.classList.remove('fa-eye-slash');
-      icon.classList.add('fa-eye');
-    } else {
-      inputPassword.type = 'password';
-      icon.classList.remove('fa-eye');
-      icon.classList.add('fa-eye-slash');
-    }
-  });
-  registerElement.querySelector('.iconEye3').addEventListener('click', () => {
-    const inputPassword = document.querySelector('#repeatPassword');
-    const icon = document.querySelector('i');
-    if (inputPassword.type === 'password') {
-      inputPassword.type = 'text';
-      icon.classList.remove('fa-eye-slash');
-      icon.classList.add('fa-eye');
-    } else {
-      inputPassword.type = 'password';
-      icon.classList.remove('fa-eye');
-      icon.classList.add('fa-eye-slash');
-    }
-  });
-  setTimeout(() => {
-    registerElement.querySelector('#btnNext3').addEventListener('click', () => {
-      // aqui valida si el campo correo, clave, repetir clave estan completos
-      const registerEmail = document.getElementById('emailRegister').value;
-      const registerPassword = document.getElementById('passwordRegister').value;
-      if (registerEmail === '' && registerPassword === '') {
-        alert('llene sus campos');
-      } else {
-      // De ser asi va a proceder a la siguiente linea
-        localStorage.setItem('EMAIL', document.getElementById('emailRegister').value);
-        localStorage.setItem('PASSWORD', document.getElementById('passwordRegister').value);
-        onNavigate('/register4');
-      }
-    });
-  }, 0);
-function validarPassword2() {
-    if (inputPassword.value !== inputRepeatPassword.value) {
+  ipPass.onblur = function () { validarPassword(); };
+  ipPass.onkeyup = function () { validarPassword(); };
+
+  function validarPassword2() {
+    if (ipPass.value !== inputRepeatPassword.value) {
       MessageData(msnerrorRepeatPassword, 'Las contraseñas no coinciden');
     } else {
       MessageData(msnerrorRepeatPassword, '');
@@ -164,13 +120,39 @@ function validarPassword2() {
   inputRepeatPassword.onkeyup = function () { validarPassword2(); };
 
   btnNext3.addEventListener('click', () => {
-    if (inputEmail.value === '' &  inputPassword.value === '' & inputRepeatPassword.value === '') {
+    if (ipEmail.value === '' || ipPass.value === '' || inputRepeatPassword.value === '') {
       const errorMessage = document.querySelector('#messageComplete');
       errorMessage.textContent = 'Debes completar todos los campos solicitados';
     } else {
-      // errorMessage.textContent = '';   (verificar xq no lee esta función)
-      //registerFirebase(inputEmail.value, inputPassword.value);
+      localStorage.setItem('EMAIL', document.getElementById('emailRegister').value);
+      localStorage.setItem('PASSWORD', document.getElementById('passwordRegister').value);
       onNavigate('/register4');
+    }
+  });
+  registerElement.querySelector('.iconEye2').addEventListener('click', () => {
+    const eyePassword = document.querySelector('#passwordRegister');
+    const icon = document.querySelector('i');
+    if (eyePassword.type === 'password') {
+      eyePassword.type = 'text';
+      icon.classList.remove('fa-eye-slash');
+      icon.classList.add('fa-eye');
+    } else {
+      eyePassword.type = 'password';
+      icon.classList.remove('fa-eye');
+      icon.classList.add('fa-eye-slash');
+    }
+  });
+  registerElement.querySelector('.iconEye3').addEventListener('click', () => {
+    const eyePassword = document.querySelector('#repeatPassword');
+    const icon = document.querySelector('i');
+    if (eyePassword.type === 'password') {
+      eyePassword.type = 'text';
+      icon.classList.remove('fa-eye-slash');
+      icon.classList.add('fa-eye');
+    } else {
+      eyePassword.type = 'password';
+      icon.classList.remove('fa-eye');
+      icon.classList.add('fa-eye-slash');
     }
   });
   return registerElement;
@@ -186,13 +168,12 @@ export const register4 = () => {
       </div> 
       <button id="btnRegister">REGISTRARSE</button>`;
   registerElement.innerHTML = registerDiv4;
-  //const inputBirth = document.querySelector('#dateBirth');
   setTimeout(() => {
     registerElement.querySelector('#btnRegister').addEventListener('click', () => {
-      // aqui validar si el campo fecha esté completo
+      // aqui valida si el campo fecha esté completo
       const inputBirth = document.getElementById('dateBirth').value;
       if (inputBirth === '') {
-        const showMsn = document.querySelector('#showMsn')
+        const showMsn = document.querySelector('#showMsn');
         showMsn.textContent = 'Debes completar todos los campos solicitados';
       } else {
       // De ser asi va a proceder a la siguiente linea
@@ -202,20 +183,11 @@ export const register4 = () => {
         const inputLastName = localStorage.getItem('LASTNAME');
         registerFirebase(inputEmail, inputPassword, inputBirth, inputName, inputLastName);
         onNavigate('/');
-//       const inputEmail = document.getElementById('emailRegister').value;
-//       const inputPassword = document.getElementById('passwordRegister').value;
-//       const inputBirth = document.getElementById('dateBirth').value;
-//       const inputName = document.getElementById('name').value;
-//       const inputLastName = document.getElementById('lastName').value;
-//       registerFirebase(inputEmail, inputPassword, inputBirth, inputName, inputLastName);
-//       onNavigate('/');
-      //registerFirebase(inputBirth.value);
       }
     });
   }, 0);
   return registerElement;
 };
-// register para desktop
 // para vista destokp
 export const register = () => {
   const registerElement = document.createElement('form');
@@ -255,88 +227,73 @@ export const register = () => {
   <button type="submit" id="btnRegister">REGISTRARSE</button>
   <p id="messageComplete"></p>
   <a class="questionDesktop">¿Ya tienes una cuenta?</a>`;
-
   registerElement.innerHTML = registerForm;
-//   setTimeout(() => {
-//     registerElement.querySelector('#btnRegister').addEventListener('click', () => {
-//       const inputEmail = document.getElementById('emailRegister').value;
-//       const inputPassword = document.getElementById('passwordRegister').value;
-//       const inputBirth = document.getElementById('dateBirth').value;
-//       const inputName = document.getElementById('name').value;
-//       const inputLastName = document.getElementById('lastName').value;
-//       registerFirebase(inputEmail, inputPassword, inputBirth, inputName, inputLastName);
-//       onNavigate('/');
-//     });
-//   }, 0);
-  // método 2
-  const inputEmail = registerElement.querySelector('#emailRegister');
-  const inputPassword = registerElement.querySelector('#passwordRegister');
-  const inputBirth = registerElement.querySelector('#dateBirth');
-  const inputName = registerElement.querySelector('#name');
-  const inputLastName = registerElement.querySelector('#lastName');
-  const inputRepeatPassword = registerElement.querySelector('#repeatPassword');
+  const ipEmail = registerElement.querySelector('#emailRegister');
+  const ipPass = registerElement.querySelector('#passwordRegister');
+  const ipBirth = registerElement.querySelector('#dateBirth');
+  const ipName = registerElement.querySelector('#name');
+  const ipLastName = registerElement.querySelector('#lastName');
+  const ipRepeatPassword = registerElement.querySelector('#repeatPassword');
   const btnRegister = registerElement.querySelector('#btnRegister');
   const msnerrorRegister = registerElement.querySelector('.msnerrorRegister');
   const msnerrorRepeatPassword = registerElement.querySelector('.msnerrorRepeatPassword');
 
   function validarPassword() {
     const expRegular = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,18}$/;
-    if (!inputPassword) {
+    if (!ipPass) {
       MessageData(msnerrorRegister, 'Campo obligatorio');
-    } else if (inputPassword.value.length >= 4 && inputPassword.value.length <= 8) {
+    } else if (ipPass.value.length >= 4 && ipPass.value.length <= 8) {
       MessageData(msnerrorRegister, 'Debe tener 4-8 caracteres.');
-    } else if (!inputPassword.value.match(expRegular)) {
+    } else if (!ipPass.value.match(expRegular)) {
       MessageData(msnerrorRegister, 'Debe tener al menos una mayúscula, una minúscula y un número');
     } else {
       MessageData(msnerrorRegister, '');
     }
   }
-  // preguntar si las dos funcion deben estar arriba antes de inciiar las funciones
-  inputPassword.onblur = function () { validarPassword(); };
-  inputPassword.onkeyup = function () { validarPassword(); };
+  ipPass.onblur = function () { validarPassword(); };
+  ipPass.onkeyup = function () { validarPassword(); };
 
   function validarPassword2() {
-    if (inputPassword.value !== inputRepeatPassword.value) {
+    if (ipPass.value !== ipRepeatPassword.value) {
       MessageData(msnerrorRepeatPassword, 'Las contraseñas no coinciden');
     } else {
       MessageData(msnerrorRepeatPassword, '');
     }
   }
-  inputRepeatPassword.onblur = function () { validarPassword2(); };
-  inputRepeatPassword.onkeyup = function () { validarPassword2(); };
+  ipRepeatPassword.onblur = function () { validarPassword2(); };
+  ipRepeatPassword.onkeyup = function () { validarPassword2(); };
 
   btnRegister.addEventListener('click', () => {
-    if (inputEmail.value === '' & inputBirth.value === '' & inputLastName.value === '' & inputName.value === '' & inputPassword.value === '' & inputRepeatPassword.value === '') {
+    if (ipEmail.value === '' || ipBirth.value === '' || ipLastName.value === '' || ipName.value === '' || ipPass.value === '' || ipRepeatPassword.value === '') {
       const errorMessage = document.querySelector('#messageComplete');
       errorMessage.textContent = 'Debes completar todos los campos solicitados';
     } else {
-      // errorMessage.textContent = '';   (verificar xq no lee esta función)
-      registerFirebase(inputEmail.value, inputPassword.value, inputBirth.value, inputName.value, inputLastName.value);
+      registerFirebase(ipEmail.value, ipPass.value, ipBirth.value, ipName.value, ipLastName.value);
       onNavigate('/');
     }
   });
   registerElement.querySelector('.iconEye4').addEventListener('click', () => {
-    const inputPassword = document.querySelector('#passwordRegister');
+    const eyePassword = document.querySelector('#passwordRegister');
     const icon = document.querySelector('i');
-    if (inputPassword.type === 'password') {
-      inputPassword.type = 'text';
+    if (eyePassword.type === 'password') {
+      eyePassword.type = 'text';
       icon.classList.remove('fa-eye-slash');
       icon.classList.add('fa-eye');
     } else {
-      inputPassword.type = 'password';
+      eyePassword.type = 'password';
       icon.classList.remove('fa-eye');
       icon.classList.add('fa-eye-slash');
     }
   });
   registerElement.querySelector('.iconEye5').addEventListener('click', () => {
-    const inputPassword = document.querySelector('#repeatPassword');
+    const eyePassword = document.querySelector('#repeatPassword');
     const icon = document.querySelector('i');
-    if (inputPassword.type === 'password') {
-      inputPassword.type = 'text';
+    if (eyePassword.type === 'password') {
+      eyePassword.type = 'text';
       icon.classList.remove('fa-eye-slash');
       icon.classList.add('fa-eye');
     } else {
-      inputPassword.type = 'password';
+      eyePassword.type = 'password';
       icon.classList.remove('fa-eye');
       icon.classList.add('fa-eye-slash');
     }

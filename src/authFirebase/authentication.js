@@ -1,4 +1,6 @@
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider} from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
+import {
+  getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider,
+} from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
 import { collection, addDoc, getFirestore } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';
 import { app } from './fbconfig.js';
 import { onNavigate } from '../main.js';
@@ -24,17 +26,17 @@ export const registerFirebase = (email, password, birth, name, lastName) => {
     .catch((error) => {
       const errorMessage = error.message;
       switch (errorMessage) {
-        // case 'Firebase: Error (auth/email-already-in-use).':
-        //   alert('email ya registrado');
-        //   break;
+        case 'Firebase: Error (auth/email-already-in-use).':
+          alert('email ya registrado');
+          break;
         // case 'Firebase: Error (auth/internal-error).':
         //   alert('ingresar contraseña');
         //   break;
-        // case 'Firebase: Error (auth/invalid-email).':
-        //   alert('email invalido');
-        //   break;
-        // default:
-        //   break;
+        case 'Firebase: Error (auth/invalid-email).':
+          alert('email invalido');
+          break;
+        default:
+          break;
       }
     });
   return registerPetworld;
@@ -50,9 +52,6 @@ export const loginFirebase = (email, password) => {
     .catch((error) => {
       const errorMessage = error.message;
       switch (errorMessage) {
-        case 'Firebase: Error (auth/internal-error).':
-          
-          break;
         case 'Firebase: Error (auth/invalid-email).':
           alert('email invalido');
           break;
@@ -75,23 +74,20 @@ export const loginGmail = () => {
       // The signed-in user info.
       const userGmail = result.user;
       // eslint-disable-next-line no-underscore-dangle
-      
-      
-      console.log(userGmail);
       onNavigate('/homePetworld');
       // eslint-disable-next-line no-unused-expressions
       document.getElementById('iconGoogle').setAttribute('src', userGmail.photoURL);
-      document.getElementById('nameGoogle').innerText = 'hola, ' + userGmail.displayName;
+      document.getElementById('nameGoogle').innerText = `hola, ${userGmail.displayName}`;
     // ...
     }).catch((error) => {
-    // Handle Errors here.
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // The email of the user's account used.
-      const email = error.email;
-      // The AuthCredential type that was used.
-      const credential = GoogleAuthProvider.credentialFromError(error);
-    // ...
+    // // Handle Errors here.
+    //   const errorCode = error.code;
+    //   const errorMessage = error.message;
+    //   // The email of the user's account used.
+    //   const email = error.email;
+    //   // The AuthCredential type that was used.
+    //   const credential = GoogleAuthProvider.credentialFromError(error);
+    // // ...
     });
   return authWithGmail;
 };
@@ -108,19 +104,19 @@ export const loginFacebook = () => {
       const NodeUser = JSON.parse(result._tokenResponse.rawUserInfo);
       document.getElementById('iconUser').setAttribute('src', NodeUser.picture.data.url);
       document.getElementById('nameUser').innerText = `hola, ${nameProfile.displayName}`;
-      //localStorage.setItem('SESSION_USER_ID', namePr ofile.uid);
-      //localStorage.setItem('SESSION_NAME_ID', nameProfile.displayName);
+      // localStorage.setItem('SESSION_USER_ID', namePr ofile.uid);
+      // localStorage.setItem('SESSION_NAME_ID', nameProfile.displayName);
     // ...
     }).catch((error) => {
-      console.log(error);
-    // Handle Errors here.
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // The email of the user's account used.
-      const email = error.email;
-      // The AuthCredential type that was used.
-      const credential = FacebookAuthProvider.credentialFromError(error);
-    // ...
+    //   console.log(error);
+    //   // Handle Errors here.
+    //   const errorCode = error.code;
+    //   const errorMessage = error.message;
+    //   // The email of the user's account used.
+    //   const email = error.email;
+    //   // The AuthCredential type that was used.
+    //   const credential = FacebookAuthProvider.credentialFromError(error);
+    // // ...
     });
   return authWithFacebook;
 };

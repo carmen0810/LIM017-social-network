@@ -9,9 +9,7 @@ export const homePetworld = () => {
        <img  id="iconUser"class="iconProfile" >
        <p id="nameUser"></p>
        <img id="iconGoogle"class="iconProfile">
-       <p>${localStorage.getItem('SESSION_NAME_ID')}</p>
        <p id="nameGoogle"></p>`;
   homeElement.innerHTML = homeDiv;
-
   return homeElement;
 };
