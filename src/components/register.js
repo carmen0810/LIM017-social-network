@@ -8,13 +8,16 @@ export const register1 = () => {
      <h2 class="intoTitle">ÚNETE A PETWORLD</h2>
      <p class="textCreateAccount">Crea tu cuenta en pocos pasos</p>
      <button id="btnNext1">SIGUIENTE</button>
-     <a class="textAccount">¿Ya tienes una cuenta?</a>`;
+     <a class="textAccount" href="#">¿Ya tienes una cuenta?</a>`;
   registerElement.innerHTML = registerDiv1;
   setTimeout(() => {
     registerElement.querySelector('#btnNext1').addEventListener('click', () => {
       onNavigate('/register2');
     });
   }, 0);
+  registerElement.querySelector('.textAccount').addEventListener('click', () => {
+    onNavigate('/');
+  });
   return registerElement;
 };
 
@@ -45,12 +48,48 @@ export const register3 = () => {
        <h1>CREA TU CUENTA</h1>
        <label for="emailRegister">Ingresa tu Correo</label>
        <input id="emailRegister" type="email" placeholder="Ingrese su Correo" required>
+       <div class='eye'>
        <label for="passwordRegister" class="inputLabel">Crea su Contraseña</label>
        <input id="passwordRegister" type="password" placeholder="contraseña" required>
+       <span class="iconEye2">
+       <i class="fa fa-solid fa-eye-slash"></i>
+       </span>
+       </div>
+       <div class='eye'>
        <label for="repeatPassword" class="inputLabel">Confirme su Contraseña</label>
        <input id="repeatPassword" type="password" placeholder="Confirme su contraseña" required>
+       <span class="iconEye3">
+       <i class="fa fa-solid fa-eye-slash"></i>
+       </span>
+       </div>
        <button id="btnNext3">SIGUIENTE</button>`;
   registerElement.innerHTML = registerDiv3;
+  registerElement.querySelector('.iconEye2').addEventListener('click', () => {
+    const inputPassword = document.querySelector('#passwordRegister');
+    const icon = document.querySelector('i');
+    if (inputPassword.type === 'password') {
+      inputPassword.type = 'text';
+      icon.classList.remove('fa-eye-slash');
+      icon.classList.add('fa-eye');
+    } else {
+      inputPassword.type = 'password';
+      icon.classList.remove('fa-eye');
+      icon.classList.add('fa-eye-slash');
+    }
+  });
+  registerElement.querySelector('.iconEye3').addEventListener('click', () => {
+    const inputPassword = document.querySelector('#repeatPassword');
+    const icon = document.querySelector('i');
+    if (inputPassword.type === 'password') {
+      inputPassword.type = 'text';
+      icon.classList.remove('fa-eye-slash');
+      icon.classList.add('fa-eye');
+    } else {
+      inputPassword.type = 'password';
+      icon.classList.remove('fa-eye');
+      icon.classList.add('fa-eye-slash');
+    }
+  });
   setTimeout(() => {
     registerElement.querySelector('#btnNext3').addEventListener('click', () => {
       onNavigate('/register4');
@@ -65,8 +104,6 @@ export const register4 = () => {
   const registerDiv4 = `
        <label for="dateBirth">Fecha de Nacimiento</label>
        <input id="dateBirth" type="date" required>
-       <label for="checkConditions"><a class="termsConditions">Términos y Condiciones</a></label>
-       <input id="checkConditions" type="checkbox"  required>
        <button type="submit" id="btnRegister">REGISTRARSE</button>`;
   registerElement.innerHTML = registerDiv4;
   setTimeout(() => {
@@ -97,17 +134,52 @@ export const register = () => {
      </div>
      <label for="emailRegister"></label>
      <input id="emailRegister" type="email" name="emailRegister" placeholder="Ingrese su Correo eléctrónico" required>
+     <div class='eye'>
      <label for="passwordRegister" class="inputLabel"></label>
      <input id="passwordRegister" type="password" name="passwordRegister" placeholder="Crea una contraseña nueva" required>
+     <span class="iconEye4">
+     <i class="fa fa-solid fa-eye-slash"></i>
+     </span>
+     </div>
+     <div class='eye'>
      <label for="repeatPassword" class="inputLabel">Confirme su nueva Contraseña</label>
      <input id="repeatPassword" type="password" name="repeatPassword" placeholder="Confirme su contraseña" required>
+     <span class="iconEye5">
+     <i class="fa fa-solid fa-eye-slash"></i>
+     </span>
+     </div>
      <label for="dateBirth">Fecha de Nacimiento</label>
      <input id="dateBirth" name="dateBirth" type="date" required>
-     <label for="checkConditions"><a class="termsConditions">Términos y Condiciones</a></label>
-     <input id="checkConditions" name="checkConditions" type="checkbox"  required>
      <button type="submit" id="btnRegister">REGISTRARSE</button>
-     <a class="questionDesktop">¿Ya tienes una cuenta?</a>`;
+     <a class="questionDesktop" href="#">¿Ya tienes una cuenta?</a>`;
   registerElement.innerHTML = registerForm;
+  registerElement.querySelector('.iconEye4').addEventListener('click', () => {
+    const inputPassword = document.querySelector('#passwordRegister');
+    const icon = document.querySelector('i');
+    if (inputPassword.type === 'password') {
+      inputPassword.type = 'text';
+      icon.classList.remove('fa-eye-slash');
+      icon.classList.add('fa-eye');
+    } else {
+      inputPassword.type = 'password';
+      icon.classList.remove('fa-eye');
+      icon.classList.add('fa-eye-slash');
+    }
+  });
+  registerElement.querySelector('.iconEye5').addEventListener('click', () => {
+    const inputPassword = document.querySelector('#repeatPassword');
+    const icon = document.querySelector('i');
+    if (inputPassword.type === 'password') {
+      inputPassword.type = 'text';
+      icon.classList.remove('fa-eye-slash');
+      icon.classList.add('fa-eye');
+    } else {
+      inputPassword.type = 'password';
+      icon.classList.remove('fa-eye');
+      icon.classList.add('fa-eye-slash');
+    }
+  });
+
   setTimeout(() => {
     registerElement.querySelector('#btnRegister').addEventListener('click', () => {
       onNavigate('/');
@@ -119,5 +191,8 @@ export const register = () => {
       registerFirebase(inputEmail, inputPassword, inputBirth, inputName, inputLastName);
     });
   }, 0);
+  registerElement.querySelector('.questionDesktop').addEventListener('click', () => {
+    onNavigate('/');
+  });
   return registerElement;
 };

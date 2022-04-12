@@ -43,6 +43,16 @@ header{
     width:250px;
     padding: 10px;
 }
+.eye{
+    position: relative;
+}
+.iconEye1, .iconEye2, .iconEye3, .iconEye4, .iconEye5{
+    position: absolute;
+    right: 15px;
+    top:50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
 
 .iconDivLogin{
     display: flex;
