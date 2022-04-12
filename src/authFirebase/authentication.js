@@ -50,7 +50,7 @@ export const loginFirebase = (email, password) => {
       const errorMessage = error.message;
       switch (errorMessage) {
         case 'Firebase: Error (auth/internal-error).':
-          alert('ingresar contraseña');
+          
           break;
         case 'Firebase: Error (auth/invalid-email).':
           alert('email invalido');
