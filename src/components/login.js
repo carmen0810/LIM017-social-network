@@ -11,7 +11,8 @@ export const login = () => {
      <input id="emailInto" type="email" placeholder="Correo" required>
      <label for="password"></label>
      <input id="passwordInto" type="password" placeholder="contraseña" required> 
-     <p>¿Olvidaste tu contraseña?</p>
+     <p id="showMessageTag"></p>
+     <a>¿Olvidaste tu contraseña?</a>
      <button type="submit" class="btnLogin">INGRESAR</button>
      <p>o ingresa con</p>
      <div class= "iconDivLogin">
@@ -23,12 +24,13 @@ export const login = () => {
      <button type="submit" class="btnCreateAccount">Crea tu cuenta</button>`;
   loginElement.innerHTML = loginDiv;
   loginElement.querySelector('.btnLogin').addEventListener('click', () => {
-    const intoHomeEmail = document.getElementById('emailInto').value;
-    const intoHomePassword = document.getElementById('passwordInto').value;
-    if (intoHomeEmail === '' && intoHomePassword === '') {
-      alert('llene sus campos');
+    const intoLoginEmail = document.getElementById('emailInto').value;
+    const intoLoginPassword = document.getElementById('passwordInto').value;
+    if (intoLoginEmail === '' && intoLoginPassword === '') {
+      const errorMessage = document.querySelector('#showMessageTag');
+      errorMessage.textContent = 'Debes completar todos los campos solicitados';
     } else {
-      loginFirebase(intoHomeEmail, intoHomePassword);
+      loginFirebase(intoLoginEmail, intoLoginPassword);
       onNavigate('/homePetworld');
     }
   });
