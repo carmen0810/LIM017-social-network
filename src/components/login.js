@@ -1,6 +1,6 @@
 import { onNavigate } from '../main.js';
 
-import { loginFirebase, loginGmail } from '../authFirebase/authentication.js';
+import { loginFirebase, loginGmail, loginFacebook } from '../authFirebase/authentication.js';
 
 export const login = () => {
   const loginElement = document.createElement('div');
@@ -61,9 +61,15 @@ export const login = () => {
     loginElement.querySelector('.btnCreateAccountDestokp').addEventListener('click', () => {
       onNavigate('/register');
     });
+
+    loginElement.querySelector('#iconGmail').addEventListener('click', () => {
+      loginGmail();
+    });
+    loginElement.querySelector('#iconFacebook').addEventListener('click', () => {
+      loginFacebook();
+    });
+    if (localStorage.getItem('SESSION_USER_ID') !== null) onNavigate('/homePetworld');
   }, 0);
-  loginElement.querySelector('#iconGmail').addEventListener('click', () => {
-    loginGmail();
-  });
+
   return loginElement;
 };

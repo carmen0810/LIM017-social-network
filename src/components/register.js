@@ -42,18 +42,20 @@ export const register2 = () => {
   registerElement.innerHTML = registerDiv2;
   const inputName = registerElement.querySelector('#name');
   const inputLastName = registerElement.querySelector('#lastName');
-  // setTimeout(() => {
     registerElement.querySelector('#btnNext2').addEventListener('click', () => {
-      if (inputLastName.value === '' & inputName.value === '') {
+      // aqui valida si el campo nombre y apellido estan completos
+      const registerName = document.getElementById('name').value;
+      const registerLastName = document.getElementById('lastName').value;
+      if (registerName === '' && registerLastName === '') {
         const errorMessageComplete = document.querySelector('#errorMessageComplete');
         errorMessageComplete.textContent = 'Debes completar todos los campos solicitados';
       } else {
-        //registerFirebase(inputName.value, inputLastName.value);
+      // De ser asi va a proceder a la siguientes lineas
+        localStorage.setItem('NAME', document.getElementById('name').value);
+        localStorage.setItem('LASTNAME', document.getElementById('lastName').value);  
         onNavigate('/register3');
       }
     });
-  // }, 0);
-
   return registerElement;
 };
 
@@ -138,7 +140,17 @@ export const register3 = () => {
   });
   setTimeout(() => {
     registerElement.querySelector('#btnNext3').addEventListener('click', () => {
-      onNavigate('/register4');
+      // aqui valida si el campo correo, clave, repetir clave estan completos
+      const registerEmail = document.getElementById('emailRegister').value;
+      const registerPassword = document.getElementById('passwordRegister').value;
+      if (registerEmail === '' && registerPassword === '') {
+        alert('llene sus campos');
+      } else {
+      // De ser asi va a proceder a la siguiente linea
+        localStorage.setItem('EMAIL', document.getElementById('emailRegister').value);
+        localStorage.setItem('PASSWORD', document.getElementById('passwordRegister').value);
+        onNavigate('/register4');
+      }
     });
   }, 0);
 function validarPassword2() {
@@ -177,28 +189,33 @@ export const register4 = () => {
   //const inputBirth = document.querySelector('#dateBirth');
   setTimeout(() => {
     registerElement.querySelector('#btnRegister').addEventListener('click', () => {
-
-      if(inputBirth.value === ''){
+      // aqui validar si el campo fecha esté completo
+      const inputBirth = document.getElementById('dateBirth').value;
+      if (inputBirth === '') {
         const showMsn = document.querySelector('#showMsn')
         showMsn.textContent = 'Debes completar todos los campos solicitados';
-      }
-      else{
-     // onNavigate('/');
-      const inputEmail = document.getElementById('emailRegister').value;
-      const inputPassword = document.getElementById('passwordRegister').value;
-      const inputBirth = document.getElementById('dateBirth').value;
-      const inputName = document.getElementById('name').value;
-      const inputLastName = document.getElementById('lastName').value;
-      registerFirebase(inputEmail, inputPassword, inputBirth, inputName, inputLastName);
-      onNavigate('/');
+      } else {
+      // De ser asi va a proceder a la siguiente linea
+        const inputEmail = localStorage.getItem('EMAIL');
+        const inputPassword = localStorage.getItem('PASSWORD');
+        const inputName = localStorage.getItem('NAME');
+        const inputLastName = localStorage.getItem('LASTNAME');
+        registerFirebase(inputEmail, inputPassword, inputBirth, inputName, inputLastName);
+        onNavigate('/');
+//       const inputEmail = document.getElementById('emailRegister').value;
+//       const inputPassword = document.getElementById('passwordRegister').value;
+//       const inputBirth = document.getElementById('dateBirth').value;
+//       const inputName = document.getElementById('name').value;
+//       const inputLastName = document.getElementById('lastName').value;
+//       registerFirebase(inputEmail, inputPassword, inputBirth, inputName, inputLastName);
+//       onNavigate('/');
       //registerFirebase(inputBirth.value);
       }
     });
   }, 0);
   return registerElement;
 };
-
-
+// register para desktop
 // para vista destokp
 export const register = () => {
   const registerElement = document.createElement('form');
@@ -240,6 +257,17 @@ export const register = () => {
   <a class="questionDesktop">¿Ya tienes una cuenta?</a>`;
 
   registerElement.innerHTML = registerForm;
+//   setTimeout(() => {
+//     registerElement.querySelector('#btnRegister').addEventListener('click', () => {
+//       const inputEmail = document.getElementById('emailRegister').value;
+//       const inputPassword = document.getElementById('passwordRegister').value;
+//       const inputBirth = document.getElementById('dateBirth').value;
+//       const inputName = document.getElementById('name').value;
+//       const inputLastName = document.getElementById('lastName').value;
+//       registerFirebase(inputEmail, inputPassword, inputBirth, inputName, inputLastName);
+//       onNavigate('/');
+//     });
+//   }, 0);
   // método 2
   const inputEmail = registerElement.querySelector('#emailRegister');
   const inputPassword = registerElement.querySelector('#passwordRegister');
