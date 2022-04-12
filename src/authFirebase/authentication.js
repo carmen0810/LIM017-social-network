@@ -24,17 +24,17 @@ export const registerFirebase = (email, password, birth, name, lastName) => {
     .catch((error) => {
       const errorMessage = error.message;
       switch (errorMessage) {
-        case 'Firebase: Error (auth/email-already-in-use).':
-          alert('email ya registrado');
-          break;
-        case 'Firebase: Error (auth/internal-error).':
-          alert('ingresar contraseña');
-          break;
-        case 'Firebase: Error (auth/invalid-email).':
-          alert('email invalido');
-          break;
-        default:
-          break;
+        // case 'Firebase: Error (auth/email-already-in-use).':
+        //   alert('email ya registrado');
+        //   break;
+        // case 'Firebase: Error (auth/internal-error).':
+        //   alert('ingresar contraseña');
+        //   break;
+        // case 'Firebase: Error (auth/invalid-email).':
+        //   alert('email invalido');
+        //   break;
+        // default:
+        //   break;
       }
     });
   return registerPetworld;
@@ -50,7 +50,7 @@ export const loginFirebase = (email, password) => {
       const errorMessage = error.message;
       switch (errorMessage) {
         case 'Firebase: Error (auth/internal-error).':
-          alert('ingresar contraseña');
+          
           break;
         case 'Firebase: Error (auth/invalid-email).':
           alert('email invalido');

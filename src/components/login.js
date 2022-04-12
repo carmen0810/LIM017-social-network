@@ -9,15 +9,16 @@ export const login = () => {
      <h1>INICIAR SESIÓN</h1>   
      <label for="email"></label>
      <input id="emailInto" type="email" placeholder="Correo" required>
+      <div class='eye'>
      <label for="password"></label>
-     <div class='eye'>
      <input id="passwordInto" type="password" placeholder="contraseña" required>
      <span class="iconEye1">
      <i class="fa fa-solid fa-eye-slash"></i>
      </span>
      </div>
-     <p>¿Olvidaste tu contraseña?</p>
-     <button type="submit" class="btnLogin">INGRESAR</button>
+     <p id="showMessageTag"></p>
+     <a>¿Olvidaste tu contraseña?</a>
+     <button class="btnLogin">INGRESAR</button>
      <p>o ingresa con</p>
      <div class= "iconDivLogin">
         <img src="img/facebook (2).png" alt="facebook" id="iconFacebook" class="iconInto">
@@ -41,12 +42,13 @@ export const login = () => {
     }
   });
   loginElement.querySelector('.btnLogin').addEventListener('click', () => {
-    const intoHomeEmail = document.getElementById('emailInto').value;
-    const intoHomePassword = document.getElementById('passwordInto').value;
-    if (intoHomeEmail === '' && intoHomePassword === '') {
-      alert('llene sus campos');
+    const intoLoginEmail = document.getElementById('emailInto').value;
+    const intoLoginPassword = document.getElementById('passwordInto').value;
+    if (intoLoginEmail === '' && intoLoginPassword === '') {
+      const errorMessage = document.querySelector('#showMessageTag');
+      errorMessage.textContent = 'Debes completar todos los campos solicitados';
     } else {
-      loginFirebase(intoHomeEmail, intoHomePassword);
+      loginFirebase(intoLoginEmail, intoLoginPassword);
       onNavigate('/homePetworld');
     }
   });

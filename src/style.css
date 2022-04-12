@@ -5,10 +5,10 @@
     
 }
 
-.containerMain{
-        display: flex;
-        align-items: center;
-        justify-content: center;
+#root, .containerMain{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Estilos del login*/
@@ -23,7 +23,7 @@ header{
 }
 
 #logo{
-    Height: 250px;
+    Height: 180px;
 }
 
 #titleLogin{
@@ -105,29 +105,45 @@ header{
     padding: 13px;
 }
 
-#textNewParagraph,#textIntoParagraph,#textPasswordForget{ 
+/* #textNewParagraph,#textIntoParagraph,#textPasswordForget{ 
     margin:10px;
+} */
+/*estilos para el register*/
+.loginView input, .registerPage input, .registerPage1>input, .registerPage2>input, .registerPage3>input, .registerPage4>input{
+    margin:10px;
+    border-radius: 5px;
 }
+
 
 @media screen and (min-width:768px){
     .containerViewFirst {
         display: flex;
+        text-align: center;
+        justify-content: center;
         flex-direction: row;
         height: 90vh;
     }
-
+    .containerMain {
+         width: 50%;
+    }
     #titleLogin{
         margin-top: 25px;
     }
     header{
-        max-width: 50vw;
+        width: 50vw;
         background: rgb(231, 146, 183);
         background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(189,181,219,1) 55%, rgb(196, 139, 158) 100%);
+    }
+    #logo{
+        Height: 250px;
     }
     #footerPetworld{
         margin-bottom: 0px;
     }
-    /* metodo 2 */
+    .passwords{
+        display: flex;
+        flex-direction: column;
+    }
     .btnCreateAccount{
     display: none;
     }
@@ -138,7 +154,10 @@ header{
         display: none;
     }
     .registerPage{
-        display: block;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
    
 }
