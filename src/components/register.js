@@ -65,23 +65,27 @@ export const register3 = () => {
   const registerElement = document.createElement('div');
   registerElement.setAttribute('class', 'registerPage3');
   const registerDiv3 = `
-       <h1>CREA TU CUENTA</h1>
-       <label for="emailRegister">Ingresa tu Correo</label>
+       <h1 class="intoTitle">CREA TU CUENTA</h1>
+       <label for="emailRegister"></label>
        <input id="emailRegister" type="email" placeholder="Ingrese su Correo" required>
-       <div class='eye'>
-          <label for="passwordRegister" class="inputLabel">Crea su Contraseña</label>
-          <input id="passwordRegister" type="password" placeholder="contraseña" required>
-          <span class="iconEye2">
-          <i class="fa fa-solid fa-eye-slash"></i>
-          </span>
+       <div class='passwords'>
+          <div class= eye>
+            <label for="passwordRegister" class="inputLabel"></label>
+            <input id="passwordRegister" type="password" placeholder="Contraseña Nueva" required>
+            <span class="iconEye2">
+            <i class="fa fa-solid fa-eye-slash"></i>
+            </span>
+          </div>
           <span class="msnerrorRegister"></span>
        </div>
-       <div class='eye'>
-          <label for="repeatPassword" class="inputLabel">Confirme su Contraseña</label>
-          <input id="repeatPassword" type="password" placeholder="Confirme su contraseña" required>
-          <span class="iconEye3">
-          <i class="fa fa-solid fa-eye-slash"></i>
-          </span>
+       <div class='passwords'>
+          <div class='eye'>
+            <label for="repeatPassword" class="inputLabel"></label>
+            <input id="repeatPassword" type="password" placeholder="Confirme contraseña nueva" required>        
+            <span class="iconEye3">
+            <i class="fa fa-solid fa-eye-slash"></i>
+            </span>
+          </div>
           <span class="msnerrorRepeatPassword"></span>
        </div>
        <p id="messageComplete"></p>
@@ -161,7 +165,8 @@ export const register4 = () => {
   const registerElement = document.createElement('div');
   registerElement.setAttribute('class', 'registerPage4');
   const registerDiv4 = `
-      <div>
+      <h1 class="intoTitle">CREA TU CUENTA</h1>    
+      <div class="birth">
         <label for="dateBirth">Fecha de Nacimiento</label>
         <input id="dateBirth" type="date" required>
         <span id="showMsn"></span>
@@ -205,22 +210,24 @@ export const register = () => {
   <label for="emailRegister"></label>
   <input id="emailRegister" type="email" name="emailRegister" placeholder="*Correo eléctrónico" required>
   <div class="passwords">
-    <div class='eye'>
-      <label for="passwordRegister" class="inputLabel"></label>
-      <input id="passwordRegister" type="password" name="passwordRegister" placeholder="*Contraseña nueva" required>
-      <span class="iconEye4">
-      <i class="fa fa-solid fa-eye-slash"></i>
-      </span>
+      <div class='eye'>
+        <label for="passwordRegister" class="inputLabel"></label>
+        <input id="passwordRegister" type="password" name="passwordRegister" placeholder="*Contraseña nueva" required>
+        <span class="iconEye4">
+        <i class="fa fa-solid fa-eye-slash"></i>
+        </span>
+      </div>
       <span class="msnerrorRegister"></span>
-    </div>     
-    <div class='eye'>
-      <label for="repeatPassword" class="inputLabel"></label>
-      <input id="repeatPassword" type="password" name="repeatPassword" placeholder="*Confirme contraseña" required>
-      <span class="iconEye5">
-      <i class="fa fa-solid fa-eye-slash"></i>
-      </span>
-      <span class="msnerrorRepeatPassword"></span>
-    </div>    
+  </div>    
+  <div class="passwords">
+      <div class='eye'>
+        <label for="repeatPassword" class="inputLabel"></label>
+        <input id="repeatPassword" type="password" name="repeatPassword" placeholder="*Confirme contraseña" required>
+        <span class="iconEye5">
+        <i class="fa fa-solid fa-eye-slash"></i>
+        </span>
+      </div> 
+      <span class="msnerrorRepeatPassword"></span>   
   </div>
   <div class"dateBirthDiv">
     <label id="textBirth" for="dateBirth">Fecha de Nacimiento:</label>
