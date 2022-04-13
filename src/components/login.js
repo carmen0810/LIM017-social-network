@@ -6,7 +6,7 @@ export const login = () => {
   const loginElement = document.createElement('div');
   loginElement.setAttribute('class', 'loginView');
   const loginDiv = `
-     <h1>INICIAR SESIÓN</h1>   
+     <h1 id="titleLogin">INICIAR SESIÓN</h1>   
      <label for="email"></label>
      <input id="emailInto" type="email" placeholder="Correo" required>
       <div class='eye'>
@@ -24,7 +24,7 @@ export const login = () => {
         <img src="img/facebook (2).png" alt="facebook" id="iconFacebook" class="iconInto">
         <img src="img/google.png" alt="google" id="iconGmail" class="iconInto">
      </div>
-     <p>¿eres nuevo en petworld?</p>
+     <p id="loginParagraph">¿eres nuevo en petworld?</p>
      <button type="submit" class="btnCreateAccountDestokp hide ">Crea tu cuenta</button>
      <button type="submit" class="btnCreateAccount">Crea tu cuenta</button>`;
   loginElement.innerHTML = loginDiv;

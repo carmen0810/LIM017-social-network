@@ -203,30 +203,32 @@ export const register = () => {
     <input id="lastName" type="text" name="lastName" placeholder="*Apellidos" required>
   </div>
   <label for="emailRegister"></label>
-  <input id="emailRegister" type="email" name="emailRegister" placeholder="Ingrese su Correo eléctrónico" required>
+  <input id="emailRegister" type="email" name="emailRegister" placeholder="*Correo eléctrónico" required>
   <div class="passwords">
     <div class='eye'>
-      <label for="passwordRegister" class="inputLabel">Contraseña nueva</label>
-      <input id="passwordRegister" type="password" name="passwordRegister" placeholder="Crea una contraseña nueva" required>
+      <label for="passwordRegister" class="inputLabel"></label>
+      <input id="passwordRegister" type="password" name="passwordRegister" placeholder="*Contraseña nueva" required>
       <span class="iconEye4">
       <i class="fa fa-solid fa-eye-slash"></i>
       </span>
       <span class="msnerrorRegister"></span>
     </div>     
     <div class='eye'>
-      <label for="repeatPassword" class="inputLabel">Confirme su nueva Contraseña</label>
-      <input id="repeatPassword" type="password" name="repeatPassword" placeholder="Confirme su contraseña" required>
+      <label for="repeatPassword" class="inputLabel"></label>
+      <input id="repeatPassword" type="password" name="repeatPassword" placeholder="*Confirme contraseña" required>
       <span class="iconEye5">
       <i class="fa fa-solid fa-eye-slash"></i>
       </span>
       <span class="msnerrorRepeatPassword"></span>
     </div>    
   </div>
-  <label for="dateBirth">Fecha de Nacimiento</label>
-  <input id="dateBirth" name="dateBirth" type="date" required>
+  <div class"dateBirthDiv">
+    <label id="textBirth" for="dateBirth">Fecha de Nacimiento:</label>
+    <input id="dateBirth" name="dateBirth" type="date" required>
+  <div>
   <button type="submit" id="btnRegister">REGISTRARSE</button>
   <p id="messageComplete"></p>
-  <a class="questionDesktop">¿Ya tienes una cuenta?</a>`;
+  <a class="questionDesktop" href="#">¿Ya tienes una cuenta?</a>`;
   registerElement.innerHTML = registerForm;
   const ipEmail = registerElement.querySelector('#emailRegister');
   const ipPass = registerElement.querySelector('#passwordRegister');

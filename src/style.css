@@ -1,8 +1,7 @@
 *{
     margin:0;
     box-sizing: border-box;
-    font-family: 'PT Sans', sans-serif;
-    
+    font-family: 'PT Sans', sans-serif
 }
 
 #root, .containerMain{
@@ -16,6 +15,13 @@
     width:7%;
     margin: 10px;
 }
+.iconInto:hover{
+    cursor: pointer;
+    border: solid 1px;
+    border-radius: 40px;
+    border-color: #902fbd;
+    transform: scale(1.2);
+}
 header{
     display: flex;
     justify-content: center;
@@ -27,7 +33,7 @@ header{
 }
 
 #titleLogin{
-    margin-bottom: 45px;
+    margin-bottom: 40px;
 }
 
 .loginView{
@@ -35,6 +41,7 @@ header{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 65vh;
 }
 
 #emailInto, #passwordInto{
@@ -42,6 +49,10 @@ header{
     border-radius:15px;
     width:250px;
     padding: 10px;
+}
+
+#loginParagraph{
+ margin-top: 20px;
 }
 .eye{
     position: relative;
@@ -66,7 +77,7 @@ header{
     padding: 10px;
     border-radius: 20px;
     border-color: rgb(82 19 80);
-    margin: 40px;
+    margin: 20px;
     background: #f4f7f9;
     border-style: groove;
 }
@@ -76,13 +87,17 @@ header{
     padding: 10px;
     border-radius: 20px;
     border-color: rgb(82 19 80);
-    margin: 40px;
+    margin: 20px;
     background: #f4f7f9;
     border-style: groove;
     display: none;
 }
 .registerPage{
     display: none;
+}
+
+.registerPage1, .registerPage2, .registerPage2, .registerPage4 {
+    height: 90vh;
 }
 
 #footerPetworld{
@@ -92,9 +107,12 @@ header{
     height: 10vh;
     background: rgb(238,174,202);
     background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(189,181,219,1) 55%, rgba(148,187,233,1) 100%);
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
 }
 
-.btnLogin {
+.btnLogin, #btnRegister {
     margin: 12px;
     border-radius: 4px;
     width: 120px;
@@ -107,6 +125,7 @@ header{
     margin:10px;
     border-radius: 5px;
 }
+
 
 @media screen and (min-width:768px){
     .containerViewFirst {
@@ -133,6 +152,12 @@ header{
     #footerPetworld{
         margin-bottom: 0px;
     }
+    .intoTitle{
+        margin-bottom: 15px;
+    }
+    .textCreateAccount{
+        margin-bottom: 10px;
+    }
     .passwords{
         display: flex;
         flex-direction: column;
@@ -152,9 +177,31 @@ header{
         justify-content: center;
         align-items: center;
     }
-   
+    #name, #lastName, #dateBirth { 
+        margin:8px;
+        border-radius:15px;
+        width:15vw;
+        padding: 10px;
+    }
+    #emailRegister, #passwordRegister, #repeatPassword {
+        margin:8px;
+        border-radius:15px;
+        width:31vw;
+        padding: 10px;
+    }
+    .dateBirthDiv{
+        display: flex;
+        flex-direction: row;
+    }
+     #textBirth  {
+        width: 31vw;
+    }
+    /* .questionDesktop{
+        position: absolute;
+        top: 650px;
+        left: 70%;
+    } */
 }
-
 .iconProfile{
     width:45%;
     margin: 10px;
