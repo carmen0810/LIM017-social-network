@@ -9,8 +9,6 @@
     align-items: center;
     justify-content: center;
 }
-
-/* Estilos del login*/
 .iconInto{
     width:7%;
     margin: 10px;
@@ -22,7 +20,7 @@
     border-color: #902fbd;
     transform: scale(1.2);
 }
-header{
+.header1{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,7 +41,6 @@ header{
     align-items: center;
     height: 69.8vh;
 }
-
 #emailInto, #passwordInto{
     margin:8px;
     border-radius:15px;
@@ -99,7 +96,7 @@ header{
     margin-bottom: 10px;
 }
 .registerPage1, .registerPage2, .registerPage3, .registerPage4 {
-    height: 70vh;
+    height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -118,7 +115,6 @@ header{
     width: 100vw;
     padding: 5px;
 }
-
 .btnLogin, #btnRegister {
     margin: 12px;
     border-radius: 4px;
@@ -157,32 +153,59 @@ header{
     color:rgb(146, 7, 7);
     padding:5px;
 }
-/* .loginView input,.registerPage input, .registerPage1>input, .registerPage2>input, .registerPage3>input, .registerPage4>input{
-    margin:8px;
-    border-radius:15px;
-    width:50vw;
+/* Estilos Home */
+
+.homeHeader{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+}
+#headerImg{
+    display: flex;
+    align-items: center;
+    background: rgb(231, 146, 183);
+    background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(189,181,219,1) 55%, rgb(196, 139, 158) 100%);
+
+}
+.homeNav{
+    display: flex;
     padding: 10px;
-} */
-
-
+    background-color: rgb(216, 89, 159);
+}
+.homeBar {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-evenly;
+    list-style: none;
+    padding: 5px;  
+}
+.homePage{
+    height: 90vh;
+}
+.homeNav>.homeBar>li:hover{
+    cursor: pointer;
+    background-color: #d864b1;
+    transform: scale(1.2);
+    border-radius: 5px;
+} 
 @media screen and (min-width:768px){
-    .containerViewFirst {
+    .containerView {
         display: flex;
         text-align: center;
         justify-content: center;
         flex-direction: row;
         height: 90vh;
     }
-    .containerMain {
-         width: 50%;
-    }
-    #titleLogin{
-        margin-top: 25px;
-    }
-    header{
+    .header1{
         width: 50vw;
         background: rgb(231, 146, 183);
         background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(189,181,219,1) 55%, rgb(196, 139, 158) 100%);
+    }
+    .loginView{
+        width: 50%;
+    }
+    #titleLogin{
+        margin-top: 25px;
     }
     #logo{
         Height: 250px;
@@ -190,7 +213,6 @@ header{
     #footerPetworld{
         margin-bottom: 0px;
     }
-   
     .btnCreateAccount{
     display: none;
     }
@@ -206,18 +228,13 @@ header{
         justify-content: center;
         align-items: center;
         padding: 10px;
+        width: 50vw;
     }
     #name, #lastName, #dateBirth { 
-        /* margin:8px;
-        border-radius:15px; */
         width:15vw;
-        /* padding: 10px; */
     }
     #emailRegister, #passwordRegister, #repeatPassword {
-        /* margin:8px;
-        border-radius:15px; */
         width:31vw;
-        /* padding: 10px; */
     }
     .dateBirthDiv{
         display: flex;
@@ -226,11 +243,6 @@ header{
      #textBirth  {
         width: 31vw;
     }
-    /* .questionDesktop{
-        position: absolute;
-        top: 650px;
-        left: 70%;
-    } */
 }
 .iconProfile{
     width:45%;

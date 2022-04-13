@@ -6,6 +6,9 @@ export const register1 = () => {
   const registerElement = document.createElement('div');
   registerElement.setAttribute('class', 'registerPage1');
   const registerDiv1 = `
+     <header class="header1">
+     <img id="logo" src="img/logo.png" alt="logo">
+     </header>
      <h2 class="intoTitle">ÚNETE A PETWORLD</h2>
      <p class="textCreateAccount">Crea tu cuenta en pocos pasos</p>
      <button id="btnNext1">SIGUIENTE</button>
@@ -32,6 +35,9 @@ export const register2 = () => {
   const registerElement = document.createElement('div');
   registerElement.setAttribute('class', 'registerPage2');
   const registerDiv2 = `
+       <header class="header1">
+       <img id="logo" src="img/logo.png" alt="logo">
+       </header>
        <h2 class="intoTitle">CREA TU CUENTA</h2>
        <p class="textCreateAccount">¡Es súper rápido y fácil!</p>
        <label for="name"></label>
@@ -65,6 +71,9 @@ export const register3 = () => {
   const registerElement = document.createElement('div');
   registerElement.setAttribute('class', 'registerPage3');
   const registerDiv3 = `
+       <header class="header1">
+       <img id="logo" src="img/logo.png" alt="logo">
+       </header>
        <h1 class="intoTitle">CREA TU CUENTA</h1>
        <label for="emailRegister"></label>
        <input id="emailRegister" type="email" placeholder="Ingrese su Correo" required>
@@ -165,7 +174,10 @@ export const register4 = () => {
   const registerElement = document.createElement('div');
   registerElement.setAttribute('class', 'registerPage4');
   const registerDiv4 = `
-      <h1 class="intoTitle">CREA TU CUENTA</h1>    
+       <header class="header1">
+       <img id="logo" src="img/logo.png" alt="logo">
+       </header>    
+       <h1 class="intoTitle">CREA TU CUENTA</h1>    
       <div class="birth">
         <label for="dateBirth">Fecha de Nacimiento</label>
         <input id="dateBirth" type="date" required>
@@ -195,9 +207,13 @@ export const register4 = () => {
 };
 // para vista destokp
 export const register = () => {
-  const registerElement = document.createElement('form');
-  registerElement.setAttribute('class', 'registerPage');
+  const registerElement = document.createElement('section');
+  registerElement.setAttribute('class', 'containerView');
   const registerForm = `
+  <header class="header1">
+     <img id="logo" src="img/logo.png" alt="logo">
+  </header>
+  <form class="registerPage">
   <h2 class="intoTitle">REGÍSTRATE Y ÚNETE A PETWORLD</h2>
   <p class="textCreateAccount">Crea tu cuenta en pocos pasos</p>
   <p class="textCreateAccount">¡Es súper rápido y fácil!</p>
@@ -235,7 +251,8 @@ export const register = () => {
   <div>
   <button type="submit" id="btnRegister">REGISTRARSE</button>
   <p id="messageComplete"></p>
-  <a class="questionDesktop" href="#">¿Ya tienes una cuenta?</a>`;
+  <a class="questionDesktop" href="#">¿Ya tienes una cuenta?</a>
+  </form>`;
   registerElement.innerHTML = registerForm;
   const ipEmail = registerElement.querySelector('#emailRegister');
   const ipPass = registerElement.querySelector('#passwordRegister');

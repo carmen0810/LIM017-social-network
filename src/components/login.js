@@ -3,9 +3,13 @@ import { onNavigate } from '../main.js';
 import { loginFirebase, loginGmail, loginFacebook } from '../authFirebase/authentication.js';
 
 export const login = () => {
-  const loginElement = document.createElement('div');
-  loginElement.setAttribute('class', 'loginView');
+  const loginElement = document.createElement('section');
+  loginElement.setAttribute('class', 'containerView');
   const loginDiv = `
+     <header class="header1">
+     <img id="logo" src="img/logo.png" alt="logo">
+     </header>
+     <div class='loginView'>
      <h1 id="titleLogin">INICIAR SESIÓN</h1>   
      <label for="email"></label>
      <input id="emailInto" type="email" placeholder="Correo" required>
@@ -26,7 +30,8 @@ export const login = () => {
      </div>
      <p id="loginParagraph">¿eres nuevo en petworld?</p>
      <button type="submit" class="btnCreateAccountDestokp hide ">Crea tu cuenta</button>
-     <button type="submit" class="btnCreateAccount">Crea tu cuenta</button>`;
+     <button type="submit" class="btnCreateAccount">Crea tu cuenta</button>
+     </div>`;
   loginElement.innerHTML = loginDiv;
   loginElement.querySelector('.iconEye1').addEventListener('click', () => {
     const inputPassword = document.querySelector('#passwordInto');
