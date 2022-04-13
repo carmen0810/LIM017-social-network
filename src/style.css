@@ -41,7 +41,7 @@ header{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 65vh;
+    height: 69.8vh;
 }
 
 #emailInto, #passwordInto{
@@ -72,7 +72,7 @@ header{
     align-items: center;
 }
 
-.btnCreateAccount{
+.btnCreateAccount, #btnNext1, #btnNext2, #btnNext3{
     text-transform: uppercase;
     padding: 10px;
     border-radius: 20px;
@@ -95,11 +95,19 @@ header{
 .registerPage{
     display: none;
 }
-
-.registerPage1, .registerPage2, .registerPage2, .registerPage4 {
-    height: 90vh;
+.textCreateAccount{
+    margin-bottom: 10px;
 }
-
+.registerPage1, .registerPage2, .registerPage3, .registerPage4 {
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+}
+.intoTitle{
+    margin-bottom: 15px;
+}
 #footerPetworld{
     display:flex;
     align-items: center;
@@ -107,9 +115,8 @@ header{
     height: 10vh;
     background: rgb(238,174,202);
     background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(189,181,219,1) 55%, rgba(148,187,233,1) 100%);
-    position: absolute;
-    bottom: 0;
     width: 100vw;
+    padding: 5px;
 }
 
 .btnLogin, #btnRegister {
@@ -121,10 +128,41 @@ header{
     padding: 13px;
 }
 
-.loginView input, .registerPage input, .registerPage1>input, .registerPage2>input, .registerPage3>input, .registerPage4>input{
-    margin:10px;
-    border-radius: 5px;
+ #dateBirth { 
+    margin:8px;
+    border-radius:15px;
+    width:50vw;
+    padding: 10px;
 }
+.birth{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#name, #lastName, #emailRegister, #passwordRegister, #repeatPassword {
+    margin:8px;
+    border-radius:15px;
+    width:60vw;
+    padding: 10px;
+}
+.passwords{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+}
+
+.msnerrorRepeatPassword, .msnerrorRegister, #messageComplete, #showMsn, #errorMessageComplete, #showMessageTag{
+    color:rgb(146, 7, 7);
+    padding:5px;
+}
+/* .loginView input,.registerPage input, .registerPage1>input, .registerPage2>input, .registerPage3>input, .registerPage4>input{
+    margin:8px;
+    border-radius:15px;
+    width:50vw;
+    padding: 10px;
+} */
 
 
 @media screen and (min-width:768px){
@@ -152,16 +190,7 @@ header{
     #footerPetworld{
         margin-bottom: 0px;
     }
-    .intoTitle{
-        margin-bottom: 15px;
-    }
-    .textCreateAccount{
-        margin-bottom: 10px;
-    }
-    .passwords{
-        display: flex;
-        flex-direction: column;
-    }
+   
     .btnCreateAccount{
     display: none;
     }
@@ -176,18 +205,19 @@ header{
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        padding: 10px;
     }
     #name, #lastName, #dateBirth { 
-        margin:8px;
-        border-radius:15px;
+        /* margin:8px;
+        border-radius:15px; */
         width:15vw;
-        padding: 10px;
+        /* padding: 10px; */
     }
     #emailRegister, #passwordRegister, #repeatPassword {
-        margin:8px;
-        border-radius:15px;
+        /* margin:8px;
+        border-radius:15px; */
         width:31vw;
-        padding: 10px;
+        /* padding: 10px; */
     }
     .dateBirthDiv{
         display: flex;
