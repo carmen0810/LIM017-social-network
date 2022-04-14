@@ -6,7 +6,7 @@ import { registerFirebase } from '../authFirebase/authentication.js';
 //   const registerElement = document.createElement('div');
 //   registerElement.setAttribute('class', 'registerPage1');
 //   const registerDiv1 = `
-//      <header class="header1">
+//      <header class="header1"
 //      <img id="logo" src="./img/imgLogin/logo.png" alt="logo">
 //      </header>
 //      <h2 class="intoTitle">ÚNETE A PETWORLD</h2>
@@ -35,7 +35,7 @@ import { registerFirebase } from '../authFirebase/authentication.js';
 //   const registerElement = document.createElement('div');
 //   registerElement.setAttribute('class', 'registerPage2');
 //   const registerDiv2 = `
-//        <header class="header1">
+//        <header class="header1"
 //        <img id="logo" src="./img/imgLogin/logo.png" alt="logo">
 //        </header>
 //        <h2 class="intoTitle">CREA TU CUENTA</h2>
@@ -63,7 +63,9 @@ import { registerFirebase } from '../authFirebase/authentication.js';
 //   });
 //   return registerElement;
 // };
-
+const MessageData = (input, showMessage) => {
+  input.innerText = showMessage;
+};
 // export const register3 = () => {
 //   const registerElement = document.createElement('div');
 //   registerElement.setAttribute('class', 'registerPage3');
@@ -128,7 +130,6 @@ import { registerFirebase } from '../authFirebase/authentication.js';
 //   }
 //   inputRepeatPassword.onblur = function () { validarPassword2(); };
 //   inputRepeatPassword.onkeyup = function () { validarPassword2(); };
-
 //   btnNext3.addEventListener('click', () => {
 //     if (ipEmail.value === '' || ipPass.value === '' || inputRepeatPassword.value === '') {
 //       const errorMessage = document.querySelector('#messageComplete');
@@ -203,11 +204,10 @@ import { registerFirebase } from '../authFirebase/authentication.js';
 //   }, 0);
 //   return registerElement;
 // };
-
 // para vista destokp
-const MessageData = (input, showMessage) => {
-  input.innerText = showMessage;
-};
+// const MessageData = (input, showMessage) => {
+//   input.innerText = showMessage;
+// };
 export const register = () => {
   const registerElement = document.createElement('section');
   registerElement.setAttribute('class', 'containerView');

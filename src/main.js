@@ -1,6 +1,8 @@
 import { login } from './components/login.js';
 
-import { register /*register1, register2, register3, register4*/ } from './components/register.js';
+import {
+  register/*, register1, register2, register3, register4,*/
+} from './components/register.js';
 
 import { homePetworld } from './components/home.js';
 
