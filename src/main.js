@@ -33,4 +33,4 @@ window.onpopstate = () => {
   rootDiv.innerHTML = '';
   rootDiv.appendChild(routes[window.location.pathname]());
 };
-onNavigate('/');
+onNavigate(window.location.pathname);

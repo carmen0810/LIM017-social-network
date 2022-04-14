@@ -1,6 +1,5 @@
-import {
-  getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider,
-} from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
+import { signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
 import { collection, addDoc, getFirestore } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';
 import { app } from './fbconfig.js';
 import { onNavigate } from '../main.js';
@@ -10,7 +9,7 @@ const dbfirestore = getFirestore(app);
 let user = '';
 
 // Registro nuevo usuario Petworld
-export const registerFirebase = (email, password, birth, name, lastName) => {
+export const registerFirebase = (name, lastName, email, password, birth) => {
   const auth = getAuth(app);
   const registerPetworld = createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
@@ -80,14 +79,14 @@ export const loginGmail = () => {
       document.getElementById('nameGoogle').innerText = `hola, ${userGmail.displayName}`;
     // ...
     }).catch((error) => {
-    // // Handle Errors here.
-    //   const errorCode = error.code;
-    //   const errorMessage = error.message;
-    //   // The email of the user's account used.
-    //   const email = error.email;
-    //   // The AuthCredential type that was used.
-    //   const credential = GoogleAuthProvider.credentialFromError(error);
-    // // ...
+    // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      const email = error.email;
+      // The AuthCredential type that was used.
+      const credential = GoogleAuthProvider.credentialFromError(error);
+    // ...
     });
   return authWithGmail;
 };
@@ -108,15 +107,15 @@ export const loginFacebook = () => {
       // localStorage.setItem('SESSION_NAME_ID', nameProfile.displayName);
     // ...
     }).catch((error) => {
-    //   console.log(error);
-    //   // Handle Errors here.
-    //   const errorCode = error.code;
-    //   const errorMessage = error.message;
-    //   // The email of the user's account used.
-    //   const email = error.email;
-    //   // The AuthCredential type that was used.
-    //   const credential = FacebookAuthProvider.credentialFromError(error);
-    // // ...
+      console.log(error);
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      const email = error.email;
+      // The AuthCredential type that was used.
+      const credential = FacebookAuthProvider.credentialFromError(error);
+    // ...
     });
   return authWithFacebook;
 };

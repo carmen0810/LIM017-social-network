@@ -6,8 +6,8 @@ import { registerFirebase } from '../authFirebase/authentication.js';
 //   const registerElement = document.createElement('div');
 //   registerElement.setAttribute('class', 'registerPage1');
 //   const registerDiv1 = `
-//      <header class="header1">
-//      <img id="logo" src="img/logo.png" alt="logo">
+//      <header class="header1"
+//      <img id="logo" src="./img/imgLogin/logo.png" alt="logo">
 //      </header>
 //      <h2 class="intoTitle">ÚNETE A PETWORLD</h2>
 //      <p class="textCreateAccount">Crea tu cuenta en pocos pasos</p>
@@ -35,8 +35,8 @@ import { registerFirebase } from '../authFirebase/authentication.js';
 //   const registerElement = document.createElement('div');
 //   registerElement.setAttribute('class', 'registerPage2');
 //   const registerDiv2 = `
-//        <header class="header1">
-//        <img id="logo" src="img/logo.png" alt="logo">
+//        <header class="header1"
+//        <img id="logo" src="./img/imgLogin/logo.png" alt="logo">
 //        </header>
 //        <h2 class="intoTitle">CREA TU CUENTA</h2>
 //        <p class="textCreateAccount">¡Es súper rápido y fácil!</p>
@@ -63,7 +63,6 @@ import { registerFirebase } from '../authFirebase/authentication.js';
 //   });
 //   return registerElement;
 // };
-
 const MessageData = (input, showMessage) => {
   input.innerText = showMessage;
 };
@@ -72,17 +71,17 @@ const MessageData = (input, showMessage) => {
 //   registerElement.setAttribute('class', 'registerPage3');
 //   const registerDiv3 = `
 //        <header class="header1">
-//        <img id="logo" src="img/logo.png" alt="logo">
+//        <img id="logo" src="./img/imgLogin/logo.png" alt="logo">
 //        </header>
 //        <h1 class="intoTitle">CREA TU CUENTA</h1>
 //        <label for="emailRegister"></label>
-//        <input id="emailRegister" type="email" placeholder="Ingrese su Correo" required>
+//        <input id="emailRegister" type="email" placeholder="*Correo electrónico" required>
 //        <div class='passwords'>
 //           <div class= eye>
 //             <label for="passwordRegister" class="inputLabel"></label>
-//             <input id="passwordRegister" type="password" placeholder="Contraseña Nueva" required>
+//             <input id="passwordRegister" type="password" placeholder="*Contraseña Nueva" required>
 //             <span class="iconEye2">
-//             <i class="fa fa-solid fa-eye-slash"></i>
+//             <i class="fa fa-solid fa-eye-slash" id="pass"></i>
 //             </span>
 //           </div>
 //           <span class="msnerrorRegister"></span>
@@ -90,9 +89,9 @@ const MessageData = (input, showMessage) => {
 //        <div class='passwords'>
 //           <div class='eye'>
 //             <label for="repeatPassword" class="inputLabel"></label>
-//             <input id="repeatPassword" type="password" placeholder="Confirme contraseña nueva" required>        
+//             <input id="repeatPassword" type="password" placeholder="*Confirme contraseña" required>
 //             <span class="iconEye3">
-//             <i class="fa fa-solid fa-eye-slash"></i>
+//             <i class="fa fa-solid fa-eye-slash" id="repeatPass"></i>
 //             </span>
 //           </div>
 //           <span class="msnerrorRepeatPassword"></span>
@@ -131,11 +130,12 @@ const MessageData = (input, showMessage) => {
 //   }
 //   inputRepeatPassword.onblur = function () { validarPassword2(); };
 //   inputRepeatPassword.onkeyup = function () { validarPassword2(); };
-
 //   btnNext3.addEventListener('click', () => {
 //     if (ipEmail.value === '' || ipPass.value === '' || inputRepeatPassword.value === '') {
 //       const errorMessage = document.querySelector('#messageComplete');
 //       errorMessage.textContent = 'Debes completar todos los campos solicitados';
+//     // else if (ipEmail.value == 'Firebase: Error (auth/email-already-in-use).') {
+//     // //   alert('email ya registrado');
 //     } else {
 //       localStorage.setItem('EMAIL', document.getElementById('emailRegister').value);
 //       localStorage.setItem('PASSWORD', document.getElementById('passwordRegister').value);
@@ -144,7 +144,7 @@ const MessageData = (input, showMessage) => {
 //   });
 //   registerElement.querySelector('.iconEye2').addEventListener('click', () => {
 //     const eyePassword = document.querySelector('#passwordRegister');
-//     const icon = document.querySelector('i');
+//     const icon = document.querySelector('#pass');
 //     if (eyePassword.type === 'password') {
 //       eyePassword.type = 'text';
 //       icon.classList.remove('fa-eye-slash');
@@ -157,7 +157,7 @@ const MessageData = (input, showMessage) => {
 //   });
 //   registerElement.querySelector('.iconEye3').addEventListener('click', () => {
 //     const eyePassword = document.querySelector('#repeatPassword');
-//     const icon = document.querySelector('i');
+//     const icon = document.querySelector('#repeatPass');
 //     if (eyePassword.type === 'password') {
 //       eyePassword.type = 'text';
 //       icon.classList.remove('fa-eye-slash');
@@ -175,14 +175,14 @@ const MessageData = (input, showMessage) => {
 //   registerElement.setAttribute('class', 'registerPage4');
 //   const registerDiv4 = `
 //        <header class="header1">
-//        <img id="logo" src="img/logo.png" alt="logo">
-//        </header>    
-//        <h1 class="intoTitle">CREA TU CUENTA</h1>    
+//        <img id="logo" src="./img/imgLogin/logo.png" alt="logo">
+//        </header>
+//        <h1 class="intoTitle">CREA TU CUENTA</h1>
 //       <div class="birth">
 //         <label for="dateBirth">Fecha de Nacimiento</label>
 //         <input id="dateBirth" type="date" required>
 //         <span id="showMsn"></span>
-//       </div> 
+//       </div>
 //       <button id="btnRegister">REGISTRARSE</button>`;
 //   registerElement.innerHTML = registerDiv4;
 //   setTimeout(() => {
@@ -199,71 +199,72 @@ const MessageData = (input, showMessage) => {
 //         const inputName = localStorage.getItem('NAME');
 //         const inputLastName = localStorage.getItem('LASTNAME');
 //         registerFirebase(inputEmail, inputPassword, inputBirth, inputName, inputLastName);
-//         onNavigate('/');
 //       }
 //     });
 //   }, 0);
 //   return registerElement;
 // };
 // para vista destokp
+// const MessageData = (input, showMessage) => {
+//   input.innerText = showMessage;
+// };
 export const register = () => {
   const registerElement = document.createElement('section');
   registerElement.setAttribute('class', 'containerView');
   const registerForm = `
   <header class="header1">
-     <img id="logo" src="img/logo.png" alt="logo">
+     <img id="logo" src="./img/imgLogin/logo.png" alt="logo">
   </header>
   <form class="registerPage">
-  <h2 class="intoTitle">REGÍSTRATE Y ÚNETE A PETWORLD</h2>
-  <p class="textCreateAccount">Crea tu cuenta en pocos pasos</p>
-  <p class="textCreateAccount">¡Es súper rápido y fácil!</p>
-  <div class="fullName">
-    <label for="name"></label>
-    <input id="name" type="text" name="nameDesktop" placeholder="*Nombres" required>
-    <label for="lastName"></label>
-    <input id="lastName" type="text" name="lastName" placeholder="*Apellidos" required>
-  </div>
-  <label for="emailRegister"></label>
-  <input id="emailRegister" type="email" name="emailRegister" placeholder="*Correo eléctrónico" required>
-  <div class="passwords">
-      <div class='eye'>
-        <label for="passwordRegister" class="inputLabel"></label>
-        <input id="passwordRegister" type="password" name="passwordRegister" placeholder="*Contraseña nueva" required>
-        <span class="iconEye4">
-        <i class="fa fa-solid fa-eye-slash"></i>
-        </span>
-      </div>
-      <span class="msnerrorRegister"></span>
-  </div>    
-  <div class="passwords">
-      <div class='eye'>
-        <label for="repeatPassword" class="inputLabel"></label>
-        <input id="repeatPassword" type="password" name="repeatPassword" placeholder="*Confirme contraseña" required>
-        <span class="iconEye5">
-        <i class="fa fa-solid fa-eye-slash"></i>
-        </span>
-      </div> 
-      <span class="msnerrorRepeatPassword"></span>   
-  </div>
-  <div class"dateBirthDiv">
-    <label id="textBirth" for="dateBirth">Fecha de Nacimiento:</label>
-    <input id="dateBirth" name="dateBirth" type="date" required>
-  <div>
-  <button type="submit" id="btnRegister">REGISTRARSE</button>
-  <p id="messageComplete"></p>
-  <a class="questionDesktop" href="#">¿Ya tienes una cuenta?</a>
+    <h2 class="intoTitle">REGÍSTRATE Y ÚNETE A PETWORLD</h2>
+    <p class="textCreateAccount">Crea tu cuenta en pocos pasos</p>
+    <p class="textCreateAccount">¡Es súper rápido y fácil!</p>
+    <div class="fullName">
+      <label for="name"></label>
+      <input id="name" type="text" name="nameDesktop" placeholder="*Nombres" required>
+      <label for="lastName"></label>
+      <input id="lastName" type="text" name="lastName" placeholder="*Apellidos" required>
+    </div>
+    <label for="emailRegister"></label>
+    <input id="emailRegister" type="email" name="emailRegister" placeholder="*Correo electrónico" required>
+    <div class="passwords">
+        <div class='eye'>
+          <label for="passwordRegister" class="inputLabel"></label>
+          <input id="passwordRegister" type="password" name="passwordRegister" placeholder="*Contraseña nueva" required>
+          <span class="iconEye2">
+          <i class="fa fa-solid fa-eye-slash" id="pass"></i>
+          </span>
+        </div>
+        <span class="msnerrorRegister"></span>
+    </div>    
+    <div class="passwords">
+        <div class='eye'>
+          <label for="repeatPassword" class="inputLabel"></label>
+          <input id="repeatPassword" type="password" name="repeatPassword" placeholder="*Confirme contraseña" required>
+          <span class="iconEye3">
+          <i class="fa fa-solid fa-eye-slash" id="repeatPass"></i>
+          </span>
+        </div> 
+        <span class="msnerrorRepeatPassword"></span>   
+    </div>
+    <div class="dateBirthDiv">
+      <label id="textBirth" for="dateBirth">Fecha de Nacimiento:</label>
+      <input id="dateBirth" name="dateBirth" type="date" required>
+    </div>
+    <button type="submit" id="btnRegister">REGISTRARSE</button>
+    <p id="messageComplete"></p>
+    <a class="questionAccount" href="#">¿Ya tienes una cuenta?</a>
   </form>`;
   registerElement.innerHTML = registerForm;
-  const ipEmail = registerElement.querySelector('#emailRegister');
-  const ipPass = registerElement.querySelector('#passwordRegister');
-  const ipBirth = registerElement.querySelector('#dateBirth');
   const ipName = registerElement.querySelector('#name');
   const ipLastName = registerElement.querySelector('#lastName');
+  const ipEmail = registerElement.querySelector('#emailRegister');
+  const ipPass = registerElement.querySelector('#passwordRegister');
   const ipRepeatPassword = registerElement.querySelector('#repeatPassword');
+  const ipBirth = registerElement.querySelector('#dateBirth');
   const btnRegister = registerElement.querySelector('#btnRegister');
   const msnerrorRegister = registerElement.querySelector('.msnerrorRegister');
   const msnerrorRepeatPassword = registerElement.querySelector('.msnerrorRepeatPassword');
-
   function validarPassword() {
     const expRegular = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,18}$/;
     if (!ipPass) {
@@ -288,43 +289,41 @@ export const register = () => {
   }
   ipRepeatPassword.onblur = function () { validarPassword2(); };
   ipRepeatPassword.onkeyup = function () { validarPassword2(); };
-
   btnRegister.addEventListener('click', () => {
-    if (ipEmail.value === '' || ipBirth.value === '' || ipLastName.value === '' || ipName.value === '' || ipPass.value === '' || ipRepeatPassword.value === '') {
+    if (ipName.value === '' || ipLastName.value === '' || ipEmail.value === '' || ipPass.value === '' || ipRepeatPassword.value === '' || ipBirth.value === '') {
       const errorMessage = document.querySelector('#messageComplete');
       errorMessage.textContent = 'Debes completar todos los campos solicitados';
     } else {
-      registerFirebase(ipEmail.value, ipPass.value, ipBirth.value, ipName.value, ipLastName.value);
-      //onNavigate('/');
+      registerFirebase(ipName.value, ipLastName.value, ipEmail.value, ipPass.value, ipBirth.value);
     }
   });
-  registerElement.querySelector('.iconEye4').addEventListener('click', () => {
+  registerElement.querySelector('.iconEye2').addEventListener('click', () => {
     const eyePassword = document.querySelector('#passwordRegister');
-    const icon = document.querySelector('i');
+    const iconPass = document.querySelector('#pass');
     if (eyePassword.type === 'password') {
       eyePassword.type = 'text';
-      icon.classList.remove('fa-eye-slash');
-      icon.classList.add('fa-eye');
+      iconPass.classList.remove('fa-eye-slash');
+      iconPass.classList.add('fa-eye');
     } else {
       eyePassword.type = 'password';
-      icon.classList.remove('fa-eye');
-      icon.classList.add('fa-eye-slash');
+      iconPass.classList.remove('fa-eye');
+      iconPass.classList.add('fa-eye-slash');
     }
   });
-  registerElement.querySelector('.iconEye5').addEventListener('click', () => {
-    const eyePassword = document.querySelector('#repeatPassword');
-    const icon = document.querySelector('i');
-    if (eyePassword.type === 'password') {
-      eyePassword.type = 'text';
-      icon.classList.remove('fa-eye-slash');
-      icon.classList.add('fa-eye');
+  registerElement.querySelector('.iconEye3').addEventListener('click', () => {
+    const eyePasswordRepeat = document.querySelector('#repeatPassword');
+    const iconRepeat = document.querySelector('#repeatPass');
+    if (eyePasswordRepeat.type === 'password') {
+      eyePasswordRepeat.type = 'text';
+      iconRepeat.classList.remove('fa-eye-slash');
+      iconRepeat.classList.add('fa-eye');
     } else {
-      eyePassword.type = 'password';
-      icon.classList.remove('fa-eye');
-      icon.classList.add('fa-eye-slash');
+      eyePasswordRepeat.type = 'password';
+      iconRepeat.classList.remove('fa-eye');
+      iconRepeat.classList.add('fa-eye-slash');
     }
   });
-  registerElement.querySelector('.questionDesktop').addEventListener('click', () => {
+  registerElement.querySelector('.questionAccount').addEventListener('click', () => {
     onNavigate('/');
   });
   return registerElement;
