@@ -29,7 +29,7 @@ export const login = () => {
         <img src="./img/imgLogin/google.png" alt="google" id="iconGmail" class="iconInto">
      </div>
      <p id="loginParagraph">¿eres nuevo en petworld?</p>
-     <button type="submit" class="btnCreateAccount">Crea tu cuenta</button>
+     <button class="btnCreateAccount">Crea tu cuenta</button>
      </div>`;
   loginElement.innerHTML = loginDiv;
   loginElement.querySelector('.iconEye1').addEventListener('click', () => {
@@ -56,23 +56,23 @@ export const login = () => {
       onNavigate('/homePetworld');
     }
   });
-  setTimeout(() => {
-    loginElement.querySelector('.btnCreateAccount').addEventListener('click', () => {
-      onNavigate('/register');
-    });
-  }, 0);
+  // setTimeout(() => {
+  loginElement.querySelector('.btnCreateAccount').addEventListener('click', () => {
+    onNavigate('/register');
+  });
+  // }, 0);
 
-  setTimeout(() => {
+  // setTimeout(() => {
   //   loginElement.querySelector('.btnCreateAccountDestokp').addEventListener('click', () => {
   //     onNavigate('/register');
-    loginElement.querySelector('#iconGmail').addEventListener('click', () => {
-      loginGmail();
-    });
-    loginElement.querySelector('#iconFacebook').addEventListener('click', () => {
-      loginFacebook();
-    });
-    if (localStorage.getItem('SESSION_USER_ID') !== null) onNavigate('/homePetworld');
-  }, 0);
-
+  loginElement.querySelector('#iconGmail').addEventListener('click', () => {
+    loginGmail();
+  });
+  loginElement.querySelector('#iconFacebook').addEventListener('click', () => {
+    loginFacebook();
+  //   });
+  //   if (localStorage.getItem('SESSION_USER_ID') !== null) onNavigate('/homePetworld');
+  // }, 0);
+  });
   return loginElement;
 };

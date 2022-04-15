@@ -9,7 +9,7 @@ const dbfirestore = getFirestore(app);
 let user = '';
 
 // Registro nuevo usuario Petworld
-export const registerFirebase = (name, lastName, email, password, birth) => {
+export const registerFirebase = (email, password, birth, name, lastName) => {
   const auth = getAuth(app);
   const registerPetworld = createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
