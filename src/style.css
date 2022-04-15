@@ -1,10 +1,16 @@
-*{
+ *{
     margin:0;
     box-sizing: border-box;
     font-family: 'PT Sans', sans-serif
 }
+.containerView {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
-#root, .containerMain{
+#root{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -27,11 +33,11 @@
 }
 
 #logo{
-    Height: 180px;
+    width: 60%;
 }
 
 #titleLogin{
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .loginView{
@@ -39,7 +45,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 69.8vh;
+    height: 80vh;
 }
 #emailInto, #passwordInto{
     margin:8px;
@@ -54,7 +60,7 @@
 .eye{
     position: relative;
 }
-.iconEye1, .iconEye2, .iconEye3, .iconEye4, .iconEye5{
+.iconEye1, /*.iconEye2, .iconEye3,*/ .iconEye2, .iconEye3{
     position: absolute;
     right: 15px;
     top:50%;
@@ -69,7 +75,7 @@
     align-items: center;
 }
 
-.btnCreateAccount, #btnNext1, #btnNext2, #btnNext3{
+.btnCreateAccount /*#btnNext1, #btnNext2, #btnNext3*/{ 
     text-transform: uppercase;
     padding: 10px;
     border-radius: 20px;
@@ -79,7 +85,7 @@
     border-style: groove;
 }
 
-.btnCreateAccountDestokp {
+/* .btnCreateAccountDestokp {
     text-transform: uppercase;
     padding: 10px;
     border-radius: 20px;
@@ -88,22 +94,29 @@
     background: #f4f7f9;
     border-style: groove;
     display: none;
-}
-.registerPage{
+} */
+/* .registerPage{
     display: none;
+} */
+.registerPage,.dateBirthDiv,.fullName{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 .textCreateAccount{
     margin-bottom: 10px;
 }
-.registerPage1, .registerPage2, .registerPage3, .registerPage4 {
+/* .registerPage1, .registerPage2, .registerPage3, .registerPage4 {
     height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center
-}
+} */
 .intoTitle{
     margin-bottom: 15px;
+    padding: 5px;
 }
 #footerPetworld{
     display:flex;
@@ -124,17 +137,17 @@
     padding: 13px;
 }
 
- #dateBirth { 
+#dateBirth { 
     margin:8px;
     border-radius:15px;
     width:50vw;
     padding: 10px;
 }
-.birth{
+/* .birth{
     display:flex;
     flex-direction: column;
     align-items: center;
-}
+} */
 
 #name, #lastName, #emailRegister, #passwordRegister, #repeatPassword {
     margin:8px;
@@ -152,6 +165,9 @@
 .msnerrorRepeatPassword, .msnerrorRegister, #messageComplete, #showMsn, #errorMessageComplete, #showMessageTag{
     color:rgb(146, 7, 7);
     padding:5px;
+}
+.questionAccount{
+    margin-top: 15px;
 }
 /* Estilos Home */
 
@@ -172,22 +188,46 @@
     padding: 10px;
     background-color: rgb(216, 89, 159);
 }
-.homeBar {
+.homeBar1 {
     display: flex;
     flex-grow: 1;
     justify-content: space-evenly;
     list-style: none;
     padding: 5px;  
 }
+.homeBar2{
+    width: 5%;
+    display: flex;
+    list-style: none;
+    flex-grow: 1;
+    justify-content: space-evenly;
+    align-items: center;
+}
 .homePage{
     height: 90vh;
 }
-.homeNav>.homeBar>li:hover{
+.listNav{
+    display: flex;
+    align-items: center;
+}
+.imgIcon{
+    margin: 5px;
+}
+
+.listNav:hover{
     cursor: pointer;
     background-color: #d864b1;
-    transform: scale(1.2);
+    transform: scale(1.1);
     border-radius: 5px;
-} 
+    padding: 2px;
+}
+
+/*Estilos para home*/
+.iconProfile{
+    width:45%;
+    margin: 10px;
+}
+
 @media screen and (min-width:768px){
     .containerView {
         display: flex;
@@ -213,15 +253,15 @@
     #footerPetworld{
         margin-bottom: 0px;
     }
-    .btnCreateAccount{
+    /* .btnCreateAccount{
     display: none;
-    }
-    .btnCreateAccountDestokp{
+    } */
+    /* .btnCreateAccountDestokp{
         display: block;
-    }
-    .registerPage1, .registerPage2, .registerPage3, .registerPage4{
+    } */
+    /* .registerPage1, .registerPage2, .registerPage3, .registerPage4{
         display: none;
-    }
+    } */
     .registerPage{
         display: flex;
         flex-direction: column;
@@ -229,6 +269,10 @@
         align-items: center;
         padding: 10px;
         width: 50vw;
+    }
+    .fullName{
+        display: flex;
+        flex-direction: row;
     }
     #name, #lastName, #dateBirth { 
         width:15vw;
@@ -239,12 +283,6 @@
     .dateBirthDiv{
         display: flex;
         flex-direction: row;
+
     }
-     #textBirth  {
-        width: 31vw;
-    }
-}
-.iconProfile{
-    width:45%;
-    margin: 10px;
 }
