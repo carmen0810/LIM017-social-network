@@ -11,7 +11,7 @@ export const homePetworld = () => {
       </label>
       <input id="searchIcon" type="search" placeholder="Buscar"> 
     </header>
-    <section>
+    <section class="posts">
       <aside>      
         <nav class="homeNav">
           <img id="logoHome" src="./img/imgLogin/logo.png" alt="logo">
@@ -28,17 +28,27 @@ export const homePetworld = () => {
             <li class="listNav2"><img class="imgIcon" src="./img/icons/cerrarSesión.png">Cerrar Sesión</li>
           </ul>
         </nav>
-      <aside>
+      </aside>
       <div class="containerPost">
-      
+        <div class="photoProfile">
+          <img  id="iconUser"class="iconProfile" >
+          
+          <img id="iconGoogle"class="iconProfile">
+          
+        </div>
+        <div class="textPost">
+          <input>
+        </div>
       </div>
     </section>
-    <div>
+    `;
+  homeElement.innerHTML = homeDiv;
+  return homeElement;
+};
+
+{/* <div>
     <img  id="iconUser"class="iconProfile" >
     <p id="nameUser"></p>
     <img id="iconGoogle"class="iconProfile">
     <p id="nameGoogle"></p>
-    </div>`;
-  homeElement.innerHTML = homeDiv;
-  return homeElement;
-};
+    </div> */}

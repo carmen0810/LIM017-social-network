@@ -60,7 +60,7 @@
 .eye{
     position: relative;
 }
-.iconEye1, /*.iconEye2, .iconEye3,*/ .iconEye2, .iconEye3{
+.iconEye1, .iconEye2, .iconEye3{
     position: absolute;
     right: 15px;
     top:50%;
@@ -75,7 +75,7 @@
     align-items: center;
 }
 
-.btnCreateAccount /*#btnNext1, #btnNext2, #btnNext3*/{ 
+.btnCreateAccount { 
     text-transform: uppercase;
     padding: 10px;
     border-radius: 20px;
@@ -85,19 +85,7 @@
     border-style: groove;
 }
 
-/* .btnCreateAccountDestokp {
-    text-transform: uppercase;
-    padding: 10px;
-    border-radius: 20px;
-    border-color: rgb(82 19 80);
-    margin: 20px;
-    background: #f4f7f9;
-    border-style: groove;
-    display: none;
-} */
-/* .registerPage{
-    display: none;
-} */
+
 .registerPage,.dateBirthDiv,.fullName{
     display: flex;
     flex-direction: column;
@@ -107,13 +95,7 @@
 .textCreateAccount{
     margin-bottom: 10px;
 }
-/* .registerPage1, .registerPage2, .registerPage3, .registerPage4 {
-    height: 90vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center
-} */
+
 .intoTitle{
     margin-bottom: 15px;
     padding: 5px;
@@ -143,11 +125,6 @@
     width:50vw;
     padding: 10px;
 }
-/* .birth{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-} */
 
 #name, #lastName, #emailRegister, #passwordRegister, #repeatPassword {
     margin:8px;
@@ -220,6 +197,8 @@ aside{
 }
 .containerPost{
     width: 60%;
+    display: flex;
+    background-color: orange;
 }
 .listNav, .listNav2{
     display: flex;
@@ -287,15 +266,7 @@ aside{
     .containerPost{
         width: 80%;
     }
-    /* .btnCreateAccount{
-    display: none;
-    } */
-    /* .btnCreateAccountDestokp{
-        display: block;
-    } */
-    /* .registerPage1, .registerPage2, .registerPage3, .registerPage4{
-        display: none;
-    } */
+   
     .registerPage{
         display: flex;
         flex-direction: column;
@@ -319,4 +290,20 @@ aside{
         flex-direction: row;
 
     }
+}
+
+.posts{
+    display: flex;
+    background-color: rgb(208, 255, 0);
+}
+
+/* .containerPost{
+    display: flex;
+    background-color: orange;
+} */
+.photoProfile{
+    background-color: yellow;
+}
+.textPost{
+    background-color: aquamarine;
 }
