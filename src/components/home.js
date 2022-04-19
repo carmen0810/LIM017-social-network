@@ -28,7 +28,7 @@ export const homePetworld = () => {
             <li class="listNav2"><img class="imgIcon" src="./img/icons/cerrarSesión.png">Cerrar Sesión</li>
           </ul>
         </nav>
-      <aside>
+      </aside>
       <div class="containerPost">
       
       </div>
