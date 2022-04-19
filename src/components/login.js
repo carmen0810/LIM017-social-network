@@ -53,26 +53,18 @@ export const login = () => {
       errorMessage.textContent = 'Debes completar todos los campos solicitados';
     } else {
       loginFirebase(intoLoginEmail, intoLoginPassword);
-      onNavigate('/homePetworld');
     }
   });
-  // setTimeout(() => {
+
   loginElement.querySelector('.btnCreateAccount').addEventListener('click', () => {
     onNavigate('/register');
   });
-  // }, 0);
 
-  // setTimeout(() => {
-  //   loginElement.querySelector('.btnCreateAccountDestokp').addEventListener('click', () => {
-  //     onNavigate('/register');
   loginElement.querySelector('#iconGmail').addEventListener('click', () => {
     loginGmail();
   });
   loginElement.querySelector('#iconFacebook').addEventListener('click', () => {
     loginFacebook();
-  //   });
-  //   if (localStorage.getItem('SESSION_USER_ID') !== null) onNavigate('/homePetworld');
-  // }, 0);
   });
   return loginElement;
 };

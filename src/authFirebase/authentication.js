@@ -11,7 +11,7 @@ let user = '';
 // Registro nuevo usuario Petworld
 export const registerFirebase = (name, lastName, email, password, birth) => {
   const auth = getAuth(app);
-  const registerPetworld = createUserWithEmailAndPassword(auth, email, password)
+  return createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       user = userCredential.user.uid;
       addDoc(collection(dbfirestore, 'users'), {
@@ -20,9 +20,11 @@ export const registerFirebase = (name, lastName, email, password, birth) => {
         dateBirth: birth,
         uid: user,
       });
+      onNavigate('/');
     })
     .catch((error) => {
       const errorMessage = error.message;
+      console.log(errorMessage)
       switch (errorMessage) {
         case 'Firebase: Error (auth/email-already-in-use).':
           alert('email ya registrado');
@@ -37,15 +39,16 @@ export const registerFirebase = (name, lastName, email, password, birth) => {
           break;
       }
     });
-  return registerPetworld;
+  // return registerPetworld;
 };
 
 // Ingreso a Petworld con correo y contraseña
 export const loginFirebase = (email, password) => {
   const auth = getAuth(app);
-  const authLoginFirebase = signInWithEmailAndPassword(auth, email, password)
+  return signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       alert(`Bienvenid@${userCredential.user.email}`);
+      onNavigate('/homePetworld');
     })
     .catch((error) => {
       const errorMessage = error.message;
@@ -53,11 +56,17 @@ export const loginFirebase = (email, password) => {
         case 'Firebase: Error (auth/invalid-email).':
           alert('email invalido');
           break;
-        default:
+        case 'Firebase: Error (auth/user-not-found).':
+          alert('usuario no registrado');
           break;
-      }
+        // case 'Firebase: Error (auth/invalid-password-hash).':
+        //   alert('contraseña incorrecta');
+        //   break;
+        default:
+        break;
+      };
+      // onNavigate('/');
     });
-  return authLoginFirebase;
 };
 
 // Ingreso a Petworld con Gmail
@@ -75,7 +84,7 @@ export const loginGmail = () => {
       onNavigate('/homePetworld');
       // eslint-disable-next-line no-unused-expressions
       document.getElementById('iconGoogle').setAttribute('src', userGmail.photoURL);
-      document.getElementById('nameGoogle').innerText = `hola, ${userGmail.displayName}`;
+     // document.getElementById('nameGoogle').innerText = `hola, ${userGmail.displayName}`;
     // ...
     }).catch((error) => {
     // Handle Errors here.
