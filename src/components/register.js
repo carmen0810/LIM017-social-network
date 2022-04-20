@@ -1,9 +1,6 @@
 import { onNavigate } from '../main.js';
 import { registerFirebase } from '../authFirebase/authentication.js';
-
-const MessageData = (input, showMessage) => {
-  input.innerText = showMessage;
-};
+import { MessageData } from '../lib/index.js';
 
 export const register = () => {
   const registerElement = document.createElement('section');
@@ -62,6 +59,7 @@ export const register = () => {
   const btnRegister = registerElement.querySelector('#btnRegister');
   const msnerrorRegister = registerElement.querySelector('.msnerrorRegister');
   const msnerrorRepeatPassword = registerElement.querySelector('.msnerrorRepeatPassword');
+
   function validarPassword() {
     const expRegular = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,18}$/;
     if (!ipPass) {
