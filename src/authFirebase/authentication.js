@@ -3,13 +3,14 @@ import { signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from 'https
 import { collection, addDoc, getFirestore } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';
 import { app } from './fbconfig.js';
 import { onNavigate } from '../main.js';
+import { sendPasswordResetEmail } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
 
 const dbfirestore = getFirestore(app);
 
 let user = '';
 
 // Registro nuevo usuario Petworld
-export const registerFirebase = (name, lastName, email, password, birth) => {
+export const registerFirebase = (name, lastName, email, password) => {
   const auth = getAuth(app);
   return createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
@@ -17,7 +18,6 @@ export const registerFirebase = (name, lastName, email, password, birth) => {
       addDoc(collection(dbfirestore, 'users'), {
         nameUser: name,
         lastNameUser: lastName,
-        dateBirth: birth,
         uid: user,
       });
       onNavigate('/');
@@ -125,3 +125,20 @@ export const loginFacebook = () => {
     });
   return authWithFacebook;
 };
+
+// recuperar contraseña
+export const resetPasswordPet = (email) => {
+  const auth = getAuth(app);
+ return sendPasswordResetEmail(auth, email)
+  .then((userCredential) => {
+    user = userCredential.user;
+
+    // Password reset email sent!
+    // ..
+  })
+  .catch((error) => {
+    // const errorCode = error.code;
+    // const errorMessage = error.message;
+    // ..
+  });
+}

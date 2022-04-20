@@ -6,29 +6,29 @@ export const login = () => {
   loginElement.setAttribute('class', 'containerView');
   const loginDiv = `
      <header class="header1">
-     <img id="logo" src="./img/imgLogin/logo.png" alt="logo">
+        <img id="logo" src="./img/imgLogin/logo.png" alt="logo">
      </header>
      <div class='loginView'>
-     <h1 id="titleLogin">INICIAR SESIÓN</h1>   
-     <label for="email"></label>
-     <input id="emailInto" type="email" placeholder="*Correo electrónico" required>
-      <div class='eye'>
-     <label for="password"></label>
-     <input id="passwordInto" type="password" placeholder="*Contraseña" required>
-     <span class="iconEye1">
-     <i class="fa fa-solid fa-eye-slash"></i>
-     </span>
-     </div>
-     <p id="showMessageTag"></p>
-     <a>¿Olvidaste tu contraseña?</a>
-     <button class="btnLogin">INGRESAR</button>
-     <p>o ingresa con</p>
-     <div class= "iconDivLogin">
-        <img src="./img/imgLogin/facebook.png" alt="facebook" id="iconFacebook" class="iconInto">
-        <img src="./img/imgLogin/google.png" alt="google" id="iconGmail" class="iconInto">
-     </div>
-     <p id="loginParagraph">¿eres nuevo en petworld?</p>
-     <button class="btnCreateAccount">Crea tu cuenta</button>
+        <h1 id="titleLogin">INICIAR SESIÓN</h1>   
+        <label for="email"></label>
+        <input id="emailInto" type="email" placeholder="*Correo electrónico" required>
+        <div class='eye'>
+          <label for="password"></label>
+          <input id="passwordInto" type="password" placeholder="*Contraseña" required>
+          <span class="iconEye1">
+          <i class="fa fa-solid fa-eye-slash"></i>
+          </span>
+        </div>
+        <p id="showMessageTag"></p>
+        <a href="/resetPassword">¿Olvidaste tu contraseña?</a>
+        <button class="btnLogin">INGRESAR</button>
+        <p>o ingresa con</p>
+        <div class= "iconDivLogin">
+            <img src="./img/imgLogin/facebook.png" alt="facebook" id="iconFacebook" class="iconInto">
+            <img src="./img/imgLogin/google.png" alt="google" id="iconGmail" class="iconInto">
+        </div>
+        <p id="loginParagraph">¿eres nuevo en petworld?</p>
+        <button class="btnCreateAccount">Crea tu cuenta</button>
      </div>`;
   loginElement.innerHTML = loginDiv;
   loginElement.querySelector('.iconEye1').addEventListener('click', () => {
