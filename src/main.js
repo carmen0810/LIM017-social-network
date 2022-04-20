@@ -4,12 +4,15 @@ import { register } from './components/register.js';
 
 import { homePetworld } from './components/home.js';
 
+import { resetPassword } from './components/resetPassword.js';
 const rootDiv = document.getElementById('root');
 
 export const routes = {
   '/': login,
   '/register': register,
   '/homePetworld': homePetworld,
+  '/resetPassword': resetPassword,
+
 };
 
 // cambiar a otro archivo y denominar a routes este archivo
@@ -28,3 +31,5 @@ window.onpopstate = () => {
   rootDiv.appendChild(routes[window.location.pathname]());
 };
 onNavigate(window.location.pathname);
+
+//Función modal

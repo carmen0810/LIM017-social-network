@@ -46,9 +46,9 @@ export const homePetworld = () => {
   return homeElement;
 };
 
-{/* <div>
-    <img  id="iconUser"class="iconProfile" >
-    <p id="nameUser"></p>
-    <img id="iconGoogle"class="iconProfile">
-    <p id="nameGoogle"></p>
-    </div> */}
+// {/* <div>
+//     <img  id="iconUser"class="iconProfile" >
+//     <p id="nameUser"></p>
+//     <img id="iconGoogle"class="iconProfile">
+//     <p id="nameGoogle"></p>
+//     </div> */}

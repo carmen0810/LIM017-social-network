@@ -235,6 +235,32 @@ aside{
     margin: 10px;
 }
 
+/*ESTILOS PARA RESET PASSWORD*/
+.headerReset{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#logoReset, #imgforgot{
+    width:35%;
+}
+.resetPassDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#emailResetPass{
+    border-radius: 10px;
+}
+#btnResetPass{
+    border-radius: 10px;
+    background-color: #450761;
+    color: #f4f7f9;
+}
+
+/*ESTILOS PARA DESTOKP*/
+
 @media screen and (min-width:768px){
     .containerView {
         display: flex;

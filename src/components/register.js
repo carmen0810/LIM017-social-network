@@ -2,9 +2,8 @@ import { onNavigate } from '../main.js';
 import { registerFirebase } from '../authFirebase/authentication.js';
 
 const MessageData = (input, showMessage) => {
-  input.innerText = showMessage;
-};
-
+    input.innerText = showMessage;
+  };
 export const register = () => {
   const registerElement = document.createElement('section');
   registerElement.setAttribute('class', 'containerView');
@@ -44,13 +43,9 @@ export const register = () => {
         </div> 
         <span class="msnerrorRepeatPassword"></span>   
     </div>
-    <div class="dateBirthDiv">
-      <label id="textBirth" for="dateBirth">Fecha de Nacimiento:</label>
-      <input id="dateBirth" name="dateBirth" type="date" required>
-    </div>
     <button  id="btnRegister" >REGISTRARSE</button>
     <p id="messageComplete"></p>
-    <a class="questionAccount" href="#">¿Ya tienes una cuenta?</a>
+    <a class="questionAccount" href="/">¿Ya tienes una cuenta?</a>
   </form>`;
   registerElement.innerHTML = registerForm;
   const ipName = registerElement.querySelector('#name');
@@ -58,7 +53,6 @@ export const register = () => {
   const ipEmail = registerElement.querySelector('#emailRegister');
   const ipPass = registerElement.querySelector('#passwordRegister');
   const ipRepeatPassword = registerElement.querySelector('#repeatPassword');
-  const ipBirth = registerElement.querySelector('#dateBirth');
   const btnRegister = registerElement.querySelector('#btnRegister');
   const msnerrorRegister = registerElement.querySelector('.msnerrorRegister');
   const msnerrorRepeatPassword = registerElement.querySelector('.msnerrorRepeatPassword');
@@ -88,11 +82,11 @@ export const register = () => {
   ipRepeatPassword.onkeyup = function () { validarPassword2(); };
   btnRegister.addEventListener('click', (e) => {
     e.preventDefault();
-    if (ipName.value === '' || ipLastName.value === '' || ipEmail.value === '' || ipPass.value === '' || ipRepeatPassword.value === '' || ipBirth.value === '') {
+    if (ipName.value === '' || ipLastName.value === '' || ipEmail.value === '' || ipPass.value === '' || ipRepeatPassword.value === '' ) {
       const errorMessageRegister = document.querySelector('#messageComplete');
       errorMessageRegister.textContent = 'Debes completar todos los campos solicitados';
     } else {
-      registerFirebase(ipName.value, ipLastName.value, ipEmail.value, ipPass.value, ipBirth.value);
+      registerFirebase(ipName.value, ipLastName.value, ipEmail.value, ipPass.value);
     }
   });
   registerElement.querySelector('.iconEye2').addEventListener('click', () => {
@@ -120,9 +114,6 @@ export const register = () => {
       iconRepeat.classList.remove('fa-eye');
       iconRepeat.classList.add('fa-eye-slash');
     }
-  });
-  registerElement.querySelector('.questionAccount').addEventListener('click', () => {
-    onNavigate('/');
   });
   return registerElement;
 };
