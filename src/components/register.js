@@ -1,4 +1,3 @@
-import { onNavigate } from '../main.js';
 import { registerFirebase } from '../authFirebase/authentication.js';
 import { MessageData } from '../lib/index.js';
 
