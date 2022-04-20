@@ -39,7 +39,6 @@ export const registerFirebase = (name, lastName, email, password) => {
           break;
       }
     });
-  // return registerPetworld;
 };
 
 // Ingreso a Petworld con correo y contraseña
@@ -65,7 +64,6 @@ export const loginFirebase = (email, password) => {
         default:
         break;
       };
-      // onNavigate('/');
     });
 };
 
@@ -83,7 +81,7 @@ export const loginGmail = () => {
       // eslint-disable-next-line no-underscore-dangle
       onNavigate('/homePetworld');
       // eslint-disable-next-line no-unused-expressions
-      document.getElementById('iconGoogle').setAttribute('src', userGmail.photoURL);
+      document.getElementById('iconUser').setAttribute('src', userGmail.photoURL);
      // document.getElementById('nameGoogle').innerText = `hola, ${userGmail.displayName}`;
     // ...
     }).catch((error) => {

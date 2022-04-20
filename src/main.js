@@ -1,7 +1,5 @@
 import { login } from './components/login.js';
-
 import { register } from './components/register.js';
-
 import { homePetworld } from './components/home.js';
 
 import { resetPassword } from './components/resetPassword.js';

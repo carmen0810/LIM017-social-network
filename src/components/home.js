@@ -7,7 +7,7 @@ export const homePetworld = () => {
     <header class="homeHeader">
       <input id="menuHamb" type="checkbox">
       <label for="menuHamb">
-        <img class="imgIconBuscar" src="./img/iconsPost/menuHamburguesa.png">
+        <img class="iconHamb" src="./img/iconsPost/menuHamburguesa.png">
       </label>
       <input id="searchIcon" type="search" placeholder="Buscar"> 
     </header>
@@ -24,17 +24,14 @@ export const homePetworld = () => {
             <li class="listNav"><img class="imgIcon" src="./img/icons/venta.png">Venta</li>
           </ul>
           <ul class="homeBar2">  
-            <li class="listNav2" >Mi perfil</li>
+            <li class="listNav2">Mi perfil</li>
             <li class="listNav2"><img class="imgIcon" src="./img/icons/cerrarSesión.png">Cerrar Sesión</li>
           </ul>
         </nav>
       </aside>
       <div class="containerPost">
         <div class="photoProfile">
-          <img  id="iconUser"class="iconProfile" >
-          
-          <img id="iconGoogle"class="iconProfile">
-          
+          <img id="iconUser"class="iconProfile">
         </div>
         <div class="textPost">
           <input>
@@ -45,10 +42,3 @@ export const homePetworld = () => {
   homeElement.innerHTML = homeDiv;
   return homeElement;
 };
-
-// {/* <div>
-//     <img  id="iconUser"class="iconProfile" >
-//     <p id="nameUser"></p>
-//     <img id="iconGoogle"class="iconProfile">
-//     <p id="nameGoogle"></p>
-//     </div> */}

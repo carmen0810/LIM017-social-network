@@ -222,6 +222,17 @@ aside{
     display: none;
 }
 
+header label:hover{
+    cursor: pointer;
+}
+.homeNav{
+    display: none;
+}
+
+#menuHamb:checked ~ .homeNav{ 
+    margin-right: 0px;
+}
+
 #searchIcon::placeholder{
     background-image: url(./img/iconsPost/buscar.png);
     background-repeat: no-repeat;
@@ -268,6 +279,13 @@ aside{
         justify-content: center;
         flex-direction: row;
         height: 90vh;
+    }
+
+    header label{
+        display: none;
+    }
+    .homeNav{
+        display: block;
     }
     .header1{
         width: 50vw;
