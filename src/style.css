@@ -218,16 +218,9 @@ aside{
     padding: 2px;
 }
 /* Estilos Menu hamburguesa */
-#menuHamb{
-    display: none;
-}
 
-header label:hover{
+.iconHamb:hover{
     cursor: pointer;
-}
-
-#menuHamb:checked ~ .homeNav{ 
-    margin-right: 0px;
 }
 
 #searchIcon::placeholder{
@@ -283,6 +276,12 @@ header label:hover{
     }
     .homeNav{
         display: block;
+    }
+    /* .hidden-nav{
+        display: none;
+    } */
+    .iconHamb {
+        display: none;
     }
     .header1{
         width: 50vw;

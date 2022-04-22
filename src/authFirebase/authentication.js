@@ -1,8 +1,18 @@
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
-import { signInWithPopup, GoogleAuthProvider, FacebookAuthProvider, sendPasswordResetEmail } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
-import { collection, addDoc, getFirestore } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';
 import { app } from './fbconfig.js';
 import { onNavigate } from '../main.js';
+
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider,
+  FacebookAuthProvider,
+  collection,
+  addDoc,
+  getFirestore,
+  sendPasswordResetEmail,
+} from './firebaseExt.js';
 
 const dbfirestore = getFirestore(app);
 
@@ -23,7 +33,7 @@ export const registerFirebase = (name, lastName, email, password) => {
     })
     .catch((error) => {
       const errorMessage = error.message;
-      console.log(errorMessage)
+      console.log(errorMessage);
       switch (errorMessage) {
         case 'Firebase: Error (auth/email-already-in-use).':
           alert('email ya registrado');
@@ -61,8 +71,8 @@ export const loginFirebase = (email, password) => {
         //   alert('contraseña incorrecta');
         //   break;
         default:
-        break;
-      };
+          break;
+      }
     });
 };
 
@@ -81,7 +91,7 @@ export const loginGmail = () => {
       onNavigate('/homePetworld');
       // eslint-disable-next-line no-unused-expressions
       document.getElementById('iconUser').setAttribute('src', userGmail.photoURL);
-     // document.getElementById('nameGoogle').innerText = `hola, ${userGmail.displayName}`;
+      // document.getElementById('nameGoogle').innerText = `hola, ${userGmail.displayName}`;
     // ...
     }).catch((error) => {
     // Handle Errors here.
@@ -128,16 +138,16 @@ export const loginFacebook = () => {
 // recuperar contraseña
 export const resetPasswordPet = (email) => {
   const auth = getAuth(app);
- return sendPasswordResetEmail(auth, email)
-  .then((userCredential) => {
-    user = userCredential.user;
+  return sendPasswordResetEmail(auth, email)
+    .then((userCredential) => {
+      user = userCredential.user;
 
     // Password reset email sent!
     // ..
-  })
-  .catch((error) => {
+    })
+    .catch((error) => {
     // const errorCode = error.code;
     // const errorMessage = error.message;
     // ..
-  });
-}
+    });
+};
