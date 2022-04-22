@@ -1,9 +1,8 @@
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
-import { signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
+import { signInWithPopup, GoogleAuthProvider, FacebookAuthProvider, sendPasswordResetEmail } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
 import { collection, addDoc, getFirestore } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';
 import { app } from './fbconfig.js';
 import { onNavigate } from '../main.js';
-import { sendPasswordResetEmail } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
 
 const dbfirestore = getFirestore(app);
 

@@ -225,9 +225,6 @@ aside{
 header label:hover{
     cursor: pointer;
 }
-.homeNav{
-    display: none;
-}
 
 #menuHamb:checked ~ .homeNav{ 
     margin-right: 0px;
