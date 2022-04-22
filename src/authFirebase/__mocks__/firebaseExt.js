@@ -1,5 +1,6 @@
 const getAuth = () => ({});
-const sendPasswordResetEmail = () => Promise.resolve({});
+const sendPasswordResetEmail = jest.fn(() => Promise.resolve({ Object }));
+
 const initializeApp = () => ({});
 
 export {
