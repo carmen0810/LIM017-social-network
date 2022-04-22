@@ -3,7 +3,7 @@ import { resetPasswordPet } from '../../src/authFirebase/authentication';
 jest.mock('../../src/authFirebase/firebaseExt.js');
 
 describe('resetPasswordPet', () => {
-  it('debería ser una función', () => {
+  it('recupera contraseña', () => {
     expect(typeof resetPasswordPet).toBe('function');
   });
 });
