@@ -1,5 +1,10 @@
 import { registerFirebase } from '../authFirebase/authentication.js';
-import { MessageData } from '../lib/index.js';
+
+// import { MessageData } from '../lib/index.js';
+
+const MessageData = (input, showMessage) => {
+  input.innerText = showMessage;
+};
 
 export const register = () => {
   const registerElement = document.createElement('section');
@@ -115,3 +120,8 @@ export const register = () => {
   });
   return registerElement;
 };
+
+// export const MessageData = (input, showMessage) => {
+//   input.innerText = showMessage;
+//   return MessageData;
+// };
