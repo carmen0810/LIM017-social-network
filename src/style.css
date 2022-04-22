@@ -222,9 +222,6 @@ aside{
 .iconHamb:hover{
     cursor: pointer;
 }
-.homeNav{
-    display: none;
-}
 
 #searchIcon::placeholder{
     background-image: url(./img/iconsPost/buscar.png);
