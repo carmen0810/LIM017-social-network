@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 // import { resetPasswordPet } from '../../src/authFirebase/authentication';
 
 import { resetPasswordPet } from '../../src/components/resetPasswords';
+=======
+import { resetPasswordPet } from '../../src/authFirebase/authentication';
+//import { resetPasswordPet } from '../../src/components/resetPassword.js';
+>>>>>>> e6d856ee93fe094ff6b187f921e0372ac08bfdb9
 import { sendPasswordResetEmail } from '../../src/authFirebase/firebaseExt';
 
 jest.mock('../../src/authFirebase/firebaseExt.js');
@@ -17,4 +22,8 @@ describe('resetPasswordPet', () => {
     // console.log (sendPasswordResetEmail.mock);
     // expect(typeof resetPasswordPet).toBe('function');
   });
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> e6d856ee93fe094ff6b187f921e0372ac08bfdb9
