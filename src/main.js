@@ -3,6 +3,7 @@ import { register } from './components/register.js';
 import { homePetworld } from './components/home.js';
 
 import { resetPassword } from './components/resetPassword.js';
+//import { routes } from './components/Routes.js';
 const rootDiv = document.getElementById('root');
 
 export const routes = {
