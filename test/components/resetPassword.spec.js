@@ -1,6 +1,7 @@
 // import { resetPasswordPet } from '../../src/authFirebase/authentication';
+
 import { resetPasswordPet } from '../../src/components/resetPasswords';
-// import { sendPasswordResetEmail } from '../../src/authFirebase/firebaseExt';
+import { sendPasswordResetEmail } from '../../src/authFirebase/firebaseExt';
 
 jest.mock('../../src/authFirebase/firebaseExt.js');
 
