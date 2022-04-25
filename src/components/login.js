@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import { onNavigate } from '../main.js';
 import { loginFirebase, loginGmail, loginFacebook } from '../authFirebase/authentication.js';
 
