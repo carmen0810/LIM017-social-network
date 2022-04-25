@@ -164,7 +164,7 @@
 
 }
 .homeNav{
-    display: flex;
+    /* display: none; */
     flex-direction: column;
     padding: 10px;
     background-color: #D7B5E2;
@@ -195,11 +195,7 @@
 aside{
     width: 40%;
 }
-.containerPost{
-    width: 60%;
-    display: flex;
-    background-color: orange;
-}
+
 .listNav, .listNav2{
     display: flex;
     align-items: center;
@@ -236,6 +232,25 @@ aside{
     margin: 10px;
 }
 
+/*ESTILOS PARA LOS POST*/
+
+.containerPost{
+    width: 60%;
+    display: flex;
+    background-color: orange;
+}
+.textPost{
+    display: flex;
+    flex-direction: column;
+    background-color: aquamarine;
+}
+
+.selectIcons{
+    display: flex;
+}
+.imgPost{
+    width:20%;
+}
 /*ESTILOS PARA RESET PASSWORD*/
 .headerReset{
     display: flex;
@@ -344,6 +359,6 @@ aside{
 .photoProfile{
     background-color: yellow;
 }
-.textPost{
-    background-color: aquamarine;
+.hide{
+    display:none;
 }

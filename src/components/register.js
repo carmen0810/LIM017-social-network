@@ -1,10 +1,11 @@
+/* eslint-disable import/no-cycle */
 import { registerFirebase } from '../authFirebase/authentication.js';
 
-// import { MessageData } from '../lib/index.js';
+import { MessageData } from '../lib/index.js';
 
-const MessageData = (input, showMessage) => {
-  input.innerText = showMessage;
-};
+// const MessageData = (input, showMessage) => {
+//   input.innerText = showMessage;
+// };
 
 export const register = () => {
   const registerElement = document.createElement('section');
@@ -85,7 +86,7 @@ export const register = () => {
   ipRepeatPassword.onkeyup = function () { validarPassword2(); };
   btnRegister.addEventListener('click', (e) => {
     e.preventDefault();
-    if (ipName.value === '' || ipLastName.value === '' || ipEmail.value === '' || ipPass.value === '' || ipRepeatPassword.value === '' ) {
+    if (ipName.value === '' || ipLastName.value === '' || ipEmail.value === '' || ipPass.value === '' || ipRepeatPassword.value === '') {
       const errorMessageRegister = document.querySelector('#messageComplete');
       errorMessageRegister.textContent = 'Debes completar todos los campos solicitados';
     } else {
@@ -120,8 +121,3 @@ export const register = () => {
   });
   return registerElement;
 };
-
-// export const MessageData = (input, showMessage) => {
-//   input.innerText = showMessage;
-//   return MessageData;
-// };
