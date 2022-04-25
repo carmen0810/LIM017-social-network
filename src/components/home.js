@@ -1,4 +1,3 @@
-import { onNavigate } from '../main.js';
 import { createPost } from '../authFirebase/authentication.js';
 
 export const homePetworld = () => {
@@ -59,8 +58,7 @@ export const homePetworld = () => {
       </form>
       <section id="showPost">
       </section>
-    </section>
-    `;
+    </section>`;
   homeElement.innerHTML = homeDiv;
   window.addEventListener('DOMContentLoaded', () => {
 
@@ -74,5 +72,12 @@ export const homePetworld = () => {
     // containerPost.reset();
     });
   }, 0);
+
+  // const containerPost = document.querySelector('.containerPost');
+  // containerPost.addEventListener('submit', (e) => {
+  //   if (e.target && e.target.tagName === 'button') {
+  //     e.target.classList('activo');
+  //   }
+  // });
   return homeElement;
 };
