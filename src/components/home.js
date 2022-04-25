@@ -1,3 +1,5 @@
+/* eslint-disable import/no-cycle */
+// import { onNavigate } from '../main.js';
 import { createPost } from '../authFirebase/authentication.js';
 
 export const homePetworld = () => {
@@ -5,15 +7,14 @@ export const homePetworld = () => {
   homeElement.setAttribute('class', 'homePage');
   const homeDiv = `
     <header class="homeHeader">
-      <input id="menuHamb" type="checkbox">
-      <label for="menuHamb">
-        <img class="imgIconBuscar" src="./img/iconsPost/menuHamburguesa.png">
-      </label>
+      
+      <img class="iconHamb" src="./img/iconsPost/menuHamburguesa.png">
+
       <input id="searchIcon" type="search" placeholder="Buscar"> 
     </header>
     <section class="posts">
       <aside>      
-        <nav class="homeNav">
+        <nav class="homeNav hide">
           <img id="logoHome" src="./img/imgLogin/logo.png" alt="logo">
           <ul class="homeBar1" >
             <li class="listNav"><img class="imgIcon" src="./img/icons/home.png"></li>
@@ -35,11 +36,11 @@ export const homePetworld = () => {
         </div>
         <div class="textPost">
           <textarea id="editPost" type="text" placeholder="Escribe aquí tus posts"></textarea>
-          <div>
+          <div class="selectIcons">
             <div id="iconPost">
               <img class="imgPost" src="./img/iconsPost/editar.png">
               <img class="imgPost" src="./img/iconsPost/adjuntar.png">
-              <img class="imgPos" src="./img/iconsPost/boteBasura.png">
+              <img class="imgPost" src="./img/iconsPost/boteBasura.png">
             </div>
             <select name="select">
               <option value="categoría" disabled>Selecciona categoría</option>
@@ -60,24 +61,28 @@ export const homePetworld = () => {
       </section>
     </section>`;
   homeElement.innerHTML = homeDiv;
+
+  // Menú hamburguesa
+  const iconHamb = homeElement.querySelector('.iconHamb');
+  const navBar = homeElement.querySelector('.homeNav');
+  const toggleMenu = () => {
+    navBar.classList.toggle('hide');
+  };
+
+  iconHamb.addEventListener('click', toggleMenu);
+
+  // funcion para los posts
   window.addEventListener('DOMContentLoaded', () => {
 
   });
-  setTimeout(() => {
-    const containerPost = document.querySelector('.containerPost');
-    containerPost.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const description = containerPost.textPost;
-      createPost(description.value);
-    // containerPost.reset();
-    });
-  }, 0);
 
-  // const containerPost = document.querySelector('.containerPost');
-  // containerPost.addEventListener('submit', (e) => {
-  //   if (e.target && e.target.tagName === 'button') {
-  //     e.target.classList('activo');
-  //   }
-  // });
+  const containerPost = homeElement.querySelector('.containerPost');
+  containerPost.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const description = containerPost.textPost;
+    createPost(description.value);
+    // containerPost.reset();
+  });
+
   return homeElement;
 };

@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import { app } from './fbconfig.js';
 import { onNavigate } from '../main.js';
 

@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import { resetPasswordPet } from '../authFirebase/authentication.js';
 import { onNavigate } from '../main.js';
 

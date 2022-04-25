@@ -1,8 +1,9 @@
+/* eslint-disable import/no-cycle */
 import { login } from './components/login.js';
 import { register } from './components/register.js';
 import { homePetworld } from './components/home.js';
 import { resetPassword } from './components/resetPassword.js';
-//import { routes } from './components/Routes.js';
+// import { routes } from './components/Routes.js';
 
 const rootDiv = document.getElementById('root');
 
@@ -31,4 +32,4 @@ window.onpopstate = () => {
 };
 onNavigate(window.location.pathname);
 
-//Función modal
+// Función modal
