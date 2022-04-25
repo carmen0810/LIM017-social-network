@@ -151,3 +151,8 @@ export const resetPasswordPet = (email) => {
     // ..
     });
 };
+
+// Escribiendo Posts
+export const createPost = (description) => {
+  addDoc(collection(dbfirestore, 'posts'), { description });
+};

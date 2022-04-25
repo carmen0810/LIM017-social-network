@@ -1,4 +1,5 @@
 import { onNavigate } from '../main.js';
+import { createPost } from '../authFirebase/authentication.js';
 
 export const homePetworld = () => {
   const homeElement = document.createElement('section');
@@ -9,7 +10,7 @@ export const homePetworld = () => {
       <label for="menuHamb">
         <img class="imgIconBuscar" src="./img/iconsPost/menuHamburguesa.png">
       </label>
-      <input id="searchIcon" type="search" placeholder="Buscar">|| 
+      <input id="searchIcon" type="search" placeholder="Buscar"> 
     </header>
     <section class="posts">
       <aside>      
@@ -29,25 +30,49 @@ export const homePetworld = () => {
           </ul>
         </nav>
       </aside>
-      <div class="32 inerPost">
+      <form class="containerPost">
         <div class="photoProfile">
-          <img  id="iconUser"class="iconProfile" >
-          
-          <img id="iconGoogle"class="iconProfile">
-          
+          <img id="iconUser"class="iconProfile" >          
         </div>
         <div class="textPost">
-          <input>
+          <textarea id="editPost" type="text" placeholder="Escribe aquí tus posts"></textarea>
+          <div>
+            <div id="iconPost">
+              <img class="imgPost" src="./img/iconsPost/editar.png">
+              <img class="imgPost" src="./img/iconsPost/adjuntar.png">
+              <img class="imgPos" src="./img/iconsPost/boteBasura.png">
+            </div>
+            <select name="select">
+              <option value="categoría" disabled>Selecciona categoría</option>
+              <option value="cuidados">Cuidados</option>
+              <option value="alimentación">Alimentación</option>
+              <option value="salud">Salud</option>
+              <option value="adopción">Adopción</option>
+              <option value="ventas">Ventas</option>
+            </select> 
+            <p></p>
+          </div>
+          <div>
+            <button id="buttonPost">Publicar</button>
+          </div>
         </div>
-      </div>
+      </form>
+      <section id="showPost">
+      </section>
     </section>
     `;
   homeElement.innerHTML = homeDiv;
+  window.addEventListener('DOMContentLoaded', () => {
+
+  });
+  setTimeout(() => {
+    const containerPost = document.querySelector('.containerPost');
+    containerPost.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const description = containerPost.textPost;
+      createPost(description.value);
+    // containerPost.reset();
+    });
+  }, 0);
   return homeElement;
 };
-{/* <div>
-    <img  id="iconUser"class="iconProfile" >
-    <p id="nameUser"></p>
-    <img id="iconGoogle"class="iconProfile">
-    <p id="nameGoogle"></p>
-    </div> */}
