@@ -61,6 +61,16 @@ export const homePetworld = () => {
       </form>
       <section id="showPost">
       </section>
+    </section>
+    <section class="modalContainer">
+      <div class="modalContent">
+        <p id="exitModal">X</p>
+        <h2>¿Está seguro que desea Cerrar Sesión?</h2>
+        <div class= "modalButtons">
+          <button id="btnCancel">CANCELAR</button>
+          <button id="btnLogout">CERRAR SESIÓN</button>
+        </div>
+      </div>
     </section>`;
   homeElement.innerHTML = homeDiv;
 
@@ -68,6 +78,7 @@ export const homePetworld = () => {
   const iconHamb = homeElement.querySelector('.iconHamb');
   const navBar = homeElement.querySelector('.homeNav');
   const checkMenu = homeElement.querySelector('#checkMenu');
+
   // const toggleMenu = () => {
   // iconHamb.addEventListener('click', () => {
   if (checkMenu === false) {
@@ -88,15 +99,36 @@ export const homePetworld = () => {
   // });
 
   // cerrar Sesión
+  const modalContainer = homeElement.querySelector('.modalContainer');
   const logoutIcon = homeElement.querySelector('#logoutIcon');
-  logoutIcon.addEventListener('click', () => logoutPet());
-  const containerPost = homeElement.querySelector('.containerPost');
-  containerPost.addEventListener('submit', () => {
-    // e.preventDefault();
-    const description = containerPost.textPost;
-    createPost(description.value);
-    containerPost.reset();
+  // const modalContent = homeElement.querySelector('modalContent');
+  const btnCancel = homeElement.querySelector('#btnCancel');
+  const btnLogout = homeElement.querySelector('#btnLogout');
+  const exitModal = homeElement.querySelector('#exitModal');
+  modalContainer.classList.add('ocultar');
+  logoutIcon.addEventListener('click', () => {
+    modalContainer.classList.remove('ocultar');
+    modalContainer.classList.add('mostrar');
   });
+  btnCancel.addEventListener('click', () => {
+    modalContainer.classList.remove('mostrar');
+    modalContainer.classList.add('ocultar');
+  });
+  exitModal.addEventListener('click', () => {
+    modalContainer.classList.remove('mostrar');
+    modalContainer.classList.add('ocultar');
+  });
+  btnLogout.addEventListener('click', () => setTimeout(logoutPet(), 300));
+  // const logoutIcon = homeElement.querySelector('#logoutIcon');
+  // logoutIcon.addEventListener('click', () => modalSesion());
+
+  // const containerPost = homeElement.querySelector('.containerPost');
+  // containerPost.addEventListener('submit', () => {
+  //   // e.preventDefault();
+  //   const description = containerPost.textPost;
+  //   createPost(description.value);
+  //   containerPost.reset();
+  // });
 
   return homeElement;
 };

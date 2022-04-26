@@ -201,10 +201,5 @@ export const onGetPosts = (callback) => onSnapshot(collection(dbfirestore, 'post
 // cerrar Sesión
 export const logoutPet = () => {
   const auth = getAuth(app);
-  return signOut(auth)
-    .then(() => {
-    // Sign-out successful.
-    }).catch((error) => {
-    // An error happened.
-    });
+  return signOut(auth);
 };

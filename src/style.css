@@ -225,7 +225,67 @@ aside{
     background-size: 18px;
     background-position: right;
 }
-
+/*MODAL*/
+.modalContainer{
+    /* display: none; */
+    position: absolute;
+    top: 0;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: #a39d9d99;
+    display: flex;
+    justify-content: center
+}
+.modalContent{
+    background: beige;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    height: 30%;
+    align-items: center;
+    justify-content: space-evenly;
+    transition: transform 1s;
+    transform: translateY(0%);
+    position: absolute;
+    top: 15%;
+    border-radius: 10px;
+}
+#exitModal{
+    padding: 5px 10px;
+    border-radius: 13px;
+    background-color: rgb(243, 47, 47);
+    color: #ffffff;
+    font-size: medium;
+    font-weight: bolder;
+    cursor: pointer;
+    align-items: flex-end;
+    margin: 20px;
+}
+.ocultar{
+    visibility: hidden;
+}
+.mostrar{
+    visibility: visible;
+}
+#btnCancel{
+    padding: 10px;
+    background-color: rgb(223, 112, 22);
+    color: #ffffff;
+    font-weight: bolder;
+    border-radius: 10px;
+    margin: 15px;
+    cursor: pointer;
+}
+#btnLogout{
+    padding: 10px;
+    background-color: rgb(62, 134, 90);
+    color: #ffffff;
+    font-weight: bolder;
+    border-radius: 10px;
+    margin: 15px;
+    cursor: pointer;
+}
 /*Estilos para home*/
 .iconProfile{
     width:45%;
