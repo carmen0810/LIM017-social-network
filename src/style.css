@@ -286,14 +286,14 @@ aside{
         height: 90vh;
     }
 
-    header label{
+    header label, #checkMenu{
         display: none;
     }
     .homeNav{
         display: block;
     }
-    /* .hidden-nav{
-        display: none;
+    /* .hide{
+        display: block;
     } */
     .iconHamb {
         display: none;
@@ -359,6 +359,6 @@ aside{
 .photoProfile{
     background-color: yellow;
 }
-.hide{
+/* .hide{
     display:none;
-}
+} */

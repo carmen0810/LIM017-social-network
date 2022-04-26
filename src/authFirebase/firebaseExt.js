@@ -9,7 +9,9 @@ import {
   signOut,
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
 
-import { collection, addDoc, getFirestore } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';
+import {
+  collection, addDoc, getFirestore, onSnapshot, doc,
+} from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';
 
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js';
 
@@ -26,4 +28,6 @@ export {
   sendPasswordResetEmail,
   initializeApp,
   signOut,
+  onSnapshot,
+  doc,
 };
