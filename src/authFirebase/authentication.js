@@ -11,6 +11,7 @@ import {
   FacebookAuthProvider,
   collection,
   addDoc,
+  getDocs,
   getFirestore,
   sendPasswordResetEmail,
   signOut,
@@ -160,43 +161,9 @@ export const createPost = (description) => {
   addDoc(collection(dbfirestore, 'posts'), { description });
 };
 
-export const onGetPosts = (callback) => onSnapshot(collection(dbfirestore, 'posts'), callback);
+export const showPosts = () => getDocs(collection(dbfirestore, 'posts'));
 
-// export const unsub = onSnapshot(doc(dbfirestore, "cities", "SF"), (doc) => {
-//   const source = doc.metadata.hasPendingWrites ? "Local" : "Server";
-//   console.log(source, " data: ", doc.data());
-// });
-
-// export const registerFirebase = (name, lastName, email, password) => {
-//   const auth = getAuth(app);
-//   return createUserWithEmailAndPassword(auth, email, password)
-//     .then((userCredential) => {
-//       user = userCredential.user.uid;
-//       addDoc(collection(dbfirestore, 'users'), {
-//         nameUser: name,
-//         lastNameUser: lastName,
-//         uid: user,
-//       });
-//       onNavigate('/');
-//     })
-//     .catch((error) => {
-//       const errorMessage = error.message;
-//       console.log(errorMessage);
-//       switch (errorMessage) {
-//         case 'Firebase: Error (auth/email-already-in-use).':
-//           alert('email ya registrado');
-//           break;
-//         // case 'Firebase: Error (auth/internal-error).':
-//         //   alert('ingresar contraseña');
-//         //   break;
-//         case 'Firebase: Error (auth/invalid-email).':
-//           alert('email invalido');
-//           break;
-//         default:
-//           break;
-//       }
-//     });
-// };
+export const onShowPosts = (callback) => onSnapshot(collection(dbfirestore, 'posts'), callback);
 
 // cerrar Sesión
 export const logoutPet = () => {

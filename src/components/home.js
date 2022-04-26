@@ -1,7 +1,7 @@
 /* eslint-disable import/no-cycle */
-// import { onNavigate } from '../main.js';
-import { createPost, logoutPet } from '../authFirebase/authentication.js';
 import { onNavigate } from '../main.js';
+
+import { createPost, showPosts, onShowPosts, logoutPet } from '../authFirebase/authentication.js';
 
 export const homePetworld = () => {
   const homeElement = document.createElement('section');
@@ -93,15 +93,9 @@ export const homePetworld = () => {
   }
   // iconHamb.addEventListener('click', toggleMenu);
 
-  // funcion para los posts
-  // window.addEventListener('DOMContentLoaded', () => {
-
-  // });
-
-  // cerrar Sesión
+    // cerrar Sesión
   const modalContainer = homeElement.querySelector('.modalContainer');
   const logoutIcon = homeElement.querySelector('#logoutIcon');
-  // const modalContent = homeElement.querySelector('modalContent');
   const btnCancel = homeElement.querySelector('#btnCancel');
   const btnLogout = homeElement.querySelector('#btnLogout');
   const exitModal = homeElement.querySelector('#exitModal');
@@ -113,22 +107,36 @@ export const homePetworld = () => {
   btnCancel.addEventListener('click', () => {
     modalContainer.classList.remove('mostrar');
     modalContainer.classList.add('ocultar');
-  });
   exitModal.addEventListener('click', () => {
     modalContainer.classList.remove('mostrar');
     modalContainer.classList.add('ocultar');
   });
   btnLogout.addEventListener('click', () => setTimeout(logoutPet(), 300));
-  // const logoutIcon = homeElement.querySelector('#logoutIcon');
-  // logoutIcon.addEventListener('click', () => modalSesion());
+    
+// funcion para los posts
+    
+  const containerPost = homeElement.querySelector('.containerPost');
+  const showPost = homeElement.querySelector('#showPost');
 
-  // const containerPost = homeElement.querySelector('.containerPost');
-  // containerPost.addEventListener('submit', () => {
-  //   // e.preventDefault();
-  //   const description = containerPost.textPost;
-  //   createPost(description.value);
-  //   containerPost.reset();
-  // });
+  window.addEventListener('DOMContentLoaded', async () => {
+    onShowPosts((querySnapshot) => {
+      let sectionPosts = '';
+      querySnapshot.forEach((doc) => {
+        const postData = doc.data();
+        sectionPosts += `
+      <div>
+        <p>${postData.description}</p>
+      </div>
+      `;
+      });
+      showPost.innerHTML = sectionPosts;
+    });
+  });
+  containerPost.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const description = containerPost.editPost;
+    createPost(description.value);
+    containerPost.reset();
 
   return homeElement;
 };
