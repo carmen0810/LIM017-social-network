@@ -206,7 +206,7 @@ aside{
     width: 10%;
 }
 
-.listNav:hover{
+.listNav:hover, .listNav2:hover{
     cursor: pointer;
     background-color: #d864b1;
     transform: scale(1.1);

@@ -13,6 +13,7 @@ import {
   addDoc,
   getFirestore,
   sendPasswordResetEmail,
+  signOut,
 } from './firebaseExt.js';
 
 const dbfirestore = getFirestore(app);
@@ -157,3 +158,14 @@ export const resetPasswordPet = (email) => {
 export const createPost = (description) => {
   addDoc(collection(dbfirestore, 'posts'), { description });
 };
+// cerrar Sesión
+export const logoutPet = () =>{
+  const auth = getAuth(app);
+  return signOut(auth)
+  .then(() => {
+    // Sign-out successful.
+  }).catch((error) => {
+    // An error happened.
+  });
+ 
+}

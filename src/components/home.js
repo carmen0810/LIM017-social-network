@@ -1,6 +1,7 @@
 /* eslint-disable import/no-cycle */
 // import { onNavigate } from '../main.js';
-import { createPost } from '../authFirebase/authentication.js';
+import { createPost, logoutPet } from '../authFirebase/authentication.js';
+import { onNavigate } from '../main.js';
 
 export const homePetworld = () => {
   const homeElement = document.createElement('section');
@@ -26,7 +27,7 @@ export const homePetworld = () => {
           </ul>
           <ul class="homeBar2">  
             <li class="listNav2" >Mi perfil</li>
-            <li class="listNav2"><img class="imgIcon" src="./img/icons/cerrarSesión.png">Cerrar Sesión</li>
+            <li class="listNav2" id="logoutIcon"><img class="imgIcon"   src="./img/icons/cerrarSesión.png">Cerrar Sesión</li>
           </ul>
         </nav>
       </aside>
@@ -73,17 +74,20 @@ export const homePetworld = () => {
   iconHamb.addEventListener('click', toggleMenu);
 
   // funcion para los posts
-  window.addEventListener('DOMContentLoaded', () => {
+  // window.addEventListener('DOMContentLoaded', () => {
 
-  });
+  // });
 
-  const containerPost = homeElement.querySelector('.containerPost');
-  containerPost.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const description = containerPost.textPost;
-    createPost(description.value);
-    // containerPost.reset();
-  });
+  // const containerPost = homeElement.querySelector('.containerPost');
+  // containerPost.addEventListener('submit', (e) => {
+  //   e.preventDefault();
+  //   const description = containerPost.textPost;
+  //   createPost(description.value);
+  //   // containerPost.reset();
+  // });
+  // cerrar Sesión
+  const logoutIcon = homeElement.querySelector('#logoutIcon');
+  logoutIcon.addEventListener('click', () => logoutPet());
 
   return homeElement;
 };
