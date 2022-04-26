@@ -6,15 +6,16 @@ export const homePetworld = () => {
   const homeElement = document.createElement('section');
   homeElement.setAttribute('class', 'homePage');
   const homeDiv = `
-    <header class="homeHeader">
-      
-      <img class="iconHamb" src="./img/iconsPost/menuHamburguesa.png">
-
+    <header class="homeHeader">  
+      <input id="checkMenu" type="checkbox">
+        <label for="checkMenu">  
+          <img class="iconHamb" src="./img/iconsPost/menuHamburguesa.png">
+        <label>
       <input id="searchIcon" type="search" placeholder="Buscar"> 
     </header>
     <section class="posts">
       <aside>      
-        <nav class="homeNav hide">
+        <nav class="homeNav">
           <img id="logoHome" src="./img/imgLogin/logo.png" alt="logo">
           <ul class="homeBar1" >
             <li class="listNav"><img class="imgIcon" src="./img/icons/home.png"></li>
@@ -53,7 +54,7 @@ export const homePetworld = () => {
             <p></p>
           </div>
           <div>
-            <button id="buttonPost">Publicar</button>
+            <button type="submit" id="buttonPost">Publicar</button>
           </div>
         </div>
       </form>
@@ -65,23 +66,32 @@ export const homePetworld = () => {
   // Menú hamburguesa
   const iconHamb = homeElement.querySelector('.iconHamb');
   const navBar = homeElement.querySelector('.homeNav');
-  const toggleMenu = () => {
-    navBar.classList.toggle('hide');
-  };
-
-  iconHamb.addEventListener('click', toggleMenu);
+  const checkMenu = homeElement.querySelector('#checkMenu');
+  // const toggleMenu = () => {
+  // iconHamb.addEventListener('click', () => {
+  if (checkMenu === false) {
+    iconHamb.addEventListener('click', () => {
+      navBar.style.display = 'none';
+    });
+  } else {
+    iconHamb.addEventListener('click', () => {
+      navBar.style.display = 'block';
+    // navBar.classList.toggle('hide');
+    });
+  }
+  // iconHamb.addEventListener('click', toggleMenu);
 
   // funcion para los posts
-  window.addEventListener('DOMContentLoaded', () => {
+  // window.addEventListener('DOMContentLoaded', () => {
 
-  });
+  // });
 
   const containerPost = homeElement.querySelector('.containerPost');
-  containerPost.addEventListener('submit', (e) => {
-    e.preventDefault();
+  containerPost.addEventListener('submit', () => {
+    // e.preventDefault();
     const description = containerPost.textPost;
     createPost(description.value);
-    // containerPost.reset();
+    containerPost.reset();
   });
 
   return homeElement;
