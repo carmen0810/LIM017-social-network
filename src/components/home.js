@@ -1,7 +1,9 @@
 /* eslint-disable import/no-cycle */
-import { onNavigate } from '../main.js';
+// import { onNavigate } from '../main.js';
 
-import { createPost, showPosts, onShowPosts, logoutPet } from '../authFirebase/authentication.js';
+import {
+  createPost, showPosts, onShowPosts, logoutPet,
+} from '../authFirebase/authentication.js';
 
 export const homePetworld = () => {
   const homeElement = document.createElement('section');
@@ -93,7 +95,7 @@ export const homePetworld = () => {
   }
   // iconHamb.addEventListener('click', toggleMenu);
 
-    // cerrar Sesión
+  // cerrar Sesión
   const modalContainer = homeElement.querySelector('.modalContainer');
   const logoutIcon = homeElement.querySelector('#logoutIcon');
   const btnCancel = homeElement.querySelector('#btnCancel');
@@ -107,14 +109,16 @@ export const homePetworld = () => {
   btnCancel.addEventListener('click', () => {
     modalContainer.classList.remove('mostrar');
     modalContainer.classList.add('ocultar');
+  });
+
   exitModal.addEventListener('click', () => {
     modalContainer.classList.remove('mostrar');
     modalContainer.classList.add('ocultar');
   });
   btnLogout.addEventListener('click', () => setTimeout(logoutPet(), 300));
-    
-// funcion para los posts
-    
+
+  // funcion para los posts
+
   const containerPost = homeElement.querySelector('.containerPost');
   const showPost = homeElement.querySelector('#showPost');
 
@@ -137,6 +141,6 @@ export const homePetworld = () => {
     const description = containerPost.editPost;
     createPost(description.value);
     containerPost.reset();
-
+  });
   return homeElement;
 };
