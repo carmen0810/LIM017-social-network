@@ -308,8 +308,11 @@ aside{
 .selectIcons{
     display: flex;
 }
-.imgPost{
+.imgPost {
     width:20%;
+}
+.imgShowPost{
+    width:7%;
 }
 /*ESTILOS PARA RESET PASSWORD*/
 .headerReset{

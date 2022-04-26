@@ -130,6 +130,11 @@ export const homePetworld = () => {
         sectionPosts += `
       <div>
         <p>${postData.description}</p>
+        <div id="iconShowPost">
+              <img class="imgShowPost" src="./img/iconsPost/editar.png">
+              <img class="imgShowPost" src="./img/iconsPost/boteBasura.png">
+              <img class="imgShowPost" src="./img/iconsPost/like.png">
+        </div>
       </div>
       `;
       });
