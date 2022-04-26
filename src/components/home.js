@@ -2,7 +2,7 @@
 // import { onNavigate } from '../main.js';
 
 import {
-  createPost, showPosts, onShowPosts, logoutPet,
+  createPost, onShowPosts, logoutPet, editPosts, updatePosts,
 } from '../authFirebase/authentication.js';
 
 export const homePetworld = () => {
@@ -121,6 +121,8 @@ export const homePetworld = () => {
 
   const containerPost = homeElement.querySelector('.containerPost');
   const showPost = homeElement.querySelector('#showPost');
+  let editStatus = false;
+  let idUserPost = '';
 
   window.addEventListener('DOMContentLoaded', async () => {
     onShowPosts((querySnapshot) => {
@@ -131,7 +133,7 @@ export const homePetworld = () => {
       <div>
         <p>${postData.description}</p>
         <div id="iconShowPost">
-              <img class="imgShowPost" src="./img/iconsPost/editar.png">
+              <img class="postEdit" post-id="${doc.id}" src="./img/iconsPost/editar.png">
               <img class="imgShowPost" src="./img/iconsPost/boteBasura.png">
               <img class="imgShowPost" src="./img/iconsPost/like.png">
         </div>
@@ -139,12 +141,33 @@ export const homePetworld = () => {
       `;
       });
       showPost.innerHTML = sectionPosts;
+      const iconEdit = showPost.querySelectorAll('.postEdit');
+      iconEdit.forEach((img) => {
+        //  console.log(img);
+        img.addEventListener('click', async (e) => {
+          const doc = await editPosts(e.target.dataset.id);
+          const postData = doc.data();
+          containerPost.editPost.value = postData.description;
+          editStatus = true;
+          idUserPost = doc.id;
+          containerPost.buttonPost.innerText = 'Actualizar';
+        });
+      });
     });
   });
   containerPost.addEventListener('submit', (e) => {
     e.preventDefault();
     const description = containerPost.editPost;
-    createPost(description.value);
+    if (!editStatus) {
+      createPost(description.value);
+    } else {
+      updatePosts(idUserPost, {
+        description: description.value,
+      });
+      editStatus = false;
+      idUserPost = '';
+      containerPost.buttonPost.innerText = 'Publicar';
+    }
     containerPost.reset();
   });
   return homeElement;

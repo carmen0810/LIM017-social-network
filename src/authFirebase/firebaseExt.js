@@ -10,7 +10,7 @@ import {
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
 
 import {
-  collection, addDoc, getFirestore, onSnapshot, getDocs,
+  collection, addDoc, getFirestore, onSnapshot, getDocs, doc, getDoc, updateDoc,
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';
 
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js';
@@ -24,10 +24,13 @@ export {
   FacebookAuthProvider,
   collection,
   addDoc,
+  getDocs,
+  doc,
+  getDoc,
+  updateDoc,
   getFirestore,
   sendPasswordResetEmail,
   initializeApp,
   signOut,
   onSnapshot,
-  getDocs,
 };

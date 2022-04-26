@@ -10,8 +10,11 @@ import {
   GoogleAuthProvider,
   FacebookAuthProvider,
   collection,
+  doc,
   addDoc,
   getDocs,
+  getDoc,
+  updateDoc,
   getFirestore,
   sendPasswordResetEmail,
   signOut,
@@ -164,6 +167,10 @@ export const createPost = (description) => {
 export const showPosts = () => getDocs(collection(dbfirestore, 'posts'));
 
 export const onShowPosts = (callback) => onSnapshot(collection(dbfirestore, 'posts'), callback);
+
+export const editPosts = (id) => getDoc(doc(dbfirestore, 'posts', id));
+
+export const updatePosts = (id, newFields) => updateDoc(doc(dbfirestore, 'posts', id), newFields);
 
 // cerrar Sesión
 export const logoutPet = () => {
