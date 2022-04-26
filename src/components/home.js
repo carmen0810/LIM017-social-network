@@ -1,6 +1,6 @@
 /* eslint-disable import/no-cycle */
 // import { onNavigate } from '../main.js';
-import { createPost } from '../authFirebase/authentication.js';
+import { createPost, showPosts, onShowPosts } from '../authFirebase/authentication.js';
 
 export const homePetworld = () => {
   const homeElement = document.createElement('section');
@@ -82,14 +82,27 @@ export const homePetworld = () => {
   // iconHamb.addEventListener('click', toggleMenu);
 
   // funcion para los posts
-  // window.addEventListener('DOMContentLoaded', () => {
-
-  // });
-
   const containerPost = homeElement.querySelector('.containerPost');
-  containerPost.addEventListener('submit', () => {
-    // e.preventDefault();
-    const description = containerPost.textPost;
+  const showPost = homeElement.querySelector('#showPost');
+
+  window.addEventListener('DOMContentLoaded', async () => {
+    // const querySnapshot = await showPosts();
+    onShowPosts((querySnapshot) => {
+      let sectionPosts = '';
+      querySnapshot.forEach((doc) => {
+        const postData = doc.data();
+        sectionPosts += `
+      <div>
+        <p>${postData.description}</p>
+      </div>
+      `;
+      });
+      showPost.innerHTML = sectionPosts;
+    });
+  });
+  containerPost.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const description = containerPost.editPost;
     createPost(description.value);
     containerPost.reset();
   });
