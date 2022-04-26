@@ -12,6 +12,8 @@ import {
   collection,
   addDoc,
   getDocs,
+  deleteDoc,
+  doc,
   getFirestore,
   sendPasswordResetEmail,
   signOut,
@@ -28,6 +30,7 @@ export const registerFirebase = (name, lastName, email, password) => {
   return createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       user = userCredential.user.uid;
+      
       addDoc(collection(dbfirestore, 'users'), {
         nameUser: name,
         lastNameUser: lastName,
@@ -91,6 +94,8 @@ export const loginGmail = () => {
       // const token = credential.accessToken;
       // The signed-in user info.
       const userGmail = result.user;
+      user = result.user.uid;
+      
       // eslint-disable-next-line no-underscore-dangle
       onNavigate('/homePetworld');
       // eslint-disable-next-line no-unused-expressions
@@ -157,14 +162,15 @@ export const resetPasswordPet = (email) => {
 };
 
 // Escribiendo Posts
-export const createPost = (description) => {
-  addDoc(collection(dbfirestore, 'posts'), { description });
+export const createPost = (descripcion) => {
+  addDoc(collection(dbfirestore, 'posts'), { description: descripcion, userid: user });
 };
 
 export const showPosts = () => getDocs(collection(dbfirestore, 'posts'));
 
 export const onShowPosts = (callback) => onSnapshot(collection(dbfirestore, 'posts'), callback);
 
+export const deletePosts = (id) => deleteDoc(doc(dbfirestore, 'posts', id));
 // cerrar Sesión
 export const logoutPet = () => {
   const auth = getAuth(app);
