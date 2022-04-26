@@ -32,4 +32,4 @@ window.onpopstate = () => {
 };
 onNavigate(window.location.pathname);
 
-// Función modal
+// Cerrar Sesión

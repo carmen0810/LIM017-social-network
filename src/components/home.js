@@ -1,6 +1,7 @@
 /* eslint-disable import/no-cycle */
-// import { onNavigate } from '../main.js';
-import { createPost, showPosts, onShowPosts } from '../authFirebase/authentication.js';
+import { onNavigate } from '../main.js';
+
+import { createPost, showPosts, onShowPosts, logoutPet } from '../authFirebase/authentication.js';
 
 export const homePetworld = () => {
   const homeElement = document.createElement('section');
@@ -27,7 +28,7 @@ export const homePetworld = () => {
           </ul>
           <ul class="homeBar2">  
             <li class="listNav2" >Mi perfil</li>
-            <li class="listNav2"><img class="imgIcon" src="./img/icons/cerrarSesión.png">Cerrar Sesión</li>
+            <li class="listNav2" id="logoutIcon"><img class="imgIcon"   src="./img/icons/cerrarSesión.png">Cerrar Sesión</li>
           </ul>
         </nav>
       </aside>
@@ -60,6 +61,16 @@ export const homePetworld = () => {
       </form>
       <section id="showPost">
       </section>
+    </section>
+    <section class="modalContainer">
+      <div class="modalContent">
+        <p id="exitModal">X</p>
+        <h2>¿Está seguro que desea Cerrar Sesión?</h2>
+        <div class= "modalButtons">
+          <button id="btnCancel">CANCELAR</button>
+          <button id="btnLogout">CERRAR SESIÓN</button>
+        </div>
+      </div>
     </section>`;
   homeElement.innerHTML = homeDiv;
 
@@ -67,6 +78,7 @@ export const homePetworld = () => {
   const iconHamb = homeElement.querySelector('.iconHamb');
   const navBar = homeElement.querySelector('.homeNav');
   const checkMenu = homeElement.querySelector('#checkMenu');
+
   // const toggleMenu = () => {
   // iconHamb.addEventListener('click', () => {
   if (checkMenu === false) {
@@ -81,12 +93,32 @@ export const homePetworld = () => {
   }
   // iconHamb.addEventListener('click', toggleMenu);
 
-  // funcion para los posts
+    // cerrar Sesión
+  const modalContainer = homeElement.querySelector('.modalContainer');
+  const logoutIcon = homeElement.querySelector('#logoutIcon');
+  const btnCancel = homeElement.querySelector('#btnCancel');
+  const btnLogout = homeElement.querySelector('#btnLogout');
+  const exitModal = homeElement.querySelector('#exitModal');
+  modalContainer.classList.add('ocultar');
+  logoutIcon.addEventListener('click', () => {
+    modalContainer.classList.remove('ocultar');
+    modalContainer.classList.add('mostrar');
+  });
+  btnCancel.addEventListener('click', () => {
+    modalContainer.classList.remove('mostrar');
+    modalContainer.classList.add('ocultar');
+  exitModal.addEventListener('click', () => {
+    modalContainer.classList.remove('mostrar');
+    modalContainer.classList.add('ocultar');
+  });
+  btnLogout.addEventListener('click', () => setTimeout(logoutPet(), 300));
+    
+// funcion para los posts
+    
   const containerPost = homeElement.querySelector('.containerPost');
   const showPost = homeElement.querySelector('#showPost');
 
   window.addEventListener('DOMContentLoaded', async () => {
-    // const querySnapshot = await showPosts();
     onShowPosts((querySnapshot) => {
       let sectionPosts = '';
       querySnapshot.forEach((doc) => {
@@ -105,7 +137,6 @@ export const homePetworld = () => {
     const description = containerPost.editPost;
     createPost(description.value);
     containerPost.reset();
-  });
 
   return homeElement;
 };

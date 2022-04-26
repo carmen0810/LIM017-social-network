@@ -6,6 +6,7 @@ import {
   GoogleAuthProvider,
   FacebookAuthProvider,
   sendPasswordResetEmail,
+  signOut,
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
 
 import {
@@ -26,6 +27,7 @@ export {
   getFirestore,
   sendPasswordResetEmail,
   initializeApp,
+  signOut,
   onSnapshot,
   getDocs,
 };

@@ -14,6 +14,7 @@ import {
   getDocs,
   getFirestore,
   sendPasswordResetEmail,
+  signOut,
   onSnapshot,
 } from './firebaseExt.js';
 
@@ -163,3 +164,9 @@ export const createPost = (description) => {
 export const showPosts = () => getDocs(collection(dbfirestore, 'posts'));
 
 export const onShowPosts = (callback) => onSnapshot(collection(dbfirestore, 'posts'), callback);
+
+// cerrar Sesión
+export const logoutPet = () => {
+  const auth = getAuth(app);
+  return signOut(auth);
+};
