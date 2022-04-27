@@ -104,7 +104,6 @@
     display:flex;
     align-items: center;
     justify-content: center;
-    height: 10vh;
     background: rgb(238,174,202);
     background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(189,181,219,1) 55%, rgba(148,187,233,1) 100%);
     width: 100vw;
@@ -187,7 +186,7 @@
     margin-top: 50px;
 }
 .homePage{
-    height: 90vh;
+    /* height: 90vh; */
 }
 #logoHome{
     width: 100%;
@@ -310,16 +309,45 @@ aside{
 }
 
 /*ESTILOS PARA LOS POST*/
-
+.containerPetPost{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+}
 .containerPost{
     width: 60%;
     display: flex;
-    background-color: orange;
 }
 .textPost{
     display: flex;
     flex-direction: column;
-    background-color: aquamarine;
+    border-radius: 5px;
+    margin-top: 10px;
+    width: 80%;
+}
+#editPost{
+    background-color: #e2e1e3;
+    padding: 5px;
+    border-radius: 5px 5px 0px 0px;
+    height: 100px;
+}
+#iconPost{
+background-color: #D7B5E2;
+padding: 3px;
+}
+#divButtonPost{
+    display: flex;
+    flex-direction: row-reverse;
+}
+#buttonPost{
+    background-color: #5c193a;
+    color:#ffffff;
+    border-radius: 10px;
+    padding: 5px;
+    text-transform: uppercase;
+    
 }
 
 .selectIcons{
@@ -328,9 +356,47 @@ aside{
 .imgPost {
     width:20%;
 }
-.imgShowPost{
-    width:7%;
-}
+
+    /***SHOWWPOST-BLOQUE DE PUBLICACIONES POSTEADAS"*/
+    #showPost{
+        display: flex;
+        flex-direction: column;
+
+    }
+    .imgShowPost{
+        width: 25px;
+        margin: 5px;
+    }
+    .textShowPost{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 10px;
+        border-radius: 10px;
+        background-color: #ffffff;
+        box-shadow: 0 0 20px rgb(138, 137, 137); 
+    }
+    #showText{
+        
+        padding: 15px 15px 0px 15px;
+        /* width:120px; */
+    }
+    #iconShowPost{
+        display: flex;
+        border-color: #902fbd;
+        background-color: #D7B5E2;
+        padding: 0px 120px;
+    }
+    /***Contador de Likes***/
+  #checkLikes{
+    display: none;
+  }
+  .containerLikes{
+      display: flex;
+      flex-direction: row;
+
+  }
 /*ESTILOS PARA RESET PASSWORD*/
 .headerReset{
     display: flex;
@@ -429,16 +495,16 @@ aside{
 
 .posts{
     display: flex;
-    background-color: rgb(208, 255, 0);
+    background-color: #f4f7f9;
 }
 
 /* .containerPost{
     display: flex;
     background-color: orange;
 } */
-.photoProfile{
-    background-color: yellow;
-}
+/* .photoProfile{
+   
+} */
 /* .hide{
     display:none;
 } */
