@@ -4,6 +4,7 @@
 import {
   createPost, onShowPosts, logoutPet, deletePosts,
 } from '../authFirebase/authentication.js';
+import { onNavigate } from '../main.js';
 
 export const homePetworld = () => {
   const homeElement = document.createElement('section');
@@ -34,35 +35,40 @@ export const homePetworld = () => {
           </ul>
         </nav>
       </aside>
-      <form class="containerPost">
-        <div class="photoProfile">
-          <img id="iconUser"class="iconProfile" >          
-        </div>
-        <div class="textPost">
-          <textarea id="editPost" type="text" placeholder="Escribe aquí tus posts"></textarea>
-          <div class="selectIcons">
-            <div id="iconPost">
-              <img class="imgPost" src="./img/iconsPost/editar.png">
-              <img class="imgPost" src="./img/iconsPost/adjuntar.png">
-              <img class="imgPost" src="./img/iconsPost/boteBasura.png">
+     
+      <div class="containerPetPost">
+        <form class="containerPost">
+          <div class="photoProfile">
+            <img id="iconUser"class="iconProfile" >          
+          </div>
+          <div class="textPost">
+            <textarea id="editPost" type="text" placeholder="Escribe aquí tus posts"></textarea>
+            <div class="selectIcons">
+              <div id="iconPost">
+                <img class="imgPost" src="./img/iconsPost/editar.png">
+                <img class="imgPost" src="./img/iconsPost/adjuntar.png">
+                <img class="imgPost" src="./img/iconsPost/boteBasura.png">
+              </div>
+              <select name="select">
+                <option value="categoría" disabled>Selecciona categoría</option>
+                <option value="cuidados">Cuidados</option>
+                <option value="alimentación">Alimentación</option>
+                <option value="salud">Salud</option>
+                <option value="adopción">Adopción</option>
+                <option value="ventas">Ventas</option>
+              </select> 
+              <p></p>
             </div>
-            <select name="select">
-              <option value="categoría" disabled>Selecciona categoría</option>
-              <option value="cuidados">Cuidados</option>
-              <option value="alimentación">Alimentación</option>
-              <option value="salud">Salud</option>
-              <option value="adopción">Adopción</option>
-              <option value="ventas">Ventas</option>
-            </select> 
-            <p></p>
+            <div id="divButtonPost">
+              <button type="submit" id="buttonPost">Publicar</button>
+            </div>
           </div>
-          <div>
-            <button type="submit" id="buttonPost">Publicar</button>
-          </div>
-        </div>
-      </form>
-      <section id="showPost">
-      </section>
+        </form>
+        <section id="showPost">
+        </section>
+      
+      </div>
+    
     </section>
     <section class="modalContainer">
       <div class="modalContent">
@@ -133,7 +139,10 @@ export const homePetworld = () => {
     modalContainer.classList.remove('mostrar');
     modalContainer.classList.add('ocultar');
   });
-  btnLogout.addEventListener('click', () => setTimeout(logoutPet(), 300));
+  btnLogout.addEventListener('click', () => {
+    setTimeout(logoutPet(), 300);
+    onNavigate('/');
+  });
 
   // funcion para los posts
 
@@ -145,17 +154,24 @@ export const homePetworld = () => {
     querySnapshot.forEach((doc) => {
       const postData = doc.data();
       sectionPosts += `
-      <div>
-        <p>${postData.description}</p>
+      <div class="textShowPost">
+        <p id="showText">${postData.description}</p>
         <div id="iconShowPost">
-              <img class="imgShowPost" src="./img/iconsPost/editar.png">
-              <img class="imgShowPost btn-delete" data-id="${doc.id}"src="./img/iconsPost/boteBasura.png">
-              <img class="imgShowPost" src="./img/iconsPost/like.png">
+            <div class="containerLikes">
+              <input type="checkbox" id="checkLikes">
+              <label for="checkLikes">
+                <img class="imgShowPost" id="likePost" src="./img/iconsPost/like.png">
+              </label>
+              <p id="counterLikes"></p>
+            </div>
+            <img class="imgShowPost" src="./img/iconsPost/editar.png">
+            <img class="imgShowPost" src="./img/iconsPost/boteBasura.png">
         </div>
       </div>
       `;
     });
     showPost.innerHTML = sectionPosts;
+    
     // ELIMINAR POSTS
     const btnsDelete = showPost.querySelectorAll('.btn-delete');
     btnsDelete.forEach((btn) => {
@@ -182,18 +198,23 @@ export const homePetworld = () => {
       querySnapshot.forEach((doc) => {
         const postData = doc.data();
         sectionPosts += `
-      <div>
-        <p>${postData.description}</p>
+      <div class="textShowPost">
+        <p id="showText">${postData.description}</p>
         <div id="iconShowPost">
-              <img class="imgShowPost" src="./img/iconsPost/editar.png">
-              <img class="imgShowPost btn-delete" data-id="${doc.id}" src="./img/iconsPost/boteBasura.png">
-              <img class="imgShowPost" src="./img/iconsPost/like.png">
-        </div>
+            <div class="containerLikes">
+              <input type="checkbox" id="checkLikes">
+              <label for="checkLikes">
+                <img class="imgShowPost" id="likePost" src="./img/iconsPost/like.png">
+              </label>
+              <p id="counterLikes"></p>
+            </div>
+            <img class="imgShowPost" src="./img/iconsPost/editar.png">
+            <img class="imgShowPost btn-delete" data-id="${doc.id}" src="./img/iconsPost/boteBasura.png">
+            </div>
       </div>
       `;
       });
       showPost.innerHTML = sectionPosts;
-
       const btnsDelete = showPost.querySelectorAll('.btn-delete');
       btnsDelete.forEach((btn) => {
         btn.addEventListener('click', () => {
@@ -209,5 +230,18 @@ export const homePetworld = () => {
       });
     });
   });
+
+  // Contador de Likes
+  // const likePost = showPost.getElementById('likePost');
+  // const counterLikes = showPost.getElementById('counterLikes');
+  // const counter = '';
+  // likePost.addEventListener('click', () => {
+  //   if (likePost.checked) {
+  //     counterLikes.innerHTML += counter;
+  //   } else {
+  //     counterLikes.innerHTML -= counter;
+  //   }
+  // });
+
   return homeElement;
 };

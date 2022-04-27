@@ -13,13 +13,14 @@ import {
   doc,
   addDoc,
   getDocs,
-  getDoc,
   updateDoc,
   deleteDoc,
   getFirestore,
   sendPasswordResetEmail,
   signOut,
   onSnapshot,
+  arrayUnion,
+  arrayRemove,
 } from './firebaseExt.js';
 
 const dbfirestore = getFirestore(app);
@@ -183,3 +184,19 @@ export const logoutPet = () => {
   const auth = getAuth(app);
   return signOut(auth);
 };
+
+// Funcion para remover likes
+export const removeLikesPost = (doc, user) => {
+  const removeLikes = doc(dbfirestore, 'posts', doc);
+  updateDoc(removeLikes, {
+    Likes: arrayRemove(user), 
+  });
+};
+
+// Funcion para añadir likes
+export function addLikesPost(docId, user) {
+  const moreLikePost = doc(dbfirestore, 'posts', docId);
+  updateDoc(moreLikePost, {
+    Likes: arrayUnion(user),
+  });
+}
