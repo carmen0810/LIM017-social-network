@@ -2,7 +2,7 @@
 // import { onNavigate } from '../main.js';
 
 import {
-  createPost, showPosts, onShowPosts, logoutPet,
+  createPost, showPosts, onShowPosts, logoutPet, deletePosts
 } from '../authFirebase/authentication.js';
 import { onNavigate } from '../main.js';
 
@@ -74,12 +74,23 @@ export const homePetworld = () => {
       <div class="modalContent">
         <p id="exitModal">X</p>
         <h2>¿Está seguro que desea Cerrar Sesión?</h2>
-        <div class= "modalButtons">
-          <button id="btnCancel">CANCELAR</button>
-          <button id="btnLogout">CERRAR SESIÓN</button>
+        <div class="modalButtons">
+          <button class="btnCancel" id="btnCancel">CANCELAR</button>
+          <button class="btnOk" id="btnLogout">CERRAR SESIÓN</button>
         </div>
       </div>
-    </section>`;
+    </section>
+    <section class="modalContainer_eliminar">
+    <div class="modalContent">
+      <p id="exitModal">X</p>
+      <h2>¿Está seguro que desea eliminar este registro?</h2>
+      <div class="modalButtons">
+        <button class="btnCancel" id="btnCancelDelete">CANCELAR</button>
+        <button class="btnOk" id="btnDelete">ELIMINAR</button>
+      </div>
+    </div>
+  </section>
+    `;
   homeElement.innerHTML = homeDiv;
 
   // Menú hamburguesa
@@ -96,13 +107,20 @@ export const homePetworld = () => {
   } else {
     iconHamb.addEventListener('click', () => {
       navBar.style.display = 'block';
-    // navBar.classList.toggle('hide');
+      // navBar.classList.toggle('hide');
     });
   }
   // iconHamb.addEventListener('click', toggleMenu);
 
-  // cerrar Sesión
+  // evento cerrar Sesión y evento eliminar post
   const modalContainer = homeElement.querySelector('.modalContainer');
+  const modalContainerDelete = homeElement.querySelector('.modalContainer_eliminar');
+  const modalCancelDelete = homeElement.querySelector('#btnCancelDelete');
+  modalCancelDelete.addEventListener('click', () => {
+    modalContainerDelete.classList.remove('mostrar');
+    modalContainerDelete.classList.add('ocultar');
+  });
+  modalContainerDelete.classList.add('ocultar');
   const logoutIcon = homeElement.querySelector('#logoutIcon');
   const btnCancel = homeElement.querySelector('#btnCancel');
   const btnLogout = homeElement.querySelector('#btnLogout');
@@ -131,12 +149,11 @@ export const homePetworld = () => {
   const containerPost = homeElement.querySelector('.containerPost');
   const showPost = homeElement.querySelector('#showPost');
 
-  window.addEventListener('DOMContentLoaded', async () => {
-    onShowPosts((querySnapshot) => {
-      let sectionPosts = '';
-      querySnapshot.forEach((doc) => {
-        const postData = doc.data();
-        sectionPosts += `
+  onShowPosts((querySnapshot) => {
+    let sectionPosts = '';
+    querySnapshot.forEach((doc) => {
+      const postData = doc.data();
+      sectionPosts += `
       <div class="textShowPost">
         <p id="showText">${postData.description}</p>
         <div id="iconShowPost">
@@ -149,19 +166,64 @@ export const homePetworld = () => {
             </div>
             <img class="imgShowPost" src="./img/iconsPost/editar.png">
             <img class="imgShowPost" src="./img/iconsPost/boteBasura.png">
-              
         </div>
       </div>
       `;
+    });
+    showPost.innerHTML = sectionPosts;
+    
+    // ELIMINAR POSTS
+    const btnsDelete = showPost.querySelectorAll('.btn-delete');
+    btnsDelete.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const modalContainerConfirm = homeElement.querySelector('.modalContainer_eliminar');
+        modalContainerConfirm.classList.add('mostrar');
+        const modalDelete = homeElement.querySelector('#btnDelete');
+        modalDelete.addEventListener('click', () => {
+          deletePosts(btn.getAttribute('data-id'));
+          modalContainerConfirm.classList.remove('mostrar');
+          modalContainerConfirm.classList.add('ocultar');
+        });
       });
-      showPost.innerHTML = sectionPosts;
     });
   });
+
   containerPost.addEventListener('submit', (e) => {
     e.preventDefault();
     const description = containerPost.editPost;
     createPost(description.value);
     containerPost.reset();
+    onShowPosts((querySnapshot) => {
+      let sectionPosts = '';
+      querySnapshot.forEach((doc) => {
+        const postData = doc.data();
+        sectionPosts += `
+      <div>
+        <p>${postData.description}</p>
+        <div id="iconShowPost">
+              <img class="imgShowPost" src="./img/iconsPost/editar.png">
+              <img class="imgShowPost btn-delete" data-id="${doc.id}" src="./img/iconsPost/boteBasura.png">
+              <img class="imgShowPost" src="./img/iconsPost/like.png">
+        </div>
+      </div>
+      `;
+      });
+      showPost.innerHTML = sectionPosts;
+
+      const btnsDelete = showPost.querySelectorAll('.btn-delete');
+      btnsDelete.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const modalContainerConfirm = homeElement.querySelector('.modalContainer_eliminar');
+          modalContainerConfirm.classList.add('mostrar');
+          const modalDelete = homeElement.querySelector('#btnDelete');
+          modalDelete.addEventListener('click', () => {
+            deletePosts(btn.getAttribute('data-id'));
+            modalContainerConfirm.classList.remove('mostrar');
+            modalContainerConfirm.classList.add('ocultar');
+          });
+        });
+      });
+    });
   });
 
   // Contador de Likes
