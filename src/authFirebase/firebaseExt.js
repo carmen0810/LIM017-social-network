@@ -10,7 +10,7 @@ import {
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
 
 import {
-  collection, addDoc, getFirestore, onSnapshot, getDocs, doc, getDoc, updateDoc,
+  collection, addDoc, getFirestore, onSnapshot, getDocs, doc, getDoc, updateDoc, deleteDoc,
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';
 
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js';
@@ -28,6 +28,7 @@ export {
   doc,
   getDoc,
   updateDoc,
+  deleteDoc,
   getFirestore,
   sendPasswordResetEmail,
   initializeApp,
