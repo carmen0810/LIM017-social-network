@@ -1,13 +1,37 @@
+/* Color Theme Swatches in Hex */
+.Large-Group-of-Pet-Animals-Together-1-hex { color: #84BF7A; }
+.Large-Group-of-Pet-Animals-Together-2-hex { color: #D98C4A; }
+.Large-Group-of-Pet-Animals-Together-3-hex { color: #594539; }
+.Large-Group-of-Pet-Animals-Together-4-hex { color: #F24C27; }
+.Large-Group-of-Pet-Animals-Together-5-hex { color: #F2F2F2; }
+
+/* Color Theme Swatches in Hex */
+.color{ color: #D91E50; }
+.color1{ color: #401F0C; }
+.color2{ color: #D96B2B; }
+.color3{ color: #733B1A; }
+.color5{ color: #F2F2F2; }
+
+/* Color Theme Swatches in Hex */
+.Unterschiedliche-Haustiere-–-Köpfe-in-einer-Reihe-1-hex { color: #2135A6; }
+.Unterschiedliche-Haustiere-–-Köpfe-in-einer-Reihe-2-hex { color: #BF8665; }
+.Unterschiedliche-Haustiere-–-Köpfe-in-einer-Reihe-3-hex { color: #A6431F; }
+.Unterschiedliche-Haustiere-–-Köpfe-in-einer-Reihe-4-hex { color: #A62D2D; }
+.Unterschiedliche-Haustiere-–-Köpfe-in-einer-Reihe-5-hex { color: #F2F2F2; }
+ 
+ 
+ 
  *{
     margin:0;
     box-sizing: border-box;
     font-family: 'PT Sans', sans-serif
 }
-.containerView {
-    height: 90vh;
+.containerView, .containerRegister {
+    /* height: 90vh; */
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width:100%;
 }
 
 #root{
@@ -32,20 +56,26 @@
     align-items: center;
 }
 
-#logo{
-    width: 60%;
+#gifWelcome{
+    width: 32%;
+    height: 22%;
+    margin-top: 5%;
+    display: none;
 }
 
 #titleLogin{
-    margin-bottom: 30px;
+    margin: 3%;
+    color: #594539;
 }
 
+#answerForgot{
+    color: #A66D3C;
+}
 .loginView{
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 80vh;
 }
 #emailInto, #passwordInto{
     margin:8px;
@@ -53,9 +83,12 @@
     width:250px;
     padding: 10px;
 }
-
-#loginParagraph{
- margin-top: 20px;
+#logoLogin{
+    width:50%;
+}
+.loginParagraph{
+ margin: 2%;
+ color:#594539;
 }
 .eye{
     position: relative;
@@ -68,24 +101,39 @@
     cursor: pointer;
 }
 
-.iconDivLogin{
+/* .iconDivLogin{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-}
+} */
 
 .btnCreateAccount { 
     text-transform: uppercase;
     padding: 10px;
     border-radius: 20px;
-    border-color: rgb(82 19 80);
+    border-color: #A66D3C;
     margin: 20px;
-    background: #f4f7f9;
+    background: #F2BB77;
     border-style: groove;
 }
 
-
+#btnGoogle{
+    padding:5px;
+    border-radius: 10px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+}
+/* .headerRegister{
+    background-color: white;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0px 300px 300px 0px;
+} */
 .registerPage,.dateBirthDiv,.fullName{
     display: flex;
     flex-direction: column;
@@ -94,26 +142,36 @@
 }
 .textCreateAccount{
     margin-bottom: 10px;
+    color: #594539;
 }
 
 .intoTitle{
     margin-bottom: 15px;
     padding: 5px;
+    color: #594539;
 }
 #footerPetworld{
     display:flex;
     align-items: center;
+    flex-direction: column;
     justify-content: center;
     background: rgb(238,174,202);
-    background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(189,181,219,1) 55%, rgba(148,187,233,1) 100%);
-    width: 100vw;
+    background: linear-gradient(90deg, rgba(215,225,98,1) 0%, rgba(252,176,69,1) 30%, rgba(252,176,69,1) 70%, rgba(215,225,98,1) 100%);
+    /* width: 100%; */
     padding: 5px;
+    font-size: 13px;
+}
+.socialNetwork{
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
 .btnLogin, #btnRegister {
     margin: 12px;
-    border-radius: 4px;
+    border-radius: 25px;
     width: 120px;
-    background-color: #450761;
+    background-color: #732D14;
     color: #ffffff;
     padding: 13px;
 }
@@ -139,11 +197,13 @@
 }
 
 .msnerrorRepeatPassword, .msnerrorRegister, #messageComplete, #showMsn, #errorMessageComplete, #showMessageTag{
-    color:rgb(146, 7, 7);
-    padding:5px;
+    color: rgb(211 46 3);
+    padding: 5px;
+    font-weight: 600;
 }
 .questionAccount{
     margin-top: 15px;
+    color: #A66D3C;
 }
 /* Estilos Home */
 
@@ -191,6 +251,9 @@
 #logoHome{
     width: 100%;
 }
+#checkMenu{
+    display: none;
+}
 aside{
     width: 40%;
 }
@@ -237,7 +300,7 @@ aside{
 }
 
 /*MODAL*/
-.modalContainer{
+.modalContainer, .modalRegister{
     /* display: none; */
     position: absolute;
     top: 0;
@@ -301,6 +364,11 @@ aside{
     cursor: pointer;
 }
 
+#btnConfirm{
+    padding: 5px 10px;
+    background-color: rgb(189 181 219);
+    border-radius: 5px;
+}
 
 /*Estilos para home*/
 .iconProfile{
@@ -331,11 +399,11 @@ aside{
     background-color: #e2e1e3;
     padding: 5px;
     border-radius: 5px 5px 0px 0px;
-    height: 100px;
 }
 #iconPost{
 background-color: #D7B5E2;
 padding: 3px;
+width: 60%;
 }
 .divButtonPost{
     display: flex;
@@ -353,9 +421,18 @@ padding: 3px;
 
 .selectIcons{
     display: flex;
+    justify-content: space-between;
+    background-color: #D7B5E2;
+    border-radius: 0px 0px 5px 5px;
+    align-items: center;
+}
+#selectCategory{
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
 }
 .imgPost {
-    width:20%;
+    margin:5px;
 }
 
     /***SHOWWPOST-BLOQUE DE PUBLICACIONES POSTEADAS"*/
@@ -381,14 +458,16 @@ padding: 3px;
     }
     #showText{
         
-        padding: 15px 15px 0px 15px;
-        /* width:120px; */
+        padding: 10px;
+       
     }
     #iconShowPost{
         display: flex;
         border-color: #902fbd;
         background-color: #D7B5E2;
-        padding: 0px 120px;
+        width: 100%;
+        align-items: center;
+        padding: 5px;
     }
     /***Contador de Likes***/
   #checkLikes{
@@ -426,16 +505,27 @@ padding: 3px;
 /*ESTILOS PARA DESTOKP*/
 
 @media screen and (min-width:768px){
-    .containerView {
+    .containerView{
         display: flex;
         text-align: center;
         justify-content: center;
         flex-direction: row;
-        height: 90vh;
+        background-color: #F2EEAC;
+        /* height: 90vh; */
+    }
+    .containerRegister{
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        flex-direction: row;
+        background-color: #F2EEAC;
     }
 
-    header label, #checkMenu{
+    header label{
         display: none;
+    }
+    #gifWelcome{
+        display:block;
     }
     .homeNav{
         display: block;
@@ -446,19 +536,41 @@ padding: 3px;
     .iconHamb {
         display: none;
     }
+    .headerRegister{
+        width: 50%;
+        background-image: url(./img/animalesportada.png);
+        background-size: 90%;
+        background-repeat: no-repeat;
+        background-position-y: center;
+        background-position-x: center;
+        background-color: white;
+        border-radius: 0px 360px 360px 0px;
+        display:flex;
+        align-items: center;
+        justify-content: center;        
+    }
     .header1{
-        width: 50vw;
-        background: rgb(231, 146, 183);
-        background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(189,181,219,1) 55%, rgb(196, 139, 158) 100%);
+        /* background-color: white; */
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* border-radius: 0px 300px 300px 0px; */
+        background-image: url(./img/fondoRegister.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
     }
     .loginView{
         width: 50%;
     }
-    #titleLogin{
+    /* #titleLogin{
         margin-top: 25px;
+    } */
+    #logoLogin{
+        width: 30%;
     }
-    #logo{
-        Height: 250px;
+    #logoRegister{
+        width:40%
     }
     #footerPetworld{
         margin-bottom: 0px;
@@ -476,7 +588,7 @@ padding: 3px;
         justify-content: center;
         align-items: center;
         padding: 10px;
-        width: 50vw;
+        width: 50%;
     }
     .fullName{
         display: flex;

@@ -7,9 +7,11 @@ export const login = () => {
   loginElement.setAttribute('class', 'containerView');
   const loginDiv = `
      <header class="header1">
-        <img id="logo" src="./img/imgLogin/logo.png" alt="logo">
+      
      </header>
+     
      <div class='loginView'>
+        <img id="logoLogin" src="./img/logo6.png" alt="logoPetworld">
         <h1 id="titleLogin">INICIAR SESIÓN</h1>   
         <label for="email"></label>
         <input id="emailInto" type="email" placeholder="*Correo electrónico" required>
@@ -21,14 +23,12 @@ export const login = () => {
           </span>
         </div>
         <p id="showMessageTag"></p>
-        <a href="/resetPassword">¿Olvidaste tu contraseña?</a>
+        <a href="/resetPassword" id="answerForgot">¿Olvidaste tu contraseña?</a>
         <button class="btnLogin">INGRESAR</button>
-        <p>o ingresa con</p>
-        <div class= "iconDivLogin">
-            <img src="./img/imgLogin/facebook.png" alt="facebook" id="iconFacebook" class="iconInto">
-            <img src="./img/imgLogin/google.png" alt="google" id="iconGmail" class="iconInto">
-        </div>
-        <p id="loginParagraph">¿eres nuevo en petworld?</p>
+        <p class="loginParagraph">o ingresa con</p>
+        <button id= "btnGoogle"> INGRESA CON GOOGLE<img src="./img/imgLogin/google.png" alt="google" id="iconGmail" class="iconInto">
+        </button>
+        <p class="loginParagraph">¿eres nuevo en petworld?</p>
         <button class="btnCreateAccount">Crea tu cuenta</button>
      </div>`;
   loginElement.innerHTML = loginDiv;
@@ -60,11 +60,11 @@ export const login = () => {
     onNavigate('/register');
   });
 
-  loginElement.querySelector('#iconGmail').addEventListener('click', () => {
+  loginElement.querySelector('#btnGoogle').addEventListener('click', () => {
     loginGmail();
   });
-  loginElement.querySelector('#iconFacebook').addEventListener('click', () => {
-    loginFacebook();
-  });
+  // loginElement.querySelector('#iconFacebook').addEventListener('click', () => {
+  //   loginFacebook();
+  // });
   return loginElement;
 };

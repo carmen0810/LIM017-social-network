@@ -1,6 +1,6 @@
 /* eslint-disable import/no-cycle */
 import { registerFirebase } from '../authFirebase/authentication.js';
-
+import { onNavigate } from '../main.js';
 import { MessageData } from '../lib/index.js';
 
 // const MessageData = (input, showMessage) => {
@@ -9,12 +9,13 @@ import { MessageData } from '../lib/index.js';
 
 export const register = () => {
   const registerElement = document.createElement('section');
-  registerElement.setAttribute('class', 'containerView');
+  registerElement.setAttribute('class', 'containerRegister');
   const registerForm = `
-  <header class="header1">
-     <img id="logo" src="./img/imgLogin/logo.png" alt="logo">
+  <header class="headerRegister">
+    <img id="gifWelcome" src="./img/Welcome.gif" alt="imgWelcome">
   </header>
   <form class="registerPage">
+    <img id="logoRegister" src="./img/logo6.png" alt="logo">
     <h2 class="intoTitle">REGÍSTRATE Y ÚNETE A PETWORLD</h2>
     <p class="textCreateAccount">Crea tu cuenta en pocos pasos</p>
     <p class="textCreateAccount">¡Es súper rápido y fácil!</p>
@@ -49,7 +50,14 @@ export const register = () => {
     <button  id="btnRegister" >REGISTRARSE</button>
     <p id="messageComplete"></p>
     <a class="questionAccount" href="/">¿Ya tienes una cuenta?</a>
-  </form>`;
+  </form>
+  <section class="modalRegister">
+    <div class="modalContent">
+      <h2 class="textModalConfirm">¡SU REGISTRO HA SIDO EXITOSO!</h2>
+      <p class="textModalConfirm">Ahora ya puedes iniciar sesión en Petworld</p>
+      <button  id="btnConfirm">OK</button>
+    </div>
+  </section>`;
   registerElement.innerHTML = registerForm;
   const ipName = registerElement.querySelector('#name');
   const ipLastName = registerElement.querySelector('#lastName');
@@ -59,7 +67,9 @@ export const register = () => {
   const btnRegister = registerElement.querySelector('#btnRegister');
   const msnerrorRegister = registerElement.querySelector('.msnerrorRegister');
   const msnerrorRepeatPassword = registerElement.querySelector('.msnerrorRepeatPassword');
-
+  const modalRegister = registerElement.querySelector('.modalRegister');
+  // const btnConfirm = registerElement.querySelector('#btnConfirm');
+  modalRegister.classList.add('ocultar');
   function validarPassword() {
     const expRegular = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,18}$/;
     if (!ipPass) {
@@ -90,7 +100,13 @@ export const register = () => {
       const errorMessageRegister = document.querySelector('#messageComplete');
       errorMessageRegister.textContent = 'Debes completar todos los campos solicitados';
     } else {
-      registerFirebase(ipName.value, ipLastName.value, ipEmail.value, ipPass.value);
+      const btnConfirm = registerElement.querySelector('#btnConfirm');
+      // modalRegister.classList.add('ocultar');
+      modalRegister.classList.remove('ocultar');
+      modalRegister.classList.add('mostrar');
+      btnConfirm.addEventListener('click', () => {
+        registerFirebase(ipName.value, ipLastName.value, ipEmail.value, ipPass.value, () => { onNavigate('/'); });
+      });
     }
   });
   registerElement.querySelector('.iconEye2').addEventListener('click', () => {
