@@ -268,20 +268,14 @@ export const homePetworld = () => {
           ArrayLikeData = postData.like;
         }
         sectionPosts += `
-      <div class="textShowPost">
+        <div class="textShowPost">
         <p id="showText">${postData.description}</p>
         <div id="iconShowPost">
-            <div class="containerLikes">
-              <input type="checkbox" id="checkLikes">
               <p>${ArrayLike}</p>
-              <label for="checkLikes">
-                <img class="imgShowPost likePost" data-like="${ArrayLikeData}" data-id="${doc.id}" src="./img/iconsPost/like.png">
-              </label>
-              <p id="counterLikes"></p>
-            </div>
-            <img class="imgShowPost btn-edit" data-id="${doc.id}" src="./img/iconsPost/editar.png">
-            <img class="imgShowPost btn-delete" data-id="${doc.id}" src="./img/iconsPost/boteBasura.png">
-        </div>
+              <i class="fa-brands fa-gratipay imgShowPost likePost" data-like="${ArrayLikeData}" data-id="${doc.id}" id="likePost"></i>
+              <i class="fa-regular fa-pen-to-square imgShowPost btn-edit" data-id="${doc.id}"></i>
+              <i class="fa-regular fa-trash-can imgShowPost btn-delete" data-id="${doc.id}"></i>
+              </div>
       </div>
       `;
       });
