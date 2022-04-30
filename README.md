@@ -1,4 +1,235 @@
-# Creando una Red Social
+### 1. Introducción
+
+![](../LIM017-social-network/src/img/readme/portada.jpg)
+
+Cuando hablamos de **red social**, lo que viene a la mente en primer lugar son sitios como **Facebook**, **Twitter** y **LinkedIn** o aplicaciones como **TikTok** e **Instagram**, típicos de la actualidad. Pero la idea, sin embargo, es mucho más antigua: en la sociología, por ejemplo, el concepto de red social se utiliza para analizar interacciones entre individuos, grupos, organizaciones o hasta sociedades enteras desde el final del siglo XIX.
+
+Las redes sociales son plataformas digitales formadas por **comunidades** de individuos con intereses, actividades o relaciones en común (como amistad, parentesco, trabajo). Las redes sociales permiten el **contacto** entre personas y funcionan como un medio para **comunicarse e intercambiar información**.
+
+**PetWorld** es una red social dirigida a usuarios que tienen mascotas, sin importar si es perro, gato, hamster, iguana o cualquier otro animal. Su principal labor es **formar un comunidad** entre dichos usuarios con el fin de fomentar la cooperación, interactividad, y sobretodo la difusión de información acerca de las diferentes habilidades, condiciones, y otros aspectos de sus mascotas, los cuáles desglosamos en **secciones de fácil acceso** para una visualización más rápida.   
+
+### 2. Historias de Usuario
+
+#### Historia de Usuario 01
+
+ **Como** usuario no registrado 
+ **Quiero** crearme una cuenta 
+ **Para** poder acceder al contenido de PetWorld.
+
+> Desarrollo
+
+El usuario no registrado al entrar a **PetWorld** encontrará una primera vista con una sección de **registro de usuario**, la cual mediante una señalización de botones lo guiará paso a paso de manera muy rápida y sencilla para crearse una **cuenta de acceso** a nuestra red social.
+
+#### Historia de Usuario 02
+
+**Como** usuario registrado
+**Quiero** loguearme
+**Para** poder acceder al contenido de PetWorld.
+
+> Desarrollo
+
+El usuario registrado podrá **iniciar sesión** de manera segura, con la finalidad de poder visualizar el contenido que ofrece **PetWorld**, asimismo podrá **cerrar sesión** para regresar a la vista inicial.
+
+
+#### Historia de Usuario 03
+
+**Como** usuario
+**Quiero** entrar a PetWorld 
+**Para** ver sobre cuidados, alimentación, salud, adopción y/o compra de mascotas.
+
+> Desarrollo
+
+El usuario registrado podrá **visualizar** el contenido que ofrece **PetWorld**, haciendo click en un menú lateral o desplegable, el cuál se encontrará dividido en secciones, con el objetivo de facilitar y hacer más amigable la **búsqueda de información**. 
+
+
+#### Historia de Usuario 04
+
+**Como** usuario
+**Quiero** crear y publicar contenido sobre mascotas 
+**Para** difundir datos de interés con otros usuarios.
+
+> Desarrollo
+
+El usuario registrado de **PetWorld** será capaz de **escribir y crear** información de su interés, así como **publicarlo** para que aparezca en el muro principal de la red social y sea de contenido público para los demás usuarios.  
+
+
+#### Historia de Usuario 05
+
+**Como** usuario
+**Quiero** editar contenido 
+**Para** actualizar los registros de mis posts.
+
+> Desarrollo
+
+El usuario registrado de **PetWorld** será capaz de **editar** el contenido creado con anterioridad, con la finalidad de **actualizar** la información que aparece en el muro principal de la red social. 
+
+
+#### Historia de Usuario 06
+
+**Como** usuario
+**Quiero** eliminar contenido 
+**Para** reemplazar por nueva información.
+
+> Desarrollo
+
+El usuario registrado de **PetWorld** será capaz de **eliminar** su propio contenido creado, con la intención de **no mostrar** la información anteriormente proporcionada y **reemplazarla** por una nueva. 
+
+
+#### Historia de Usuario 07
+
+**Como** usuario
+**Quiero** reaccionar a diferentes posts 
+**Para** demostrar que son de mi interés.
+
+> Desarrollo
+
+El usuario registrado de **PetWorld** será capaz de **dar like** al contenido publicado en el muro principal de **PetWorld**, con el propósito de demostrar su **aceptación y agrado** a la información pertinente.  
+
+
+### 3. Sketch - Prototipo de baja fidelidad
+
+> Se trabajó en una idea desarrollada mediante la herramienta **Google Jamboard** para entender con facilidad lo que el usuario desea.
+
+![Prototipos de Baja Fidelidad](../LIM017-social-network/src/img/readme/PBJ%201.png)
+
+![](../LIM017-social-network/src/img/readme/PBJ%202.png)
+
+![](../LIM017-social-network/src/img/readme/PBJ%203.png)
+
+![](../LIM017-social-network/src/img/readme/PBJ%204.png)
+
+![](../LIM017-social-network/src/img/readme/PBJ%205.png)
+
+![](../LIM017-social-network/src/img/readme/PBJ%206.png)
+
+![](../LIM017-social-network/src/img/readme/PBJ%207.png)
+
+![](../LIM017-social-network/src/img/readme/PBJ%208.png)
+
+![](../LIM017-social-network/src/img/readme/PBJ%209.png)
+
+![](../LIM017-social-network/src/img/readme/PBJ%2010.png)
+
+
+### 4. Diseño interfaz de Usuario - Prototipo de alta fidelidad
+> Se trabajó con un editor de gráficos vectorial y una herramienta de generación de prototipos ([Figma](http://www.figma.com/?fuid= "Figma")) para tener un diseño más profesional y reflejar lo que el usuario desea.
+
+![Prototipos de Alta Fidelidad](Images/pafpage01.png)
+
+
+[Reference link Figma][id/name]
+
+[id/name]: https://www.figma.com/proto/2cVktQV52vReP3YDmuxBbd/Untitled?node-id=1%3A2&scaling=scale-down&page-id=0%3A1&starting-point-node-id=1%3A2
+
+### 5. Objetivos de Aprendizaje - Autoras
+
+#### Uso de HTML semántico
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+      <title>Hello world!</title>
+  </head>
+  <body>
+	<main>
+	  <header>
+	    <h1>Hello world!</h1>
+	  </header>
+  </main>
+	<footer></footer>
+	<script></script>
+  </body>
+</html>
+```
+#### Selectores, modelo de caja y flexbox en CCS
+
+[CSS Selectors-MDN](https://developer.mozilla.org/es/docs/Web/CSS/CSS_Selectors "CSS Selectors-MDN")
+
+[Box Model](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model "Box Model")
+
+[Flexbox](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox "Flexbox")
+
+[Responsive Design](https://developer.mozilla.org/es/docs/Learn/CSS/CSS_layout/Responsive_Design "Responsive Design")
+
+#### Selectores, eventos y manipulación dinámica el DOM
+
+[Introducción al DOM-MDN](https://developer.mozilla.org/es/docs/Web/API/Document_Object_Model/Introduction "Introducción al DOM")
+
+[Localizando elementos DOM usando selectores-MDN](https://developer.mozilla.org/es/docs/Web/API/Document_object_model/Locating_DOM_elements_using_selectors "Localizando elementos DOM usando selectores-MDN")
+
+[EventTarget.addEventListener()-MDN](https://developer.mozilla.org/es/docs/Web/API/EventTarget/addEventListener "Evento AddEventListener-MDN")
+
+[Document.createElement()-MDN](https://developer.mozilla.org/es/docs/Web/API/Document/createElement "Document.createElement()")
+
+[Element.innerHTML()-MDN](https://developer.mozilla.org/es/docs/Web/API/Element/innerHTML "Element.innerHTML()-MDN")
+
+[Node.appendChild()-MDN](https://developer.mozilla.org/es/docs/Web/API/Node/appendChild "Node.appendChild()-MDN")
+
+[Node.textContent()-MDN](https://developer.mozilla.org/es/docs/Web/API/Node/textContent "Node.textContent()-MDN")
+
+[Manipulando el Historial del Navegador-MDN](https://developer.mozilla.org/es/docs/web/api/history_api "Manipulando el Historial del Navegador-MDN")
+
+[Creando un Router con Vanilla JavaScript](https://dev.to/alexcamachogz/creando-un-router-con-vanilla-javascript-27pl "Creando un Router con Vanilla JavaScript")
+
+#### Javascript
+
+[Métodos de Array-MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array "Métodos de Array")
+
+[Condicionales-MDN](https://developer.mozilla.org/es/docs/Learn/JavaScript/Building_blocks/conditionals "Condicionales-MDN")
+
+[Bucles e iteración](https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Loops_and_iteration "Bucles e iteración")
+
+[Funciones(Parámetros y argumentos)-MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Functions "Funciones(Parámetros y argumentos)-MDN")
+
+#### Es Modules y Test
+
+[ECMAScript (ES Modules-Import)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/import "ECMAScript (ES Modules-Import)")
+
+[ECMAScript (ES Modules-Export)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/export "ECMAScript (ES Modules-Export)")
+
+[Test con Jest](https://lms.laboratoria.la/cohorts/lim-2022-01-bootcamp-js-lim017/topics/javascript/11-testing/00-opening "Test con Jest")
+
+[Empezando Con Jest](https://jestjs.io/es-ES/docs/getting-started "Test con Jest")
+
+[Test con código asíncrono](https://jestjs.io/es-ES/docs/asynchronous "Test con Jest")
+
+[MOCKS CON JEST](https://jestjs.io/es-ES/docs/manual-mocks "Mocks")
+
+[Fundamentos Mocks](https://gabrieluizramos.com.br/fundamentando-mocks-em-javascript "Mocks")
+
+#### CallBack y Promesas
+
+[Función CallBack](https://developer.mozilla.org/es/docs/Glossary/Callback_function "CallBack")
+
+[Promise](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise "Promesas")
+
+[Cómo escribir una promesa de JavaScript](https://www.freecodecamp.org/news/how-to-write-a-javascript-promise-4ed8d44292b8/ "Promesas")
+
+#### Firebase
+
+[Documentación oficial Firebase](https://firebase.google.com/docs/firestore?hl=es "Firebase")
+
+[Reglas de seguridad Firebase](https://firebase.google.com/docs/rules?hl=es "Firebase")
+
+[Primeros pasos con Firebase-Autenticación](https://firebase.google.com/docs/auth/web/start?hl=es "Firebase")
+
+[Administra usuarios en Firebase](https://firebase.google.com/docs/auth/web/manage-users?hl=es#get_the_currently_signed-in_user "Firebase")
+
+[Agregar datos a Cloud Firebase](https://firebase.google.com/docs/firestore/manage-data/add-data "Firebase")
+
+[Obtén actualizaciones en tiempo real-Firebase](https://firebase.google.com/docs/firestore/query-data/listen?hl=es "Firebase")
+
+#### Control de versiones(Git y GitHub)
+
+[Página Oficial GitHub](https://pages.github.com/ "Página Oficial GitHub")
+
+### 6. Test de usabilidad
+Los test de usabilidad fueron esenciales en el desarrollo de nuestra red social, ya que con la colaboración de usuarios de nuestra red social, logramos definir las **historias de usuarios** lo que nos llevó a completar la experiencia del mismo.
+
+<!-- Red Social Laboratoria readme -->
+<!-- # Creando una Red Social
 
 ## Índice
 
@@ -511,4 +742,4 @@ Otras:
 * [Mobile First: el enfoque actual del diseño web móvil - 1and1](https://www.1and1.es/digitalguide/paginas-web/diseno-web/mobile-first-la-nueva-tendencia-del-diseno-web/)
 * [Mobile First - desarrolloweb.com](https://desarrolloweb.com/articulos/mobile-first-responsive.html)
 * [Mobile First - ZURB](https://zurb.com/word/mobile-first)
-* [Mobile First Is NOT Mobile Only - Nielsen Norman Group](https://www.nngroup.com/articles/mobile-first-not-mobile-only/)
+* [Mobile First Is NOT Mobile Only - Nielsen Norman Group](https://www.nngroup.com/articles/mobile-first-not-mobile-only/) -->
