@@ -2,7 +2,7 @@
 // import { onNavigate } from '../main.js';
 
 import {
-  createPost, onShowPosts, logoutPet, deletePosts,
+  createPost, onShowPosts, logoutPet, deletePosts, editPosts, updatePosts, addLikesPost, getUserID,
 } from '../authFirebase/authentication.js';
 import { onNavigate } from '../main.js';
 
@@ -37,7 +37,7 @@ export const homePetworld = () => {
       </aside>
      
       <div class="containerPetPost">
-        <form class="containerPost">
+        <div class="containerPost" >
           <div class="photoProfile">
             <img id="iconUser"class="iconProfile" >          
           </div>
@@ -59,11 +59,15 @@ export const homePetworld = () => {
               </select> 
               <p></p>
             </div>
-            <div id="divButtonPost">
-              <button type="submit" id="buttonPost">Publicar</button>
+            <div class="divButtonPost" id="divButtonPost">
+              <button  class="buttonPost" id="buttonPost">Publicar</button>
             </div>
+            <div class="divButtonPost">
+              <button id="buttonActualizar" class="ocultar buttonPost">Actualizar</button>
+            </div>
+            <input type="hidden" id="idposthidden" value="">
           </div>
-        </form>
+        </div>
         <section id="showPost">
         </section>
       
@@ -149,30 +153,40 @@ export const homePetworld = () => {
   const containerPost = homeElement.querySelector('.containerPost');
   const showPost = homeElement.querySelector('#showPost');
 
+  let editStatus = false;
+
   onShowPosts((querySnapshot) => {
     let sectionPosts = '';
     querySnapshot.forEach((doc) => {
       const postData = doc.data();
+      let ArrayLike = postData.like;
+      let ArrayLikeData = 0;
+      if (ArrayLike === undefined || ArrayLike === 'undefined') {
+        ArrayLike = 0;
+      } else {
+        ArrayLike = postData.like.length;
+        ArrayLikeData = postData.like;
+      }
       sectionPosts += `
       <div class="textShowPost">
         <p id="showText">${postData.description}</p>
         <div id="iconShowPost">
             <div class="containerLikes">
               <input type="checkbox" id="checkLikes">
+              <p>${ArrayLike}</p>
               <label for="checkLikes">
-                <img class="imgShowPost" id="likePost" src="./img/iconsPost/like.png">
+                <img class="imgShowPost likePost" data-like="${ArrayLikeData}" data-id="${doc.id}" src="./img/iconsPost/like.png">
               </label>
               <p id="counterLikes"></p>
             </div>
-            <img class="imgShowPost" src="./img/iconsPost/editar.png">
-            <img class="imgShowPost" src="./img/iconsPost/boteBasura.png">
+            <img class="imgShowPost btn-edit" data-id="${doc.id}" src="./img/iconsPost/editar.png">
+            <img class="imgShowPost btn-delete" data-id="${doc.id}" src="./img/iconsPost/boteBasura.png">
         </div>
       </div>
       `;
     });
     showPost.innerHTML = sectionPosts;
-    
-    // ELIMINAR POSTS
+    // LISTADO DE LOS POSTS CREADOS , ELIMINA Y EDITA
     const btnsDelete = showPost.querySelectorAll('.btn-delete');
     btnsDelete.forEach((btn) => {
       btn.addEventListener('click', () => {
@@ -186,31 +200,86 @@ export const homePetworld = () => {
         });
       });
     });
+    const btnsEdit = showPost.querySelectorAll('.btn-edit');
+    btnsEdit.forEach((btnedit) => {
+      btnedit.addEventListener('click', async () => {
+        const idpost = btnedit.getAttribute('data-id');
+        const doc = await editPosts(idpost);
+        const edit = doc.data();
+        document.querySelector('#editPost').value = edit.description;
+        document.querySelector('#idposthidden').value = idpost;
+        document.querySelector('#buttonPost').classList.add('ocultar');
+        document.querySelector('#buttonPost').classList.remove('mostrar');
+        document.querySelector('#buttonActualizar').classList.add('mostrar');
+        document.querySelector('#buttonActualizar').classList.remove('ocultar');
+      });
+    });
+    const UpdatePost = homeElement.querySelector('#buttonActualizar');
+    UpdatePost.addEventListener('click', () => {
+      const valueUpdateTextAreaPost = document.querySelector('#editPost').value;
+      console.log('update lista');
+      console.log(valueUpdateTextAreaPost);
+      updatePosts(document.querySelector('#idposthidden').value, valueUpdateTextAreaPost);
+      document.querySelector('#buttonPost').classList.add('mostrar');
+      document.querySelector('#buttonPost').classList.remove('ocultar');
+      document.querySelector('#buttonActualizar').classList.add('ocultar');
+      document.querySelector('#buttonActualizar').classList.remove('mostrar');
+      setTimeout(() => { document.querySelector('#editPost').value = ''; }, 0);
+    });
+    const likePostUpdate = showPost.querySelectorAll('.likePost');
+    const userId = getUserID();
+    likePostUpdate.forEach((btnlike) => {
+      btnlike.addEventListener('click', () => {
+        const idpost = btnlike.getAttribute('data-id');
+        let AllLikes = btnlike.getAttribute('data-like');
+        if (AllLikes === 0 || AllLikes === '0' || AllLikes === '') { AllLikes = []; } else { AllLikes = btnlike.getAttribute('data-like').split(','); }
+        const existUser = AllLikes.indexOf(userId);
+        //  si es -1 significa que no esta, por lo tanto le agregare al usuario nuevo
+        if (existUser === -1) {
+          //  si no existe el usuario en los likes
+          AllLikes.push(userId);
+          addLikesPost(idpost, AllLikes);
+        } else {
+          AllLikes.splice(existUser, 1);
+          //  si ya existe el usuario en los likes
+          addLikesPost(idpost, AllLikes);
+        }
+      });
+    });
   });
-
-  containerPost.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const description = containerPost.editPost;
-    createPost(description.value);
-    containerPost.reset();
+  //  CREA , ELIMINA, EDITA POSTS
+  homeElement.querySelector('#buttonPost').addEventListener('click', () => {
+    //e.preventDefault();
+    const description = homeElement.querySelector('#editPost').value;
+    createPost(description);
+    homeElement.querySelector('#editPost').value = '';
     onShowPosts((querySnapshot) => {
       let sectionPosts = '';
       querySnapshot.forEach((doc) => {
         const postData = doc.data();
+        let ArrayLike = postData.like;
+        let ArrayLikeData = 0;
+        if (ArrayLike === undefined || ArrayLike === 'undefined') {
+          ArrayLike = 0;
+        } else {
+          ArrayLike = postData.like.length;
+          ArrayLikeData = postData.like;
+        }
         sectionPosts += `
       <div class="textShowPost">
         <p id="showText">${postData.description}</p>
         <div id="iconShowPost">
             <div class="containerLikes">
               <input type="checkbox" id="checkLikes">
+              <p>${ArrayLike}</p>
               <label for="checkLikes">
-                <img class="imgShowPost" id="likePost" src="./img/iconsPost/like.png">
+                <img class="imgShowPost likePost" data-like="${ArrayLikeData}" data-id="${doc.id}" src="./img/iconsPost/like.png">
               </label>
               <p id="counterLikes"></p>
             </div>
-            <img class="imgShowPost" src="./img/iconsPost/editar.png">
+            <img class="imgShowPost btn-edit" data-id="${doc.id}" src="./img/iconsPost/editar.png">
             <img class="imgShowPost btn-delete" data-id="${doc.id}" src="./img/iconsPost/boteBasura.png">
-            </div>
+        </div>
       </div>
       `;
       });
@@ -228,20 +297,53 @@ export const homePetworld = () => {
           });
         });
       });
+      const btnsEdit = showPost.querySelectorAll('.btn-edit');
+      btnsEdit.forEach((btnedit) => {
+        btnedit.addEventListener('click', async () => {
+          const idpost = btnedit.getAttribute('data-id');
+          const doc = await editPosts(idpost);
+          const edit = doc.data();
+          document.querySelector('#editPost').value = edit.description;
+          document.querySelector('#idposthidden').value = idpost;
+          document.querySelector('#buttonPost').classList.add('ocultar');
+          document.querySelector('#buttonPost').classList.remove('mostrar');
+          document.querySelector('#buttonActualizar').classList.add('mostrar');
+          document.querySelector('#buttonActualizar').classList.remove('ocultar');
+        });
+      });
+      // const UpdatePost2 = homeElement.querySelector('#buttonActualizar');
+      // UpdatePost2.addEventListener('click', () => {
+      //   const valueUpdateTextAreaPost2 = document.querySelector('#editPost').value;
+      //   console.log('update');
+      //   console.log(valueUpdateTextAreaPost2);
+      //   updatePosts(document.querySelector('#idposthidden').value, valueUpdateTextAreaPost2);
+      //   document.querySelector('#buttonPost').classList.add('mostrar');
+      //   document.querySelector('#buttonPost').classList.remove('ocultar');
+      //   document.querySelector('#buttonActualizar').classList.add('ocultar');
+      //   document.querySelector('#buttonActualizar').classList.remove('mostrar');
+      //   document.querySelector('#editPost').value = '';
+      // });
+      const likePostUpdate = showPost.querySelectorAll('.likePost');
+      const userId = getUserID();
+      likePostUpdate.forEach((btnlike) => {
+        btnlike.addEventListener('click', () => {
+          const idpost = btnlike.getAttribute('data-id');
+          let AllLikes = btnlike.getAttribute('data-like');
+          if (AllLikes === 0 || AllLikes === '0' || AllLikes === '') { AllLikes = []; } else { AllLikes = btnlike.getAttribute('data-like').split(','); }
+          const existUser = AllLikes.indexOf(userId);
+          //  si es -1 significa que no esta, por lo tanto le agregare al usuario nuevo
+          if (existUser === -1) {
+            //  si no existe el usuario en los likes
+            AllLikes.push(userId);
+            addLikesPost(idpost, AllLikes);
+          } else {
+            AllLikes.splice(existUser, 1);
+            //  si ya existe el usuario en los likes
+            addLikesPost(idpost, AllLikes);
+          }
+        });
+      });
     });
   });
-
-  // Contador de Likes
-  // const likePost = showPost.getElementById('likePost');
-  // const counterLikes = showPost.getElementById('counterLikes');
-  // const counter = '';
-  // likePost.addEventListener('click', () => {
-  //   if (likePost.checked) {
-  //     counterLikes.innerHTML += counter;
-  //   } else {
-  //     counterLikes.innerHTML -= counter;
-  //   }
-  // });
-
   return homeElement;
 };

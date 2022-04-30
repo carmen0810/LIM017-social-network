@@ -337,11 +337,12 @@ aside{
 background-color: #D7B5E2;
 padding: 3px;
 }
-#divButtonPost{
+.divButtonPost{
     display: flex;
     flex-direction: row-reverse;
 }
-#buttonPost{
+.buttonPost{
+    cursor: pointer;
     background-color: #5c193a;
     color:#ffffff;
     border-radius: 10px;
