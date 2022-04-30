@@ -21,6 +21,8 @@ import {
   onSnapshot,
   arrayUnion,
   arrayRemove,
+  getDoc,
+  setDoc,
 } from './firebaseExt.js';
 
 const dbfirestore = getFirestore(app);
@@ -93,7 +95,7 @@ export const loginGmail = () => {
   const provider = new GoogleAuthProvider();
   const authWithGmail = signInWithPopup(auth, provider)
     .then((result) => {
-    // This gives you a Google Access Token. You can use it to access the Google API.
+      // This gives you a Google Access Token. You can use it to access the Google API.
       const credential = GoogleAuthProvider.credentialFromResult(result);
       // const token = credential.accessToken;
       // The signed-in user info.
@@ -105,16 +107,16 @@ export const loginGmail = () => {
       // eslint-disable-next-line no-unused-expressions
       document.getElementById('iconUser').setAttribute('src', userGmail.photoURL);
       // document.getElementById('nameGoogle').innerText = `hola, ${userGmail.displayName}`;
-    // ...
+      // ...
     }).catch((error) => {
-    // Handle Errors here.
+      // Handle Errors here.
       const errorCode = error.code;
       const errorMessage = error.message;
       // The email of the user's account used.
       const email = error.email;
       // The AuthCredential type that was used.
       const credential = GoogleAuthProvider.credentialFromError(error);
-    // ...
+      // ...
     });
   return authWithGmail;
 };
@@ -133,7 +135,7 @@ export const loginFacebook = () => {
       document.getElementById('nameUser').innerText = `hola, ${nameProfile.displayName}`;
       // localStorage.setItem('SESSION_USER_ID', namePr ofile.uid);
       // localStorage.setItem('SESSION_NAME_ID', nameProfile.displayName);
-    // ...
+      // ...
     }).catch((error) => {
       console.log(error);
       // Handle Errors here.
@@ -143,7 +145,7 @@ export const loginFacebook = () => {
       const email = error.email;
       // The AuthCredential type that was used.
       const credential = FacebookAuthProvider.credentialFromError(error);
-    // ...
+      // ...
     });
   return authWithFacebook;
 };
@@ -155,15 +157,17 @@ export const resetPasswordPet = (email) => {
     .then((userCredential) => {
       user = userCredential.user;
 
-    // Password reset email sent!
-    // ..
+      // Password reset email sent!
+      // ..
     })
     .catch((error) => {
-    // const errorCode = error.code;
-    // const errorMessage = error.message;
-    // ..
+      // const errorCode = error.code;
+      // const errorMessage = error.message;
+      // ..
     });
 };
+
+export const getUserID = () => user;
 
 // Escribiendo Posts
 export const createPost = (descripcion) => {
@@ -174,11 +178,14 @@ export const showPosts = () => getDocs(collection(dbfirestore, 'posts'));
 
 export const onShowPosts = (callback) => onSnapshot(collection(dbfirestore, 'posts'), callback);
 
-// export const editPosts = (id) => getDoc(doc(dbfirestore, 'posts', id));
-
-// export const updatePosts = (id, newFields) => updateDoc(doc(dbfirestore, 'posts', id), newFields);
-
 export const deletePosts = (id) => deleteDoc(doc(dbfirestore, 'posts', id));
+
+export const editPosts = (id) => getDoc(doc(dbfirestore, 'posts', id));
+
+export const updatePosts = (id, pdescription) => {
+  const UpdtePostRoute = doc(dbfirestore, 'posts', id);
+  updateDoc(UpdtePostRoute, { description: pdescription, userid: user });
+};
 
 // cerrar Sesión
 export const logoutPet = () => {
@@ -190,14 +197,12 @@ export const logoutPet = () => {
 export const removeLikesPost = (doc, user) => {
   const removeLikes = doc(dbfirestore, 'posts', doc);
   updateDoc(removeLikes, {
-    Likes: arrayRemove(user), 
+    Likes: arrayRemove(user),
   });
 };
 
 // Funcion para añadir likes
-export function addLikesPost(docId, user) {
-  const moreLikePost = doc(dbfirestore, 'posts', docId);
-  updateDoc(moreLikePost, {
-    Likes: arrayUnion(user),
-  });
+export function addLikesPost(docId, arrayUserLike) {
+  const UpdtePostLLike = doc(dbfirestore, 'posts', docId);
+  setDoc(UpdtePostLLike, { like: arrayUserLike }, { merge: true });
 }
