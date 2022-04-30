@@ -7,7 +7,8 @@ export const resetPassword = () => {
   resetSection.setAttribute('class', 'containerReset');
   const resetPasswordSection = `
     <header class="headerReset">
-        <img id="logoReset" src="./img/imgLogin/logo.png" alt="logo">
+        <img id="logoReset" src="./img/logo4.png" alt="logo">
+        
     </header>
     <div class="resetPassDiv">
         <img id="imgforgot" src="./img/forgetpassword.png" alt="forgetPass">

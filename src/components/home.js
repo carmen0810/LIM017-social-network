@@ -20,18 +20,18 @@ export const homePetworld = () => {
     <section class="posts">
       <aside>      
         <nav class="homeNav">
-          <img id="logoHome" src="./img/imgLogin/logo.png" alt="logo">
+          <img id="logoHome" src="./img/logo6.png" alt="logo">
           <ul class="homeBar1" >
-            <li class="listNav"><img class="imgIcon" src="./img/icons/home.png"></li>
-            <li class="listNav"><img class="imgIcon" src="./img/icons/cuidados.png">Cuidados</li>
-            <li class="listNav"><img class="imgIcon" src="./img/icons/alimentación.png">Alimentación</li>
-            <li class="listNav"><img class="imgIcon" src="./img/icons/salud.png">Salud</li>
-            <li class="listNav"><img class="imgIcon" src="./img/icons/adopción.png">Adopción</li>
-            <li class="listNav"><img class="imgIcon" src="./img/icons/venta.png">Venta</li>
+            <li class="listNav"><i class="fa-solid fa-house imgIcon"></i></li>
+            <li class="listNav"><i class="fa-solid fa-paw imgIcon"></i> Cuidados</li>
+            <li class="listNav"><i class="fa-solid fa-bowl-hot"></i> Alimentación</li>
+            <li class="listNav"><i class="fa-solid fa-stethoscope imgIcon"></i>Salud</li>
+            <li class="listNav"><i class="fa-solid fa-heart imgIcon"></i>Adopción</li>
+            <li class="listNav"><i class="fa-solid fa-cart-shopping imgIcon"></i>Venta</li>
           </ul>
           <ul class="homeBar2">  
             <li class="listNav2" >Mi perfil</li>
-            <li class="listNav2" id="logoutIcon"><img class="imgIcon"   src="./img/icons/cerrarSesión.png">Cerrar Sesión</li>
+            <li class="listNav2" id="logoutIcon"><i class="fa-solid fa-right-from-bracket"></i>Cerrar Sesión</li>
           </ul>
         </nav>
       </aside>
@@ -42,20 +42,20 @@ export const homePetworld = () => {
             <img id="iconUser"class="iconProfile" >          
           </div>
           <div class="textPost">
-            <textarea id="editPost" type="text" placeholder="Escribe aquí tus posts"></textarea>
+            <textarea id="editPost" type="text" rows="5" placeholder="Escribe aquí tus posts"></textarea>
             <div class="selectIcons">
-              <div id="iconPost">
-                <img class="imgPost" src="./img/iconsPost/editar.png">
-                <img class="imgPost" src="./img/iconsPost/adjuntar.png">
-                <img class="imgPost" src="./img/iconsPost/boteBasura.png">
+              <div id="iconPost">           
+                <i class="fa-regular fa-pen-to-square imgPost"></i>
+                <i class="fa-solid fa-paperclip imgPost"></i>
+                <i class="fa-regular fa-trash-can imgPost "></i>
               </div>
-              <select name="select">
+              <select name="select" id="selectCategory">
                 <option value="categoría" disabled>Selecciona categoría</option>
-                <option value="cuidados">Cuidados</option>
-                <option value="alimentación">Alimentación</option>
-                <option value="salud">Salud</option>
-                <option value="adopción">Adopción</option>
-                <option value="ventas">Ventas</option>
+                <option value="care" id="care">Cuidados</option>
+                <option value="nutrition" id="nutrition">Alimentación</option>
+                <option value="health" id="health">Salud</option>
+                <option value="adoption" id="adoption">Adopción</option>
+                <option value="sales" id="sales">Ventas</option>
               </select> 
               <p></p>
             </div>
@@ -98,18 +98,26 @@ export const homePetworld = () => {
   const navBar = homeElement.querySelector('.homeNav');
   const checkMenu = homeElement.querySelector('#checkMenu');
 
-  // const toggleMenu = () => {
-  // iconHamb.addEventListener('click', () => {
-  if (checkMenu === false) {
-    iconHamb.addEventListener('click', () => {
-      navBar.style.display = 'none';
-    });
-  } else {
-    iconHamb.addEventListener('click', () => {
-      navBar.style.display = 'block';
-      // navBar.classList.toggle('hide');
-    });
-  }
+  iconHamb.addEventListener('click', () => {
+    if (iconHamb === false) {
+      navBar.classList.add('ocultar');
+    } else {
+      navBar.classList.remove('ocultar');
+      navBar.classList.add('mostrar');
+    }
+  });
+  // // const toggleMenu = () => {
+  // // iconHamb.addEventListener('click', () => {
+  // if (checkMenu === false) {
+  //   iconHamb.addEventListener('click', () => {
+  //     navBar.style.display = 'none';
+  //   });
+  // } else {
+  //   iconHamb.addEventListener('click', () => {
+  //     navBar.style.display = 'block';
+  //     // navBar.classList.toggle('hide');
+  //   });
+  // }
   // iconHamb.addEventListener('click', toggleMenu);
 
   // evento cerrar Sesión y evento eliminar post
@@ -160,18 +168,18 @@ export const homePetworld = () => {
             <div class="containerLikes">
               <input type="checkbox" id="checkLikes">
               <label for="checkLikes">
-                <img class="imgShowPost" id="likePost" src="./img/iconsPost/like.png">
+                <i class="fa-brands fa-gratipay imgShowPost" id="likePost" ></i>
               </label>
               <p id="counterLikes"></p>
             </div>
-            <img class="imgShowPost" src="./img/iconsPost/editar.png">
-            <img class="imgShowPost" src="./img/iconsPost/boteBasura.png">
+            <i class="fa-regular fa-pen-to-square imgShowPost"></i>
+            <i class="fa-regular fa-trash-can imgShowPost "></i>
         </div>
       </div>
       `;
     });
     showPost.innerHTML = sectionPosts;
-    
+
     // ELIMINAR POSTS
     const btnsDelete = showPost.querySelectorAll('.btn-delete');
     btnsDelete.forEach((btn) => {
