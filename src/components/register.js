@@ -1,6 +1,6 @@
 /* eslint-disable import/no-cycle */
-import { registerFirebase } from '../authFirebase/authentication.js';
-import { onNavigate } from '../main.js';
+import { registerFirebase, sendConfirmEmail } from '../authFirebase/authentication.js';
+// import { onNavigate } from '../main.js';
 import { MessageData } from '../lib/index.js';
 
 // const MessageData = (input, showMessage) => {
@@ -54,7 +54,11 @@ export const register = () => {
   <section class="modalRegister">
     <div class="modalContent">
       <h2 class="textModalConfirm">¡SU REGISTRO HA SIDO EXITOSO!</h2>
-      <p class="textModalConfirm">Ahora ya puedes iniciar sesión en Petworld</p>
+      <p class="textModalConfirm">Le hemos enviado un mensaje de verificación <br>
+       a su correo registrado <br>
+       <img src="./img/emailsend.png" id="msjModal"><br>
+       Ahora ya puedes iniciar sesión en Petworld</p>
+       <img src="./img/mascotas.png" id="imgModalRegister">
       <button  id="btnConfirm">OK</button>
     </div>
   </section>`;
@@ -105,7 +109,8 @@ export const register = () => {
       modalRegister.classList.remove('ocultar');
       modalRegister.classList.add('mostrar');
       btnConfirm.addEventListener('click', () => {
-        registerFirebase(ipName.value, ipLastName.value, ipEmail.value, ipPass.value, () => { onNavigate('/'); });
+        sendConfirmEmail();
+        registerFirebase(ipName.value, ipLastName.value, ipEmail.value, ipPass.value);
       });
     }
   });

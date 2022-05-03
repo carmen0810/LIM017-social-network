@@ -1,6 +1,7 @@
 /* eslint-disable import/no-cycle */
 import { onNavigate } from '../main.js';
-import { loginFirebase, loginGmail, loginFacebook } from '../authFirebase/authentication.js';
+import { loginFirebase, loginGmail } from '../authFirebase/authentication.js';
+// import { getUser } from '../authFirebase/firebaseExt.js';
 
 export const login = () => {
   const loginElement = document.createElement('section');
@@ -25,9 +26,7 @@ export const login = () => {
         <p id="showMessageTag"></p>
         <a href="/resetPassword" id="answerForgot">¿Olvidaste tu contraseña?</a>
         <button class="btnLogin">INGRESAR</button>
-        <p class="loginParagraph">o ingresa con</p>
-        <button id= "btnGoogle"> INGRESA CON GOOGLE<img src="./img/imgLogin/google.png" alt="google" id="iconGmail" class="iconInto">
-        </button>
+        <p class="loginParagraph">o ingresa con: <img src="./img/imgLogin/google.png" alt="google" id="iconGmail" class="iconInto"></p>
         <p class="loginParagraph">¿eres nuevo en petworld?</p>
         <button class="btnCreateAccount">Crea tu cuenta</button>
      </div>`;
@@ -60,7 +59,7 @@ export const login = () => {
     onNavigate('/register');
   });
 
-  loginElement.querySelector('#btnGoogle').addEventListener('click', () => {
+  loginElement.querySelector('#iconGmail').addEventListener('click', () => {
     loginGmail();
   });
   // loginElement.querySelector('#iconFacebook').addEventListener('click', () => {
