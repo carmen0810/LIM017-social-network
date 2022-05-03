@@ -24,7 +24,8 @@
  *{
     margin:0;
     box-sizing: border-box;
-    font-family: 'PT Sans', sans-serif
+    /* font-family: 'PT Sans', sans-serif */
+    font-family: 'Gentium Basic', serif;
 }
 .containerView, .containerRegister {
     /* height: 90vh; */

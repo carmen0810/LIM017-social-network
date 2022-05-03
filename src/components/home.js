@@ -158,10 +158,10 @@ export const homePetworld = () => {
 
   // funcion para los posts
 
-  const containerPost = homeElement.querySelector('.containerPost');
+  // const containerPost = homeElement.querySelector('.containerPost');
   const showPost = homeElement.querySelector('#showPost');
 
-  let editStatus = false;
+  //let editStatus = false;
 
   onShowPosts((querySnapshot) => {
     let sectionPosts = '';
@@ -307,18 +307,18 @@ export const homePetworld = () => {
           document.querySelector('#buttonActualizar').classList.remove('ocultar');
         });
       });
-      // const UpdatePost2 = homeElement.querySelector('#buttonActualizar');
-      // UpdatePost2.addEventListener('click', () => {
-      //   const valueUpdateTextAreaPost2 = document.querySelector('#editPost').value;
-      //   console.log('update');
-      //   console.log(valueUpdateTextAreaPost2);
-      //   updatePosts(document.querySelector('#idposthidden').value, valueUpdateTextAreaPost2);
-      //   document.querySelector('#buttonPost').classList.add('mostrar');
-      //   document.querySelector('#buttonPost').classList.remove('ocultar');
-      //   document.querySelector('#buttonActualizar').classList.add('ocultar');
-      //   document.querySelector('#buttonActualizar').classList.remove('mostrar');
-      //   document.querySelector('#editPost').value = '';
-      // });
+      const UpdatePost2 = homeElement.querySelector('#buttonActualizar');
+      UpdatePost2.addEventListener('click', () => {
+        const valueUpdateTextAreaPost2 = document.querySelector('#editPost').value;
+        console.log('update');
+        console.log(valueUpdateTextAreaPost2);
+        updatePosts(document.querySelector('#idposthidden').value, valueUpdateTextAreaPost2);
+        document.querySelector('#buttonPost').classList.add('mostrar');
+        document.querySelector('#buttonPost').classList.remove('ocultar');
+        document.querySelector('#buttonActualizar').classList.add('ocultar');
+        document.querySelector('#buttonActualizar').classList.remove('mostrar');
+        document.querySelector('#editPost').value = '';
+      });
       const likePostUpdate = showPost.querySelectorAll('.likePost');
       const userId = getUserID();
       likePostUpdate.forEach((btnlike) => {
