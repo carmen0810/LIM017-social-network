@@ -1,13 +1,14 @@
+/* eslint-disable func-names */
 /* eslint-disable import/no-cycle */
-import { registerFirebase, sendConfirmEmail } from '../authFirebase/authentication.js';
-// import { onNavigate } from '../main.js';
+import {
+  registerFirebase, sendConfirmEmail, updateUser,
+} from '../authFirebase/authentication.js';
+import { onNavigate } from '../main.js';
 import { MessageData } from '../lib/index.js';
-
-// const MessageData = (input, showMessage) => {
-//   input.innerText = showMessage;
-// };
+// import { getUser, collection, addDoc } from '../authFirebase/firebaseExt.js';
 
 export const register = () => {
+  // const user = getUser().uid;
   const registerElement = document.createElement('section');
   registerElement.setAttribute('class', 'containerRegister');
   const registerForm = `
@@ -72,6 +73,7 @@ export const register = () => {
   const msnerrorRegister = registerElement.querySelector('.msnerrorRegister');
   const msnerrorRepeatPassword = registerElement.querySelector('.msnerrorRepeatPassword');
   const modalRegister = registerElement.querySelector('.modalRegister');
+  const messageComplete = registerElement.querySelector('#messageComplete');
   // const btnConfirm = registerElement.querySelector('#btnConfirm');
   modalRegister.classList.add('ocultar');
   function validarPassword() {
@@ -109,8 +111,26 @@ export const register = () => {
       modalRegister.classList.remove('ocultar');
       modalRegister.classList.add('mostrar');
       btnConfirm.addEventListener('click', () => {
-        sendConfirmEmail();
-        registerFirebase(ipName.value, ipLastName.value, ipEmail.value, ipPass.value);
+        registerFirebase(ipEmail.value, ipPass.value, ipName.value, ipLastName.value)
+          .then((userCredential) => {
+            updateUser(ipName.value);
+            sendConfirmEmail();
+            onNavigate('/');
+            return userCredential.user;
+          })
+          .catch((error) => {
+            const errorMessage = error.message;
+            switch (errorMessage) {
+              case 'Firebase: Error (auth/email-already-in-use).':
+                MessageData(messageComplete, 'email ya registrado');
+                break;
+              case 'Firebase: Error (auth/invalid-email).':
+                MessageData(messageComplete, 'email invalido');
+                break;
+              default:
+                break;
+            }
+          });
       });
     }
   });

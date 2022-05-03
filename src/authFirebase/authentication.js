@@ -1,22 +1,22 @@
+/* eslint-disable max-len */
 /* eslint-disable import/no-cycle */
 import { app } from './fbconfig.js';
 import { onNavigate } from '../main.js';
-import { MessageData } from '../lib/index.js';
 import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
-  FacebookAuthProvider,
   sendEmailVerification,
   updateProfile,
   collection,
   doc,
   addDoc,
-  getDocs,
+  // getDocs,
   updateDoc,
   deleteDoc,
+  // onAuthStateChanged,
   getFirestore,
   getUser,
   // serverTimestamp,
@@ -26,66 +26,19 @@ import {
   arrayUnion,
   arrayRemove,
   getDoc,
-  setDoc,
+  // setDoc,
 } from './firebaseExt.js';
 
-const dbfirestore = getFirestore(app);
+export const dbfirestore = getFirestore(app);
 
 let user = '';
 const auth = getAuth();
 
 // Registro nuevo usuario Petworld
-export const registerFirebase = (name, lastName, email, password) => createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    user = userCredential.user.uid;
-
-    addDoc(collection(dbfirestore, 'users'), {
-      nameUser: name,
-      lastNameUser: lastName,
-      uid: user,
-    });
-    onNavigate('/');
-  });
-// .catch((error) => {
-// const errorMessage = error.message;
-// console.log(errorMessage);
-// switch (errorMessage) {
-//   case 'Firebase: Error (auth/email-already-in-use).':
-//     // alert('email ya registrado');
-//     break;
-//   // case 'Firebase: Error (auth/internal-error).':
-//   //   alert('ingresar contraseña');
-//   //   break;
-//   case 'Firebase: Error (auth/invalid-email).':
-//     alert('email invalido');
-//     break;
-//   default:
-//     break;
-// }
-// });
+export const registerFirebase = (email, password) => createUserWithEmailAndPassword(auth, email, password);
 
 // Ingreso a Petworld con correo y contraseña
-export const loginFirebase = (email, password) => signInWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    alert(`Bienvenid@${userCredential.user.email}`);
-    onNavigate('/homePetworld');
-  })
-  .catch((error) => {
-    const errorMessage = error.message;
-    switch (errorMessage) {
-      case 'Firebase: Error (auth/invalid-email).':
-        alert('email invalido');
-        break;
-      case 'Firebase: Error (auth/user-not-found).':
-        alert('usuario no registrado');
-        break;
-        // case 'Firebase: Error (auth/invalid-password-hash).':
-        //   alert('contraseña incorrecta');
-        //   break;
-      default:
-        break;
-    }
-  });
+export const loginFirebase = (email, password) => signInWithEmailAndPassword(auth, email, password);
 
 // Ingreso a Petworld con Gmail
 export const loginGmail = () => {
@@ -93,8 +46,7 @@ export const loginGmail = () => {
   const authWithGmail = signInWithPopup(auth, provider)
     .then((result) => {
       // This gives you a Google Access Token. You can use it to access the Google API.
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      // const token = credential.accessToken;
+      // const credential = GoogleAuthProvider.credentialFromResult(result);
       // The signed-in user info.
       const userGmail = result.user;
       user = result.user.uid;
@@ -105,15 +57,6 @@ export const loginGmail = () => {
       document.getElementById('iconUser').setAttribute('src', userGmail.photoURL);
       // document.getElementById('nameGoogle').innerText = `hola, ${userGmail.displayName}`;
       // ...
-    // }).catch((error) => {
-    //   // Handle Errors here.
-    //   const errorCode = error.code;
-    //   const errorMessage = error.message;
-    //   // The email of the user's account used.
-    //   const email = error.email;
-    //   // The AuthCredential type that was used.
-    //   const credential = GoogleAuthProvider.credentialFromError(error);
-    //   // ...
     });
   return authWithGmail;
 };
@@ -124,18 +67,16 @@ export const sendConfirmEmail = () => sendEmailVerification(auth.currentUser);
 // recuperar contraseña
 export const resetPasswordPet = (email) => sendPasswordResetEmail(auth, email);
 // actualizar perfil
-export const upUser = (Fullname) => {
-  updateProfile(auth.currentUser, {
-    displayName: 'Fullname', photoURL: 'https://example.com/jane-q-user/profile.jpg',
-  });
-};
-
-// export const getUserID = () => user;
+export const updateUser = (fullName) => updateProfile(auth.currentUser, {
+  displayName: fullName,
+  // nameUser: name.uid,
+  // lasNameUser: lastName.uid,
+});
 
 // Funcionespara crear posts
-// user = userCredential.user.uid;
 export const createPost = async (title, description) => {
   await addDoc(collection(dbfirestore, 'posts'), {
+    nameUser: getUser().displayName,
     title,
     description,
     uid: getUser().uid,
@@ -144,55 +85,18 @@ export const createPost = async (title, description) => {
   });
 };
 
-export const getPosts = () => getDocs(collection(dbfirestore, 'posts'));
+// export const getPosts = () => getDocs(collection(dbfirestore, 'posts'));
 
 export const onGetPosts = (callback) => onSnapshot(collection(dbfirestore, 'posts'), callback);
 // funcion para eliminar post
 export const deletePosts = (id) => deleteDoc(doc(dbfirestore, 'posts', id));
 // función para editar un post existente
 export const editPosts = (id) => getDoc(doc(dbfirestore, 'posts', id));
-//
+// Función para actualizar posts
 export const updatePosts = (id, newFields) => updateDoc(doc(dbfirestore, 'posts', id), newFields);
 
 export const likeAdd = (data) => arrayUnion(data);
 export const likeRemove = (data) => arrayRemove(data);
 
-// export const createPost = (descriptionPost) => {
-//   addDoc(collection(dbfirestore, 'posts'), {
-//     description: descriptionPost,
-//     userid: user,
-//     // mylikes: [],
-//     // timestamp: serverTimestamp(),
-//     // dateTime: Timestamp.fromDate(new Date()),
-//   });
-// };
-
-// export const showPosts = () => getDocs(collection(dbfirestore, 'posts'));
-
-// export const onShowPosts = (callback) => onSnapshot(collection(dbfirestore, 'posts'), callback);
-
-// export const deletePosts = (id) => deleteDoc(doc(dbfirestore, 'posts', id));
-
-// export const editPosts = (id) => getDoc(doc(dbfirestore, 'posts', id));
-
-// export const updatePosts = (id, pdescription) => {
-//   const UpdtePostRoute = doc(dbfirestore, 'posts', id);
-//   updateDoc(UpdtePostRoute, { description: pdescription, userid: user });
-// };
-
 // cerrar Sesión
 export const logoutPet = () => signOut(auth);
-
-// Funcion para remover likes
-// export const removeLikesPost = (doc, user) => {
-//   const removeLikes = doc(dbfirestore, 'posts', doc);
-//   updateDoc(removeLikes, {
-//     Likes: arrayRemove(user),
-//   });
-// };
-
-// // Funcion para añadir likes
-// export function addLikesPost(docId, arrayUserLike) {
-//   const UpdtePostLLike = doc(dbfirestore, 'posts', docId);
-//   setDoc(UpdtePostLLike, { like: arrayUserLike }, { merge: true });
-// }

@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -8,6 +9,7 @@ import {
   FacebookAuthProvider,
   updateProfile,
   sendPasswordResetEmail,
+  onAuthStateChanged,
   // serverTimestamp,
   signOut,
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
@@ -38,6 +40,7 @@ export {
   FacebookAuthProvider,
   updateProfile,
   collection,
+  onAuthStateChanged,
   addDoc,
   getDocs,
   getDoc,

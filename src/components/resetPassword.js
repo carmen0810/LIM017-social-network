@@ -35,11 +35,24 @@ export const resetPassword = () => {
     if (emailResetPass.value === '') {
       MessageData(messageEmail, 'Debes completar el campo solicitado');
     } else {
-      resetPasswordPet(emailResetPass.value);
-      emailResetPass.style.display = 'none';
-      btnResetPass.style.display = 'none';
-      msmConfirm.classList.remove('ocultar');
-      msmConfirm.classList.add('mostrar');
+      resetPasswordPet(emailResetPass.value)
+        .then(() => {
+          emailResetPass.style.display = 'none';
+          btnResetPass.style.display = 'none';
+          messageEmail.style.display = 'none';
+          msmConfirm.classList.remove('ocultar');
+          msmConfirm.classList.add('mostrar');
+        })
+        .catch((error) => {
+          const errorMessage = error.message;
+          switch (errorMessage) {
+            case 'Firebase: Error (auth/user-not-found).':
+              MessageData(messageEmail, 'Usuario no registrado, usted debe ingresar un correo registrado en Petworld');
+              break;
+            default:
+              break;
+          }
+        });
     }
   });
 

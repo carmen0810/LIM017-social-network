@@ -3,8 +3,3 @@ export const MessageData = (input, showMessage) => {
   input.innerText = showMessage;
   return MessageData;
 };
-
-export const likeCounter = () => {
-  let likes = '';
-
-}
