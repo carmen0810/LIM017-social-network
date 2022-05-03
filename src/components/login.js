@@ -1,6 +1,8 @@
 /* eslint-disable import/no-cycle */
 import { onNavigate } from '../main.js';
-import { loginFirebase, loginGmail, loginFacebook } from '../authFirebase/authentication.js';
+import { loginFirebase, loginGmail } from '../authFirebase/authentication.js';
+import { MessageData } from '../lib/index.js';
+// import { getUser } from '../authFirebase/firebaseExt.js';
 
 export const login = () => {
   const loginElement = document.createElement('section');
@@ -25,13 +27,12 @@ export const login = () => {
         <p id="showMessageTag"></p>
         <a href="/resetPassword" id="answerForgot">¿Olvidaste tu contraseña?</a>
         <button class="btnLogin">INGRESAR</button>
-        <p class="loginParagraph">o ingresa con</p>
-        <button id= "btnGoogle"> INGRESA CON GOOGLE<img src="./img/imgLogin/google.png" alt="google" id="iconGmail" class="iconInto">
-        </button>
+        <p class="loginParagraph">o ingresa con: <img src="./img/imgLogin/google.png" alt="google" id="iconGmail" class="iconInto"></p>
         <p class="loginParagraph">¿eres nuevo en petworld?</p>
         <button class="btnCreateAccount">Crea tu cuenta</button>
      </div>`;
   loginElement.innerHTML = loginDiv;
+  const showMessageTag = loginElement.querySelector('#showMessageTag');
   loginElement.querySelector('.iconEye1').addEventListener('click', () => {
     const inputPassword = document.querySelector('#passwordInto');
     const icon = document.querySelector('i');
@@ -49,10 +50,28 @@ export const login = () => {
     const intoLoginEmail = document.getElementById('emailInto').value;
     const intoLoginPassword = document.getElementById('passwordInto').value;
     if (intoLoginEmail === '' && intoLoginPassword === '') {
-      const errorMessage = document.querySelector('#showMessageTag');
-      errorMessage.textContent = 'Debes completar todos los campos solicitados';
+      showMessageTag.textContent = 'Debes completar todos los campos solicitados';
     } else {
-      loginFirebase(intoLoginEmail, intoLoginPassword);
+      loginFirebase(intoLoginEmail, intoLoginPassword)
+        .then(() => {
+          onNavigate('/homePetworld');
+        })
+        .catch((error) => {
+          const errorMessage = error.message;
+          switch (errorMessage) {
+            case 'Firebase: Error (auth/invalid-email).':
+              MessageData(showMessageTag, 'Email inválido');
+              break;
+            case 'Firebase: Error (auth/user-not-found).':
+              MessageData(showMessageTag, 'Usuario no registrado');
+              break;
+            case 'Firebase: Error (auth/wrong-password).':
+              MessageData(showMessageTag, 'Contraseña Incorrecta');
+              break;
+            default:
+              break;
+          }
+        });
     }
   });
 
@@ -60,7 +79,7 @@ export const login = () => {
     onNavigate('/register');
   });
 
-  loginElement.querySelector('#btnGoogle').addEventListener('click', () => {
+  loginElement.querySelector('#iconGmail').addEventListener('click', () => {
     loginGmail();
   });
   // loginElement.querySelector('#iconFacebook').addEventListener('click', () => {
