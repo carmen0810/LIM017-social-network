@@ -2,11 +2,20 @@
 // import { onNavigate } from '../main.js';
 
 import {
-  createPost, onShowPosts, logoutPet, deletePosts, editPosts, updatePosts, addLikesPost, getUserID,
+  createPost,
+  onGetPosts,
+  logoutPet,
+  deletePosts,
+  editPosts,
+  updatePosts,
+  likeAdd,
+  likeRemove,
 } from '../authFirebase/authentication.js';
 import { onNavigate } from '../main.js';
+import { getUser } from '../authFirebase/firebaseExt.js';
 
 export const homePetworld = () => {
+  // const user = getUser();
   const homeElement = document.createElement('section');
   homeElement.setAttribute('class', 'homePage');
   const homeDiv = `
@@ -21,14 +30,6 @@ export const homePetworld = () => {
       <aside>      
         <nav class="homeNav">
           <img id="logoHome" src="./img/logo6.png" alt="logo">
-          <ul class="homeBar1" >
-            <li class="listNav"><i class="fa-solid fa-house imgIcon"></i></li>
-            <li class="listNav"><i class="fa-solid fa-paw imgIcon"></i> Cuidados</li>
-            <li class="listNav"><i class="fa-solid fa-bowl-hot"></i> Alimentación</li>
-            <li class="listNav"><i class="fa-solid fa-stethoscope imgIcon"></i>Salud</li>
-            <li class="listNav"><i class="fa-solid fa-heart imgIcon"></i>Adopción</li>
-            <li class="listNav"><i class="fa-solid fa-cart-shopping imgIcon"></i>Venta</li>
-          </ul>
           <ul class="homeBar2">  
             <li class="listNav2" >Mi perfil</li>
             <li class="listNav2" id="logoutIcon"><i class="fa-solid fa-right-from-bracket"></i>Cerrar Sesión</li>
@@ -37,36 +38,19 @@ export const homePetworld = () => {
       </aside>
      
       <div class="containerPetPost">
+        <div id="nameUserPet"></div>
         <div class="containerPost" >
           <div class="photoProfile">
             <img id="iconUser"class="iconProfile" >          
           </div>
-          <div class="textPost">
-            <textarea id="editPost" type="text" rows="5" placeholder="Escribe aquí tus posts"></textarea>
-            <div class="selectIcons">
-              <div id="iconPost">           
-                <i class="fa-regular fa-pen-to-square imgPost"></i>
-                <i class="fa-solid fa-paperclip imgPost"></i>
-                <i class="fa-regular fa-trash-can imgPost "></i>
-              </div>
-              <select name="select" id="selectCategory">
-                <option value="categoría" disabled>Selecciona categoría</option>
-                <option value="care" id="care">Cuidados</option>
-                <option value="nutrition" id="nutrition">Alimentación</option>
-                <option value="health" id="health">Salud</option>
-                <option value="adoption" id="adoption">Adopción</option>
-                <option value="sales" id="sales">Ventas</option>
-              </select> 
-              <p></p>
-            </div>
+          <form class="textPost">
+            <p class="nameUserPet"></p>
+            <input type="text" id="titlePost" placeholder="Coloca el título o tema de tu post">
+            <textarea id="descriptionPost" type="text" rows="5" placeholder="Escribe aquí tus posts"></textarea>
             <div class="divButtonPost" id="divButtonPost">
               <button  class="buttonPost" id="buttonPost">Publicar</button>
             </div>
-            <div class="divButtonPost">
-              <button id="buttonActualizar" class="ocultar buttonPost">Actualizar</button>
-            </div>
-            <input type="hidden" id="idposthidden" value="">
-          </div>
+          </form>
         </div>
         <section id="showPost">
         </section>
@@ -85,46 +69,17 @@ export const homePetworld = () => {
       </div>
     </section>
     <section class="modalContainer_eliminar">
-    <div class="modalContent">
-      <p id="exitModal">X</p>
-      <h2>¿Está seguro que desea eliminar este registro?</h2>
-      <div class="modalButtons">
-        <button class="btnCancel" id="btnCancelDelete">CANCELAR</button>
-        <button class="btnOk" id="btnDelete">ELIMINAR</button>
+      <div class="modalContent">
+        <h2>¿Está seguro que desea eliminar este registro?</h2>
+        <div class="modalButtons">
+          <button class="btnCancel" id="btnCancelDelete">CANCELAR</button>
+          <button class="btnOk" id="btnDelete">ELIMINAR</button>
+        </div>
       </div>
-    </div>
   </section>
     `;
   homeElement.innerHTML = homeDiv;
 
-  // Menú hamburguesa
-  const iconHamb = homeElement.querySelector('.iconHamb');
-  const navBar = homeElement.querySelector('.homeNav');
-  const checkMenu = homeElement.querySelector('#checkMenu');
-
-  iconHamb.addEventListener('click', () => {
-    if (iconHamb === false) {
-      navBar.classList.add('ocultar');
-    } else {
-      navBar.classList.remove('ocultar');
-      navBar.classList.add('mostrar');
-    }
-  });
-  // // const toggleMenu = () => {
-  // // iconHamb.addEventListener('click', () => {
-  // if (checkMenu === false) {
-  //   iconHamb.addEventListener('click', () => {
-  //     navBar.style.display = 'none';
-  //   });
-  // } else {
-  //   iconHamb.addEventListener('click', () => {
-  //     navBar.style.display = 'block';
-  //     // navBar.classList.toggle('hide');
-  //   });
-  // }
-  // iconHamb.addEventListener('click', toggleMenu);
-
-  // evento cerrar Sesión y evento eliminar post
   const modalContainer = homeElement.querySelector('.modalContainer');
   const modalContainerDelete = homeElement.querySelector('.modalContainer_eliminar');
   const modalCancelDelete = homeElement.querySelector('#btnCancelDelete');
@@ -151,195 +106,108 @@ export const homePetworld = () => {
     modalContainer.classList.remove('mostrar');
     modalContainer.classList.add('ocultar');
   });
+  // cerrar Sesión
   btnLogout.addEventListener('click', () => {
-    setTimeout(logoutPet(), 300);
+    logoutPet();
     onNavigate('/');
   });
 
   // funcion para los posts
-
-  const containerPost = homeElement.querySelector('.containerPost');
+  const textPost = homeElement.querySelector('.textPost');
   const showPost = homeElement.querySelector('#showPost');
-
   let editStatus = false;
-
-  onShowPosts((querySnapshot) => {
+  let id = '';
+  // window.addEventListener('DOMContentLoaded', async () => {
+  onGetPosts((querySnapshot) => {
     let sectionPosts = '';
-    querySnapshot.forEach((doc) => {
-      const postData = doc.data();
-      let ArrayLike = postData.like;
-      let ArrayLikeData = 0;
-      if (ArrayLike === undefined || ArrayLike === 'undefined') {
-        ArrayLike = 0;
-      } else {
-        ArrayLike = postData.like.length;
-        ArrayLikeData = postData.like;
-      }
+    querySnapshot.forEach(async (doc) => {
+      const dataPost = doc.data();
       sectionPosts += `
-      <div class="textShowPost">
-        <p id="showText">${postData.description}</p>
-        <div id="iconShowPost">
-              <p>${ArrayLike}</p>
-              <i class="fa-brands fa-gratipay imgShowPost likePost" data-like="${ArrayLikeData}" data-id="${doc.id}" id="likePost"></i>
-              <i class="fa-regular fa-pen-to-square imgShowPost btn-edit" data-id="${doc.id}"></i>
-              <i class="fa-regular fa-trash-can imgShowPost btn-delete" data-id="${doc.id}"></i>
-              </div>
-      </div>
-      `;
+        <div class="blockShowPost">
+          <div class="textShowPost">
+            <div class="petUserName" data-id="$"></div>
+            <h3 id="titleShowPost">${dataPost.title}</h3>
+            <p id="descripShowPost">${dataPost.description}</p>
+          </div>
+          <div id="iconShowPost">
+            <p>${dataPost.likesNum}</p>
+            <i class="fa-brands fa-gratipay imgShowPost iconLike" datalike="$" data-id="${doc.id}" id="likePost"></i>
+            <i class="fa-regular fa-pen-to-square imgShowPost iconEdit" data-id="${doc.id}"></i>
+            <i class="fa-regular fa-trash-can imgShowPost iconDelete" data-id="${doc.id}"></i>
+          </div>
+        </div>
+        `;
     });
     showPost.innerHTML = sectionPosts;
-    // LISTADO DE LOS POSTS CREADOS , ELIMINA Y EDITA
-    const btnsDelete = showPost.querySelectorAll('.btn-delete');
-    btnsDelete.forEach((btn) => {
-      btn.addEventListener('click', () => {
+    // función borrar
+    const iconDelete = showPost.querySelectorAll('.iconDelete');
+    iconDelete.forEach((delet) => {
+      delet.addEventListener('click', ({ target: { dataset } }) => {
         const modalContainerConfirm = homeElement.querySelector('.modalContainer_eliminar');
         modalContainerConfirm.classList.add('mostrar');
         const modalDelete = homeElement.querySelector('#btnDelete');
         modalDelete.addEventListener('click', () => {
-          deletePosts(btn.getAttribute('data-id'));
+          deletePosts(dataset.id);
           modalContainerConfirm.classList.remove('mostrar');
           modalContainerConfirm.classList.add('ocultar');
         });
       });
     });
-    const btnsEdit = showPost.querySelectorAll('.btn-edit');
-    btnsEdit.forEach((btnedit) => {
-      btnedit.addEventListener('click', async () => {
-        const idpost = btnedit.getAttribute('data-id');
-        const doc = await editPosts(idpost);
-        const edit = doc.data();
-        document.querySelector('#editPost').value = edit.description;
-        document.querySelector('#idposthidden').value = idpost;
-        document.querySelector('#buttonPost').classList.add('ocultar');
-        document.querySelector('#buttonPost').classList.remove('mostrar');
-        document.querySelector('#buttonActualizar').classList.add('mostrar');
-        document.querySelector('#buttonActualizar').classList.remove('ocultar');
+
+    // Funcion editar
+    const iconEdit = showPost.querySelectorAll('.iconEdit');
+    iconEdit.forEach((edit) => {
+      edit.addEventListener('click', async (e) => {
+        const editTextPost = await editPosts(e.target.dataset.id);
+        const dataPost = editTextPost.data();
+        textPost.titlePost.value = dataPost.title;
+        textPost.descriptionPost.value = dataPost.description;
+        editStatus = true;
+        id = editTextPost.id;
+        textPost.buttonPost.innerText = 'ACTUALIZAR';
       });
     });
-    const UpdatePost = homeElement.querySelector('#buttonActualizar');
-    UpdatePost.addEventListener('click', () => {
-      const valueUpdateTextAreaPost = document.querySelector('#editPost').value;
-      console.log('update lista');
-      console.log(valueUpdateTextAreaPost);
-      updatePosts(document.querySelector('#idposthidden').value, valueUpdateTextAreaPost);
-      document.querySelector('#buttonPost').classList.add('mostrar');
-      document.querySelector('#buttonPost').classList.remove('ocultar');
-      document.querySelector('#buttonActualizar').classList.add('ocultar');
-      document.querySelector('#buttonActualizar').classList.remove('mostrar');
-      setTimeout(() => { document.querySelector('#editPost').value = ''; }, 0);
-    });
-    const likePostUpdate = showPost.querySelectorAll('.likePost');
-    const userId = getUserID();
-    likePostUpdate.forEach((btnlike) => {
-      btnlike.addEventListener('click', () => {
-        const idpost = btnlike.getAttribute('data-id');
-        let AllLikes = btnlike.getAttribute('data-like');
-        if (AllLikes === 0 || AllLikes === '0' || AllLikes === '') { AllLikes = []; } else { AllLikes = btnlike.getAttribute('data-like').split(','); }
-        const existUser = AllLikes.indexOf(userId);
-        //  si es -1 significa que no esta, por lo tanto le agregare al usuario nuevo
-        if (existUser === -1) {
-          //  si no existe el usuario en los likes
-          AllLikes.push(userId);
-          addLikesPost(idpost, AllLikes);
+    // función de likes
+    const iconLike = showPost.querySelectorAll('.iconLike');
+    iconLike.forEach((likes) => {
+      likes.addEventListener('click', async (e) => {
+        const user = getUser().uid;
+        const doc = await editPosts(e.target.dataset.id);
+        id = doc.id;
+        const dataPost = doc.data();
+        const numberLikes = dataPost.likesNum;
+
+        if (dataPost.likesPost.includes(user)) {
+          await updatePosts(id, {
+            likesPost: likeRemove(user),
+            likesNum: numberLikes - 1,
+          });
         } else {
-          AllLikes.splice(existUser, 1);
-          //  si ya existe el usuario en los likes
-          addLikesPost(idpost, AllLikes);
+          await updatePosts(id, {
+            likesPost: likeAdd(user),
+            likesNum: numberLikes + 1,
+          });
         }
       });
     });
   });
-  //  CREA , ELIMINA, EDITA POSTS
-  homeElement.querySelector('#buttonPost').addEventListener('click', () => {
-    //e.preventDefault();
-    const description = homeElement.querySelector('#editPost').value;
-    createPost(description);
-    homeElement.querySelector('#editPost').value = '';
-    onShowPosts((querySnapshot) => {
-      let sectionPosts = '';
-      querySnapshot.forEach((doc) => {
-        const postData = doc.data();
-        let ArrayLike = postData.like;
-        let ArrayLikeData = 0;
-        if (ArrayLike === undefined || ArrayLike === 'undefined') {
-          ArrayLike = 0;
-        } else {
-          ArrayLike = postData.like.length;
-          ArrayLikeData = postData.like;
-        }
-        sectionPosts += `
-        <div class="textShowPost">
-        <p id="showText">${postData.description}</p>
-        <div id="iconShowPost">
-              <p>${ArrayLike}</p>
-              <i class="fa-brands fa-gratipay imgShowPost likePost" data-like="${ArrayLikeData}" data-id="${doc.id}" id="likePost"></i>
-              <i class="fa-regular fa-pen-to-square imgShowPost btn-edit" data-id="${doc.id}"></i>
-              <i class="fa-regular fa-trash-can imgShowPost btn-delete" data-id="${doc.id}"></i>
-              </div>
-      </div>
-      `;
+
+  textPost.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const titlePost = textPost.titlePost;
+    const descriptionPost = textPost.descriptionPost;
+    if (!editStatus) {
+      createPost(titlePost.value, descriptionPost.value);
+    } else {
+      updatePosts(id, {
+        title: titlePost.value,
+        description: descriptionPost.value,
       });
-      showPost.innerHTML = sectionPosts;
-      const btnsDelete = showPost.querySelectorAll('.btn-delete');
-      btnsDelete.forEach((btn) => {
-        btn.addEventListener('click', () => {
-          const modalContainerConfirm = homeElement.querySelector('.modalContainer_eliminar');
-          modalContainerConfirm.classList.add('mostrar');
-          const modalDelete = homeElement.querySelector('#btnDelete');
-          modalDelete.addEventListener('click', () => {
-            deletePosts(btn.getAttribute('data-id'));
-            modalContainerConfirm.classList.remove('mostrar');
-            modalContainerConfirm.classList.add('ocultar');
-          });
-        });
-      });
-      const btnsEdit = showPost.querySelectorAll('.btn-edit');
-      btnsEdit.forEach((btnedit) => {
-        btnedit.addEventListener('click', async () => {
-          const idpost = btnedit.getAttribute('data-id');
-          const doc = await editPosts(idpost);
-          const edit = doc.data();
-          document.querySelector('#editPost').value = edit.description;
-          document.querySelector('#idposthidden').value = idpost;
-          document.querySelector('#buttonPost').classList.add('ocultar');
-          document.querySelector('#buttonPost').classList.remove('mostrar');
-          document.querySelector('#buttonActualizar').classList.add('mostrar');
-          document.querySelector('#buttonActualizar').classList.remove('ocultar');
-        });
-      });
-      // const UpdatePost2 = homeElement.querySelector('#buttonActualizar');
-      // UpdatePost2.addEventListener('click', () => {
-      //   const valueUpdateTextAreaPost2 = document.querySelector('#editPost').value;
-      //   console.log('update');
-      //   console.log(valueUpdateTextAreaPost2);
-      //   updatePosts(document.querySelector('#idposthidden').value, valueUpdateTextAreaPost2);
-      //   document.querySelector('#buttonPost').classList.add('mostrar');
-      //   document.querySelector('#buttonPost').classList.remove('ocultar');
-      //   document.querySelector('#buttonActualizar').classList.add('ocultar');
-      //   document.querySelector('#buttonActualizar').classList.remove('mostrar');
-      //   document.querySelector('#editPost').value = '';
-      // });
-      const likePostUpdate = showPost.querySelectorAll('.likePost');
-      const userId = getUserID();
-      likePostUpdate.forEach((btnlike) => {
-        btnlike.addEventListener('click', () => {
-          const idpost = btnlike.getAttribute('data-id');
-          let AllLikes = btnlike.getAttribute('data-like');
-          if (AllLikes === 0 || AllLikes === '0' || AllLikes === '') { AllLikes = []; } else { AllLikes = btnlike.getAttribute('data-like').split(','); }
-          const existUser = AllLikes.indexOf(userId);
-          //  si es -1 significa que no esta, por lo tanto le agregare al usuario nuevo
-          if (existUser === -1) {
-            //  si no existe el usuario en los likes
-            AllLikes.push(userId);
-            addLikesPost(idpost, AllLikes);
-          } else {
-            AllLikes.splice(existUser, 1);
-            //  si ya existe el usuario en los likes
-            addLikesPost(idpost, AllLikes);
-          }
-        });
-      });
-    });
+      editStatus = false;
+      id = '';
+      textPost.buttonPost.innerText = 'PUBLICAR';
+    }
+    textPost.reset();
   });
   return homeElement;
 };

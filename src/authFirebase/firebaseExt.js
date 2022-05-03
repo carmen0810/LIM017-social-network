@@ -1,11 +1,16 @@
+/* eslint-disable import/no-unresolved */
 import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signInWithPopup,
+  sendEmailVerification,
   GoogleAuthProvider,
   FacebookAuthProvider,
+  updateProfile,
   sendPasswordResetEmail,
+  onAuthStateChanged,
+  // serverTimestamp,
   signOut,
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
 
@@ -24,7 +29,6 @@ import {
   arrayRemove,
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';
 
-
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js';
 
 export {
@@ -34,7 +38,9 @@ export {
   signInWithPopup,
   GoogleAuthProvider,
   FacebookAuthProvider,
+  updateProfile,
   collection,
+  onAuthStateChanged,
   addDoc,
   getDocs,
   getDoc,
@@ -43,10 +49,14 @@ export {
   updateDoc,
   deleteDoc,
   getFirestore,
+  sendEmailVerification,
   sendPasswordResetEmail,
   initializeApp,
   signOut,
   onSnapshot,
   arrayUnion,
   arrayRemove,
+  // serverTimestamp,
 };
+
+export const getUser = () => getAuth().currentUser;
