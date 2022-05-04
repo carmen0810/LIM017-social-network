@@ -13,6 +13,7 @@ import {
 } from '../authFirebase/authentication.js';
 import { onNavigate } from '../main.js';
 import { getUser } from '../authFirebase/firebaseExt.js';
+// import { MessageData } from '../lib/index.js';
 
 export const homePetworld = () => {
   // const user = getUser();
@@ -45,11 +46,12 @@ export const homePetworld = () => {
           </div>
           <form class="textPost">
             <p class="nameUserPet"></p>
-            <input type="text" id="titlePost" placeholder="Coloca el título o tema de tu post">
-            <textarea id="descriptionPost" type="text" rows="5" placeholder="Escribe aquí tus posts"></textarea>
+            <input type="text" id="titlePost" placeholder="Coloca el título o tema de tu post" required>
+            <textarea id="descriptionPost" type="text" rows="5" placeholder="Escribe aquí tus posts" required></textarea>
             <div class="divButtonPost" id="divButtonPost">
               <button  class="buttonPost" id="buttonPost">Publicar</button>
             </div>
+            <p id="messageCompletePost"></p>
           </form>
         </div>
         <section id="showPost">
@@ -125,7 +127,7 @@ export const homePetworld = () => {
       sectionPosts += `
         <div class="blockShowPost">
           <div class="textShowPost">
-            <div class="petUserName" data-id="$"></div>
+            <div class="petUserName" data-id="$">${dataPost.nameUser}</div>
             <h3 id="titleShowPost">${dataPost.title}</h3>
             <p id="descripShowPost">${dataPost.description}</p>
           </div>
@@ -143,6 +145,7 @@ export const homePetworld = () => {
     const iconDelete = showPost.querySelectorAll('.iconDelete');
     iconDelete.forEach((delet) => {
       delet.addEventListener('click', ({ target: { dataset } }) => {
+        window.scrollTo(0, 0);
         const modalContainerConfirm = homeElement.querySelector('.modalContainer_eliminar');
         modalContainerConfirm.classList.add('mostrar');
         const modalDelete = homeElement.querySelector('#btnDelete');
@@ -209,5 +212,6 @@ export const homePetworld = () => {
     }
     textPost.reset();
   });
+
   return homeElement;
 };

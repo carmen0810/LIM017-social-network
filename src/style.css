@@ -238,7 +238,9 @@
     /* display: none; */
     flex-direction: column;
     padding: 10px;
-    background-color: #D7B5E2;
+    /* background-color: #D7B5E2; */
+    background-color: #a9852196;
+    height: 60vh;
 }
 .homeBar1 {
     display: flex;
@@ -252,10 +254,10 @@
     display: flex;
     flex-direction: column;
     list-style: none;
-    flex-grow: 1;
+    /* flex-grow: 1; */
     justify-content: space-evenly;
     padding: 5px;
-    margin-top: 50px;
+    /* margin-top: 50px; */
 }
 /* .homePage{
     
@@ -273,7 +275,10 @@ aside{
 .listNav, .listNav2{
     display: flex;
     align-items: center;
-    font-size: 12px;
+    font-size: 15px;
+    font-weight: 900;
+    color: white;
+    margin: 5px;
 }
 .imgIcon{
     margin: 5px;
@@ -305,7 +310,8 @@ aside{
     top: 0;
     left: 0px;
     width: 100%;
-    height: 100%;
+    height: 115%;
+    color:white;
     background-color: #a39d9d99;
     display: flex;
     justify-content: center;
@@ -329,7 +335,7 @@ aside{
 }
 .modalContent{
     /* background: #b27622; */
-    background: #935b0e;
+    background: #c59147;
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -405,6 +411,7 @@ aside{
 .iconProfile{
     width:45%;
     margin: 10px;
+    border-radius: 50%;
 }
 
 /*ESTILOS PARA LOS POST*/
@@ -418,6 +425,7 @@ aside{
 .containerPost{
     width: 60%;
     display: flex;
+    justify-content: center;
 }
 .textPost{
     display: flex;
@@ -426,10 +434,23 @@ aside{
     margin-top: 10px;
     width: 80%;
 }
+#titlePost{
+    background-color:#F2EEAC;
+    padding: 5px;
+    border-radius: 5px
+}
 #descriptionPost{
     background-color: #e2e1e3;
     padding: 5px;
     border-radius: 5px 5px 0px 0px;
+}
+#descriptionPost::placeholder, #titlePost::placeholder{
+    text-align: center;
+    text-transform: uppercase;
+    color: #401f0c78;
+    font-size: medium;
+    text-decoration: double;
+
 }
 #iconPost{
 background-color: #D7B5E2;
@@ -442,10 +463,10 @@ width: 60%;
 }
 .buttonPost{
     cursor: pointer;
-    background-color: #5c193a;
-    color:#ffffff;
+    padding: 10px;
     border-radius: 10px;
-    padding: 5px;
+    background-color:#733b1afa;
+    color: #ffffff;
     text-transform: uppercase;
     
 }
@@ -484,7 +505,8 @@ width: 60%;
         justify-content: center;
         margin: 10px;
         border-radius: 10px;
-        background-color: #ffffff;
+        background-color: #F2EEAC;
+        /* background-color: #ffffff; */
         box-shadow: 0 0 20px rgb(138, 137, 137); 
     }
     /* #showText{
@@ -500,6 +522,7 @@ width: 60%;
     #titleShowPost{
         text-transform: uppercase;
         padding: 5px;
+        text-align: center;
     }
     #descripShowPost{
         text-align: justify;
@@ -507,8 +530,9 @@ width: 60%;
     }
     #iconShowPost{
         display: flex;
-        border-color: #902fbd;
-        background-color: #D7B5E2;
+        /* border-color: #902fbd;
+        background-color: #D7B5E2; */
+        background-color: #c8c36c;
         width: 100%;
         align-items: center;
         padding: 5px;
@@ -610,7 +634,9 @@ width: 60%;
         display:block;
     }
     .homeNav{
-        display: block;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
     /* .hide{
         display: block;
@@ -698,7 +724,8 @@ width: 60%;
 
 .posts{
     display: flex;
-    background-color: #f4f7f9;
+    /* background-color: #f4f7f9; */
+    background-color: #bda96d9e;
 }
 
 /* .containerPost{
