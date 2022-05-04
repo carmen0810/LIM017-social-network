@@ -1,43 +1,25 @@
-// import { resetPasswordPet } from '../../src/authFirebase/authentication';
-// import { resetPasswordPet } from '../../src/components/resetPassword.js';
-// import { sendPasswordResetEmail } from '../../src/authFirebase/__mocks__/firebaseExt.js';
-import { resetPassword } from '../../src/components/resetPassword.js';
+// import { loginFirebase } from '../../src/authFirebase/authentication';
+// import { login } from '../../src/components/login.js';
+// import { signInWithEmailAndPassword } from '../../src/authFirebase/firebaseExt.js';
 
-jest.mock('../../src/authFirebase/firebaseExt.js');
+// jest.mock('../../src/authFirebase/firebaseExt.js');
 
-describe('resetPasswordPet', () => {
-  it('debería ser una función', () => {
-    document.body.innerHTML = '<div id="root"></div>';
-    resetPassword();
-    const emailResetPass = document.querySelector('#emailResetPass');
-
-    // console.log ('holaaa')
-    emailResetPass.innerHTML = 'correo@ejemplo.com';
-    console.log(emailResetPass);
-    // return emailResetPass;
-    // resetPasswordPet(emailResetPass);
-  });
-});
-
-// const result = resetPasswordPet();
-//  const emailResetPass = result.querySelector('#emailResetPass');
-//  console.log(emailResetPass);
-// const buttonReset = result.querySelector('#btnResetPass');
-// buttonReset.dispatchEvent(new Event('click'));
-// const password = {};
-// console.log (sendPasswordResetEmail.mock);
-// expect(typeof resetPasswordPet).toBe('function');
-
-// prueba 5
-// describe('Restablecer contraseña', () => {
+// describe('login', () => {
+//   beforeEach(() => signInWithEmailAndPassword.mockClear());
 //   it('debería ser una función', () => {
-//     expect(typeof resetPasswordPet).toBe('function');
+//     expect(typeof login).toBe('function');
 //   });
 // });
 
-// describe('', () => {
-//   it('Muestra un mesnaje de error', () => {
-//     const signUpInWithEmailAndPassword = jest.fn();
-//     signUpInWithEmailAndPassword.mockRejectedValue({ error: 'password/mismatch' });
+// import { onNavigate } from '../../src/main.js';
+
+// jest.mock('../../src/authFirebase/firebaseExt.js');
+
+// describe('Función onNavigate', () => {
+//   it('La función onNavigate debe cargar vista Login', () => {
+//     document.body.innerHTML = '<div id="root"></div>';
+//     onNavigate('/resetPassword');
+//     const divRoot = document.querySelector('#answerForgot');
+//     expect(divRoot.textContent).toBe('Iniciar sesion');
 //   });
 // });

@@ -128,8 +128,12 @@ export const homePetworld = () => {
         <div class="blockShowPost">
           <div class="textShowPost">
             <div class="petUserName" data-id="$">${dataPost.nameUser}</div>
-            <h3 id="titleShowPost">${dataPost.title}</h3>
+            
             <p id="descripShowPost">${dataPost.description}</p>
+            <div class="petUserName" >
+               <p>${dataPost.nameUser}</p>
+               <p id="datePost">Publicado ${dataPost.dateTime.toDate().toDateString()} a las ${dataPost.dateTime.toDate().toLocaleTimeString('es-PE')} hrs.</p>
+            </div>
           </div>
           <div id="iconShowPost">
             <p>${dataPost.likesNum}</p>

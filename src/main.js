@@ -5,6 +5,10 @@ import { homePetworld } from './components/home.js';
 import { resetPassword } from './components/resetPassword.js';
 // import { routes } from './components/Routes.js';
 
+if (document.getElementById('root') == null) {
+  document.body.innerHTML = '<div id="root"></div>';
+}
+
 const rootDiv = document.getElementById('root');
 
 export const routes = {
@@ -30,6 +34,6 @@ window.onpopstate = () => {
   rootDiv.innerHTML = '';
   rootDiv.appendChild(routes[window.location.pathname]());
 };
-onNavigate(window.location.pathname);
 
+onNavigate(window.location.pathname);
 // Cerrar Sesión
