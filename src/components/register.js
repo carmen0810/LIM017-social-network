@@ -20,12 +20,8 @@ export const register = () => {
     <h2 class="intoTitle">REGÍSTRATE Y ÚNETE A PETWORLD</h2>
     <p class="textCreateAccount">Crea tu cuenta en pocos pasos</p>
     <p class="textCreateAccount">¡Es súper rápido y fácil!</p>
-    <div class="fullName">
-      <label for="name"></label>
-      <input id="name" type="text" name="nameRegister" placeholder="*Nombres" required>
-      <label for="lastName"></label>
-      <input id="lastName" type="text" name="lastName" placeholder="*Apellidos" required>
-    </div>
+    <label for="fullName"></label>
+    <input id="fullName" type="text" name="nameRegister" placeholder="*Nombres y Apellidos" required>
     <label for="emailRegister"></label>
     <input id="emailRegister" type="email" name="emailRegister" placeholder="*Correo electrónico" required>
     <div class="passwords">
@@ -64,8 +60,7 @@ export const register = () => {
     </div>
   </section>`;
   registerElement.innerHTML = registerForm;
-  const ipName = registerElement.querySelector('#name');
-  const ipLastName = registerElement.querySelector('#lastName');
+  const ipFullName = registerElement.querySelector('#fullName');
   const ipEmail = registerElement.querySelector('#emailRegister');
   const ipPass = registerElement.querySelector('#passwordRegister');
   const ipRepeatPassword = registerElement.querySelector('#repeatPassword');
@@ -102,7 +97,7 @@ export const register = () => {
   ipRepeatPassword.onkeyup = function () { validarPassword2(); };
   btnRegister.addEventListener('click', (e) => {
     e.preventDefault();
-    if (ipName.value === '' || ipLastName.value === '' || ipEmail.value === '' || ipPass.value === '' || ipRepeatPassword.value === '') {
+    if (ipFullName.value === '' || ipEmail.value === '' || ipPass.value === '' || ipRepeatPassword.value === '') {
       const errorMessageRegister = document.querySelector('#messageComplete');
       errorMessageRegister.textContent = 'Debes completar todos los campos solicitados';
     } else {
@@ -111,9 +106,9 @@ export const register = () => {
       modalRegister.classList.remove('ocultar');
       modalRegister.classList.add('mostrar');
       btnConfirm.addEventListener('click', () => {
-        registerFirebase(ipEmail.value, ipPass.value, ipName.value, ipLastName.value)
+        registerFirebase(ipEmail.value, ipPass.value, ipFullName.value)
           .then((userCredential) => {
-            updateUser(ipName.value);
+            updateUser(ipFullName.value);
             sendConfirmEmail();
             onNavigate('/');
             return userCredential.user;
@@ -122,9 +117,15 @@ export const register = () => {
             const errorMessage = error.message;
             switch (errorMessage) {
               case 'Firebase: Error (auth/email-already-in-use).':
+
+                modalRegister.classList.add('ocultar');
+                modalRegister.classList.remove('mostrar');
                 MessageData(messageComplete, 'email ya registrado');
                 break;
               case 'Firebase: Error (auth/invalid-email).':
+
+                modalRegister.classList.add('ocultar');
+                modalRegister.classList.remove('mostrar');
                 MessageData(messageComplete, 'email invalido');
                 break;
               default:
