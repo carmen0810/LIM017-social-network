@@ -8,6 +8,9 @@ Las redes sociales son plataformas digitales formadas por **comunidades** de ind
 
 **PetWorld** es una red social dirigida a usuarios que tienen mascotas, sin importar si es perro, gato, hamster, iguana o cualquier otro animal. Su principal labor es **formar un comunidad** entre dichos usuarios con el fin de fomentar la cooperación, interactividad, y sobretodo la difusión de información acerca de las diferentes habilidades, condiciones, y otros aspectos de sus mascotas, los cuáles desglosamos en **secciones de fácil acceso** para una visualización más rápida.   
 
+
+![smartmockups-l2tu8g0o.jpg](https://i.postimg.cc/8PRv3W60/smartmockups-l2tu8g0o.jpg)
+
 ### 2. Historias de Usuario
 
 Para identificar las historias de usuario, realizamos un estudio de investigación e intereses del usuario, obteniendo las siguientes respuestas que podemos visualizar en las gráficas.
