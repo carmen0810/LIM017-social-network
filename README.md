@@ -1,6 +1,7 @@
 ### 1. Introducción
 
-![dfgh](../LIM017-social-network/src/img/readme/portada.jpg)
+
+[![portada.jpg](https://i.postimg.cc/CMs5Ptt5/portada.jpg)](https://postimg.cc/bddqd6qf)
 
 Cuando hablamos de **red social**, lo que viene a la mente en primer lugar son sitios como **Facebook**, **Twitter** y **LinkedIn** o aplicaciones como **TikTok** e **Instagram**, típicos de la actualidad. Pero la idea, sin embargo, es mucho más antigua: en la sociología, por ejemplo, el concepto de red social se utiliza para analizar interacciones entre individuos, grupos, organizaciones o hasta sociedades enteras desde el final del siglo XIX.
 
@@ -39,19 +40,7 @@ El usuario no registrado al entrar a **PetWorld** encontrará una primera vista 
 
 El usuario registrado podrá **iniciar sesión** de manera segura, con la finalidad de poder visualizar el contenido que ofrece **PetWorld**, asimismo podrá **cerrar sesión** para regresar a la vista inicial.
 
-
 #### Historia de Usuario 03
-
-**Como** usuario
-**Quiero** entrar a PetWorld 
-**Para** ver sobre cuidados, alimentación, salud, adopción y/o compra de mascotas.
-
-> Desarrollo
-
-El usuario registrado podrá **visualizar** el contenido que ofrece **PetWorld**, haciendo click en un menú lateral o desplegable, el cuál se encontrará dividido en secciones, con el objetivo de facilitar y hacer más amigable la **búsqueda de información**. 
-
-
-#### Historia de Usuario 04
 
 **Como** usuario
 **Quiero** crear y publicar contenido sobre mascotas 
@@ -62,7 +51,7 @@ El usuario registrado podrá **visualizar** el contenido que ofrece **PetWorld**
 El usuario registrado de **PetWorld** será capaz de **escribir y crear** información de su interés, así como **publicarlo** para que aparezca en el muro principal de la red social y sea de contenido público para los demás usuarios.  
 
 
-#### Historia de Usuario 05
+#### Historia de Usuario 04
 
 **Como** usuario
 **Quiero** editar contenido 
@@ -73,7 +62,7 @@ El usuario registrado de **PetWorld** será capaz de **escribir y crear** inform
 El usuario registrado de **PetWorld** será capaz de **editar** el contenido creado con anterioridad, con la finalidad de **actualizar** la información que aparece en el muro principal de la red social. 
 
 
-#### Historia de Usuario 06
+#### Historia de Usuario 05
 
 **Como** usuario
 **Quiero** eliminar contenido 
@@ -84,7 +73,7 @@ El usuario registrado de **PetWorld** será capaz de **editar** el contenido cre
 El usuario registrado de **PetWorld** será capaz de **eliminar** su propio contenido creado, con la intención de **no mostrar** la información anteriormente proporcionada y **reemplazarla** por una nueva. 
 
 
-#### Historia de Usuario 07
+#### Historia de Usuario 06
 
 **Como** usuario
 **Quiero** reaccionar a diferentes posts 
@@ -99,36 +88,44 @@ El usuario registrado de **PetWorld** será capaz de **dar like** al contenido p
 
 > Se trabajó en una idea desarrollada mediante la herramienta **Google Jamboard** para entender con facilidad lo que el usuario desea.
 
-![Prototipos de Baja Fidelidad](../LIM017-social-network/src/img/readme/PBJ%201.png)
+![Prototipos de Baja Fidelidad]
 
-![](../LIM017-social-network/src/img/readme/PBJ%202.png)
-
-![](../LIM017-social-network/src/img/readme/PBJ%203.png)
-
-![](../LIM017-social-network/src/img/readme/PBJ%204.png)
-
-![](../LIM017-social-network/src/img/readme/PBJ%205.png)
-
-![](../LIM017-social-network/src/img/readme/PBJ%206.png)
-
-![](../LIM017-social-network/src/img/readme/PBJ%207.png)
-
-![](../LIM017-social-network/src/img/readme/PBJ%208.png)
-
-![](../LIM017-social-network/src/img/readme/PBJ%209.png)
-
-![](../LIM017-social-network/src/img/readme/PBJ%2010.png)
+[![PBJ1.png](https://i.postimg.cc/65gLKXDW/PBJ1.png)](https://postimg.cc/CzCfCWhX)
+[![PBJ2.png](https://i.postimg.cc/zXsWMkg3/PBJ2.png)](https://postimg.cc/dL9LZrnK)
+[![PBJ3.png](https://i.postimg.cc/0QyJmWLX/PBJ3.png)](https://postimg.cc/hJNjRr4V)
 
 
 ### 4. Diseño interfaz de Usuario - Prototipo de alta fidelidad
 > Se trabajó con un editor de gráficos vectorial y una herramienta de generación de prototipos ([Figma](http://www.figma.com/?fuid= "Figma")) para tener un diseño más profesional y reflejar lo que el usuario desea.
 
-![Prototipos de Alta Fidelidad](Images/pafpage01.png)
+![Prototipos de Alta Fidelidad]
 
+**Mobile**
+[![mobile1.png](https://i.postimg.cc/RC3LDhDs/mobile1.png)](https://postimg.cc/K42TKGFB)
+[![mobile2.png](https://i.postimg.cc/vZy7TzHk/mobile2.png)](https://postimg.cc/QH6Knc7J)
+[![mobile3.png](https://i.postimg.cc/QMxpkd7q/mobile3.png)](https://postimg.cc/RWy6v9X3)
+**Desktop**
+[![desktop1.png](https://i.postimg.cc/QNWcqPFv/desktop1.png)](https://postimg.cc/Lh2q9xBV)
+[![desktop2.png](https://i.postimg.cc/brQDf7bJ/desktop2.png)](https://postimg.cc/y38YFrL4)
+[![desktop3.png](https://i.postimg.cc/t4r1bt1h/desktop3.png)](https://postimg.cc/Wdkp6Zw3)
+**Tablet**
+[![tablet1.png](https://i.postimg.cc/3RGW2stB/tablet1.png)](https://postimg.cc/JD11L2VD)
+[![tablet2.png](https://i.postimg.cc/GhKtPJxZ/tablet2.png)](https://postimg.cc/6y7BtZS0)
+[![tablet3.png](https://i.postimg.cc/CMHxYHXz/tablet3.png)](https://postimg.cc/0rjs0m8s)
+[![tablet4.png](https://i.postimg.cc/zG3zCmBg/tablet4.png)](https://postimg.cc/QFGZDyc8)
+[![tablet5.png](https://i.postimg.cc/zGLNLntw/tablet5.png)](https://postimg.cc/RWzyynzq)
+[![tablet6.png](https://i.postimg.cc/FRvXnw9G/tablet6.png)](https://postimg.cc/LqxWJCgZ)
 
-[Reference link Figma][id/name]
+![](../LIM017-social-network/src/img/readme/mobile3.png)
 
-[id/name]: https://www.figma.com/proto/2cVktQV52vReP3YDmuxBbd/Untitled?node-id=1%3A2&scaling=scale-down&page-id=0%3A1&starting-point-node-id=1%3A2
+![](../LIM017-social-network/src/img/readme/desktop1.png)
+
+![](../LIM017-social-network/src/img/readme/desktop2.png)
+
+![](../LIM017-social-network/src/img/readme/desktop3.png)
+[Reference link Figma][Animación petWorld]
+
+[id/name]: https://www.figma.com/proto/sbK1JtsDp1KTTch6sllRTw/petWorld?node-id=4%3A3&scaling=scale-down&page-id=0%3A1&starting-point-node-id=4%3A3&show-proto-sidebar=1
 
 
 

@@ -122,8 +122,7 @@ export const homePetworld = () => {
       const dataPost = doc.data();
       sectionPosts += `
         <div class="blockShowPost">
-          <div class="textShowPost">
-            
+          <div class="textShowPost">            
             <h3 id="titleShowPost">${dataPost.title}</h3>
             <p id="descripShowPost">${dataPost.description}</p>
             <div class="petUserName" >

@@ -9,9 +9,7 @@ export const login = () => {
   loginElement.setAttribute('class', 'containerView');
   const loginDiv = `
      <header class="header1">
-      
      </header>
-     
      <div class='loginView'>
         <img id="logoLogin" src="./img/logo6.png" alt="logoPetworld">
         <h1 id="titleLogin">INICIAR SESIÓN</h1>   
