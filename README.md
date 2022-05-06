@@ -123,16 +123,17 @@ El usuario registrado de **PetWorld** será capaz de **dar like** al contenido p
 ![](../LIM017-social-network/src/img/readme/desktop2.png)
 
 ![](../LIM017-social-network/src/img/readme/desktop3.png)
+
 [Reference link Figma][Animación petWorld]
 
-[id/name]: https://www.figma.com/proto/sbK1JtsDp1KTTch6sllRTw/petWorld?node-id=4%3A3&scaling=scale-down&page-id=0%3A1&starting-point-node-id=4%3A3&show-proto-sidebar=1
-
+![id/name]: https://www.figma.com/proto/sbK1JtsDp1KTTch6sllRTw/petWorld?node-id=4%3A3&scaling=scale-down&page-id=0%3A1&starting-point-node-id=4%3A3&show-proto-sidebar=1
 
 
 ### 5. Test de Usabilidad
 **Primera iteración:** En la primera iteración se observaron que los iconos (like, editar y eliminar) de los posts, generaban un cierto grado de delay (retraso) al momento  de la carga de la página, dado que estos inicialmente eran iconos proveniente de imágenes, como sugerencia, se optó utilizar iconos más amigables que puedan adaptarse a la  manipulación y carga de la página.
 ![iteracionesdeusabilidad.jpg](https://i.postimg.cc/sXmpXnWq/iteracionesdeusabilidad.jpg)
 **Segunda iteración**: Se observó que la paleta de colores no reflejaba el concepto de la red social, por ende se optó por usar plataformas de diseño para obtener una paleta de colores enfocada al tema elegido (mascotas) logrando comunicar calidez y  conectar con el usuario.
+
 ![paleta-de-colores.jpg](https://i.postimg.cc/0QVc35Vz/paleta-de-colores.jpg)
 ### 6. Responsive
 Esta plataforma es responsivo para celulares, tablets y desktop. 

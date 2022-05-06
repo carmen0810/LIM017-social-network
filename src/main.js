@@ -3,7 +3,6 @@ import { login } from './components/login.js';
 import { register } from './components/register.js';
 import { homePetworld } from './components/home.js';
 import { resetPassword } from './components/resetPassword.js';
-// import { routes } from './components/Routes.js';
 
 if (document.getElementById('root') == null) {
   document.body.innerHTML = '<div id="root"></div>';
@@ -36,4 +35,3 @@ window.onpopstate = () => {
 };
 
 onNavigate(window.location.pathname);
-// Cerrar Sesión

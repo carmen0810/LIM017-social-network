@@ -22,7 +22,6 @@ import {
   // onAuthStateChanged,
   getFirestore,
   getUser,
-  Timestamp,
   sendPasswordResetEmail,
   signOut,
   onSnapshot,
