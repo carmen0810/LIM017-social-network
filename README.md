@@ -1,6 +1,6 @@
 ### 1. Introducción
 
-![](../LIM017-social-network/src/img/readme/portada.jpg)
+[![portada.jpg](https://i.postimg.cc/CMs5Ptt5/portada.jpg)](https://postimg.cc/bddqd6qf)
 
 Cuando hablamos de **red social**, lo que viene a la mente en primer lugar son sitios como **Facebook**, **Twitter** y **LinkedIn** o aplicaciones como **TikTok** e **Instagram**, típicos de la actualidad. Pero la idea, sin embargo, es mucho más antigua: en la sociología, por ejemplo, el concepto de red social se utiliza para analizar interacciones entre individuos, grupos, organizaciones o hasta sociedades enteras desde el final del siglo XIX.
 
@@ -90,19 +90,21 @@ El usuario registrado de **PetWorld** será capaz de **dar like** al contenido p
 
 > Se trabajó en una idea desarrollada mediante la herramienta **Google Jamboard** para entender con facilidad lo que el usuario desea.
 
-![Prototipos de Baja Fidelidad](../LIM017-social-network/src/img/readme/PBJ%201.png)
+![Prototipos de Baja Fidelidad]
 
-![](../LIM017-social-network/src/img/readme/PBJ%202.png)
+[![PBJ-1.png](https://i.postimg.cc/SN5hDfyj/PBJ-1.png)](https://postimg.cc/7fgdL7Jy)
 
-![](../LIM017-social-network/src/img/readme/PBJ%203.png)
+[![PBJ-2.png](https://i.postimg.cc/9XZMrB7d/PBJ-2.png)](https://postimg.cc/PNfh7YKJ)
 
-![](../LIM017-social-network/src/img/readme/PBJ%204.png)
+[![PBJ-3.png](https://i.postimg.cc/65ZPvYVh/PBJ-3.png)](https://postimg.cc/56xpc5RH)
 
-![](../LIM017-social-network/src/img/readme/PBJ%205.png)
+[![PBJ-4.png](https://i.postimg.cc/hjrDcKvf/PBJ-4.png)](https://postimg.cc/34k5Z5gT)
 
-![](../LIM017-social-network/src/img/readme/PBJ%206.png)
+[![PBJ-5.png](https://i.postimg.cc/VLwhXX7Q/PBJ-5.png)](https://postimg.cc/jC8vbn0Z)
 
-![](../LIM017-social-network/src/img/readme/PBJ%207.png)
+[![PBJ-6.png](https://i.postimg.cc/xCtXgvKx/PBJ-6.png)](https://postimg.cc/WFqp1JYg)
+
+[![PBJ-7.png](https://i.postimg.cc/yxD8Pw6x/PBJ-7.png)](https://postimg.cc/YLw72DWB)
 
 ![](../LIM017-social-network/src/img/readme/PBJ%208.png)
 
