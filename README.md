@@ -130,6 +130,48 @@ El usuario registrado de **PetWorld** será capaz de **dar like** al contenido p
 
 [id/name]: https://www.figma.com/proto/2cVktQV52vReP3YDmuxBbd/Untitled?node-id=1%3A2&scaling=scale-down&page-id=0%3A1&starting-point-node-id=1%3A2
 
+
+
+### 5. Test de Usabilidad
+**Primera iteración:** En la primera iteración se observaron que los iconos (like, editar y eliminar) de los posts, generaban un cierto grado de delay (retraso) al momento  de la carga de la página, dado que estos inicialmente eran iconos proveniente de imágenes, como sugerencia, se optó utilizar iconos más amigables que puedan adaptarse a la  manipulación y carga de la página.
+![iteracionesdeusabilidad.jpg](https://i.postimg.cc/sXmpXnWq/iteracionesdeusabilidad.jpg)
+**Segunda iteración**: Se observó que la paleta de colores no reflejaba el concepto de la red social, por ende se optó por usar plataformas de diseño para obtener una paleta de colores enfocada al tema elegido (mascotas) logrando comunicar calidez y  conectar con el usuario.
+![paleta-de-colores.jpg](https://i.postimg.cc/0QVc35Vz/paleta-de-colores.jpg)
+### 6. Responsive
+Esta plataforma es responsivo para celulares, tablets y desktop. 
+![smartmockups-l2ulz9sr.jpg](https://i.postimg.cc/7hrd9Wch/smartmockups-l2ulz9sr.jpg)
+
+A continuación tenemos algunos ejemplos de los dispositivos móviles emulados.
+
+![emulated-device.png](https://i.postimg.cc/XYBhM3bq/emulated-device.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### 5. Objetivos de Aprendizaje - Autoras
 
 #### Uso de HTML semántico
