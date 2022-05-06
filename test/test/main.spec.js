@@ -7,7 +7,6 @@ jest.mock('../../src/authFirebase/firebaseExt.js');
 const testSection = document.createElement('section');
 const testTemplate = () => {
   testSection.innerHTML = 'For running test';
-
   return testSection;
 };
 

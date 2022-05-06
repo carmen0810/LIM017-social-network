@@ -30,19 +30,7 @@ El usuario no registrado al entrar a **PetWorld** encontrará una primera vista 
 
 El usuario registrado podrá **iniciar sesión** de manera segura, con la finalidad de poder visualizar el contenido que ofrece **PetWorld**, asimismo podrá **cerrar sesión** para regresar a la vista inicial.
 
-
 #### Historia de Usuario 03
-
-**Como** usuario
-**Quiero** entrar a PetWorld 
-**Para** ver sobre cuidados, alimentación, salud, adopción y/o compra de mascotas.
-
-> Desarrollo
-
-El usuario registrado podrá **visualizar** el contenido que ofrece **PetWorld**, haciendo click en un menú lateral o desplegable, el cuál se encontrará dividido en secciones, con el objetivo de facilitar y hacer más amigable la **búsqueda de información**. 
-
-
-#### Historia de Usuario 04
 
 **Como** usuario
 **Quiero** crear y publicar contenido sobre mascotas 
@@ -53,7 +41,7 @@ El usuario registrado podrá **visualizar** el contenido que ofrece **PetWorld**
 El usuario registrado de **PetWorld** será capaz de **escribir y crear** información de su interés, así como **publicarlo** para que aparezca en el muro principal de la red social y sea de contenido público para los demás usuarios.  
 
 
-#### Historia de Usuario 05
+#### Historia de Usuario 04
 
 **Como** usuario
 **Quiero** editar contenido 
@@ -64,7 +52,7 @@ El usuario registrado de **PetWorld** será capaz de **escribir y crear** inform
 El usuario registrado de **PetWorld** será capaz de **editar** el contenido creado con anterioridad, con la finalidad de **actualizar** la información que aparece en el muro principal de la red social. 
 
 
-#### Historia de Usuario 06
+#### Historia de Usuario 05
 
 **Como** usuario
 **Quiero** eliminar contenido 
@@ -75,7 +63,7 @@ El usuario registrado de **PetWorld** será capaz de **editar** el contenido cre
 El usuario registrado de **PetWorld** será capaz de **eliminar** su propio contenido creado, con la intención de **no mostrar** la información anteriormente proporcionada y **reemplazarla** por una nueva. 
 
 
-#### Historia de Usuario 07
+#### Historia de Usuario 06
 
 **Como** usuario
 **Quiero** reaccionar a diferentes posts 
@@ -114,10 +102,18 @@ El usuario registrado de **PetWorld** será capaz de **dar like** al contenido p
 ### 4. Diseño interfaz de Usuario - Prototipo de alta fidelidad
 > Se trabajó con un editor de gráficos vectorial y una herramienta de generación de prototipos ([Figma](http://www.figma.com/?fuid= "Figma")) para tener un diseño más profesional y reflejar lo que el usuario desea.
 
-![Prototipos de Alta Fidelidad](Images/pafpage01.png)
+![Prototipos de Baja Fidelidad](../LIM017-social-network/src/img/readme/mobile1.png)
 
+![](../LIM017-social-network/src/img/readme/mobile2.png)
 
-[Reference link Figma][id/name]
+![](../LIM017-social-network/src/img/readme/mobile3.png)
+
+![](../LIM017-social-network/src/img/readme/desktop1.png)
+
+![](../LIM017-social-network/src/img/readme/desktop2.png)
+
+![](../LIM017-social-network/src/img/readme/desktop3.png)
+[Reference link Figma][Animación petWorld]
 
 [id/name]: https://www.figma.com/proto/2cVktQV52vReP3YDmuxBbd/Untitled?node-id=1%3A2&scaling=scale-down&page-id=0%3A1&starting-point-node-id=1%3A2
 
