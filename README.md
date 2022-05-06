@@ -88,7 +88,7 @@ El usuario registrado de **PetWorld** será capaz de **dar like** al contenido p
 
 > Se trabajó en una idea desarrollada mediante la herramienta **Google Jamboard** para entender con facilidad lo que el usuario desea.
 
-![Prototipos de Baja Fidelidad]
+#### Prototipos de Baja Fidelidad
 
 [![PBJ1.png](https://i.postimg.cc/65gLKXDW/PBJ1.png)](https://postimg.cc/CzCfCWhX)
 [![PBJ2.png](https://i.postimg.cc/zXsWMkg3/PBJ2.png)](https://postimg.cc/dL9LZrnK)
@@ -98,17 +98,22 @@ El usuario registrado de **PetWorld** será capaz de **dar like** al contenido p
 ### 4. Diseño interfaz de Usuario - Prototipo de alta fidelidad
 > Se trabajó con un editor de gráficos vectorial y una herramienta de generación de prototipos ([Figma](http://www.figma.com/?fuid= "Figma")) para tener un diseño más profesional y reflejar lo que el usuario desea.
 
-![Prototipos de Alta Fidelidad]
+#### Prototipos de Alta Fidelidad
 
-**Mobile**
+#### **Mobile**
+
 [![mobile1.png](https://i.postimg.cc/RC3LDhDs/mobile1.png)](https://postimg.cc/K42TKGFB)
 [![mobile2.png](https://i.postimg.cc/vZy7TzHk/mobile2.png)](https://postimg.cc/QH6Knc7J)
 [![mobile3.png](https://i.postimg.cc/QMxpkd7q/mobile3.png)](https://postimg.cc/RWy6v9X3)
-**Desktop**
+
+#### **Desktop**
+
 [![desktop1.png](https://i.postimg.cc/QNWcqPFv/desktop1.png)](https://postimg.cc/Lh2q9xBV)
 [![desktop2.png](https://i.postimg.cc/brQDf7bJ/desktop2.png)](https://postimg.cc/y38YFrL4)
 [![desktop3.png](https://i.postimg.cc/t4r1bt1h/desktop3.png)](https://postimg.cc/Wdkp6Zw3)
-**Tablet**
+
+#### **Tablet**
+
 [![tablet1.png](https://i.postimg.cc/3RGW2stB/tablet1.png)](https://postimg.cc/JD11L2VD)
 [![tablet2.png](https://i.postimg.cc/GhKtPJxZ/tablet2.png)](https://postimg.cc/6y7BtZS0)
 [![tablet3.png](https://i.postimg.cc/CMHxYHXz/tablet3.png)](https://postimg.cc/0rjs0m8s)
@@ -124,18 +129,21 @@ El usuario registrado de **PetWorld** será capaz de **dar like** al contenido p
 
 ![](../LIM017-social-network/src/img/readme/desktop3.png)
 
-[Reference link Figma][Animación petWorld]
-
-![id/name]: https://www.figma.com/proto/sbK1JtsDp1KTTch6sllRTw/petWorld?node-id=4%3A3&scaling=scale-down&page-id=0%3A1&starting-point-node-id=4%3A3&show-proto-sidebar=1
-
+#### Prototipo Figma - Animación
+[Reference petWorld](https://www.figma.com/proto/sbK1JtsDp1KTTch6sllRTw/petWorld?node-id=4%3A3&scaling=scale-down&page-id=0%3A1&starting-point-node-id=4%3A3&show-proto-sidebar=1)
 
 ### 5. Test de Usabilidad
+
 **Primera iteración:** En la primera iteración se observaron que los iconos (like, editar y eliminar) de los posts, generaban un cierto grado de delay (retraso) al momento  de la carga de la página, dado que estos inicialmente eran iconos proveniente de imágenes, como sugerencia, se optó utilizar iconos más amigables que puedan adaptarse a la  manipulación y carga de la página.
+
 ![iteracionesdeusabilidad.jpg](https://i.postimg.cc/sXmpXnWq/iteracionesdeusabilidad.jpg)
+
 **Segunda iteración**: Se observó que la paleta de colores no reflejaba el concepto de la red social, por ende se optó por usar plataformas de diseño para obtener una paleta de colores enfocada al tema elegido (mascotas) logrando comunicar calidez y  conectar con el usuario.
 
 ![paleta-de-colores.jpg](https://i.postimg.cc/0QVc35Vz/paleta-de-colores.jpg)
+
 ### 6. Responsive
+
 Esta plataforma es responsivo para celulares, tablets y desktop. 
 ![smartmockups-l2ulz9sr.jpg](https://i.postimg.cc/7hrd9Wch/smartmockups-l2ulz9sr.jpg)
 
@@ -143,34 +151,7 @@ A continuación tenemos algunos ejemplos de los dispositivos móviles emulados.
 
 ![emulated-device.png](https://i.postimg.cc/XYBhM3bq/emulated-device.png)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### 5. Objetivos de Aprendizaje - Autoras
+### 7. Objetivos de Aprendizaje - Autoras
 
 #### Uso de HTML semántico
 
@@ -274,8 +255,7 @@ A continuación tenemos algunos ejemplos de los dispositivos móviles emulados.
 
 [Página Oficial GitHub](https://pages.github.com/ "Página Oficial GitHub")
 
-### 6. Test de usabilidad
-Los test de usabilidad fueron esenciales en el desarrollo de nuestra red social, ya que con la colaboración de usuarios de nuestra red social, logramos definir las **historias de usuarios** lo que nos llevó a completar la experiencia del mismo.
+
 
 <!-- Red Social Laboratoria readme -->
 <!-- # Creando una Red Social
