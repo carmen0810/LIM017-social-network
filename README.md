@@ -1,6 +1,6 @@
 ### 1. Introducción
 
-![](../LIM017-social-network/src/img/readme/portada.jpg)
+![dfgh](../LIM017-social-network/src/img/readme/portada.jpg)
 
 Cuando hablamos de **red social**, lo que viene a la mente en primer lugar son sitios como **Facebook**, **Twitter** y **LinkedIn** o aplicaciones como **TikTok** e **Instagram**, típicos de la actualidad. Pero la idea, sin embargo, es mucho más antigua: en la sociología, por ejemplo, el concepto de red social se utiliza para analizar interacciones entre individuos, grupos, organizaciones o hasta sociedades enteras desde el final del siglo XIX.
 
@@ -9,6 +9,12 @@ Las redes sociales son plataformas digitales formadas por **comunidades** de ind
 **PetWorld** es una red social dirigida a usuarios que tienen mascotas, sin importar si es perro, gato, hamster, iguana o cualquier otro animal. Su principal labor es **formar un comunidad** entre dichos usuarios con el fin de fomentar la cooperación, interactividad, y sobretodo la difusión de información acerca de las diferentes habilidades, condiciones, y otros aspectos de sus mascotas, los cuáles desglosamos en **secciones de fácil acceso** para una visualización más rápida.   
 
 ### 2. Historias de Usuario
+
+Para identificar las historias de usuario, realizamos un estudio de investigación e intereses del usuario, obteniendo las siguientes respuestas que podemos visualizar en las gráficas.
+
+![imagen1.png](https://i.postimg.cc/jdkybKjp/imagen1.png)
+![imagen2.png](https://i.postimg.cc/mDv2wXZ6/imagen2.png)
+![imagen3.png](https://i.postimg.cc/500FGRV4/imagen3.png)
 
 #### Historia de Usuario 01
 
