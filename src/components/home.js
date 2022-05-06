@@ -8,6 +8,7 @@ import {
   deletePosts,
   editPosts,
   updatePosts,
+  // orderPosts,
   likeAdd,
   likeRemove,
 } from '../authFirebase/authentication.js';
@@ -21,25 +22,19 @@ export const homePetworld = () => {
   homeElement.setAttribute('class', 'homePage');
   const homeDiv = `
     <header class="homeHeader">  
-      <input id="checkMenu" type="checkbox">
-        <label for="checkMenu">  
-          <img class="iconHamb" src="./img/iconsPost/menuHamburguesa.png">
-        <label>
-      <input id="searchIcon" type="search" placeholder="Buscar"> 
+      
+        <img id="logoHome" src="./img/logo6.png" alt="logo">
+        <ul class="homeBar2">  
+          <li class="listNav2" >
+              <span></span>
+              <span></span>
+          </li>
+          <li class="listNav2" id="logoutIcon">Cerrar Sesión<i class="fa-solid fa-right-from-bracket"></i></li>
+        </ul>
+      
     </header>
-    <section class="posts">
-      <aside>      
-        <nav class="homeNav">
-          <img id="logoHome" src="./img/logo6.png" alt="logo">
-          <ul class="homeBar2">  
-            <li class="listNav2" >Mi perfil</li>
-            <li class="listNav2" id="logoutIcon"><i class="fa-solid fa-right-from-bracket"></i>Cerrar Sesión</li>
-          </ul>
-        </nav>
-      </aside>
-     
+    <section class="posts"> 
       <div class="containerPetPost">
-        <div id="nameUserPet"></div>
         <div class="containerPost" >
           <div class="photoProfile">
             <img id="iconUser"class="iconProfile" >          
@@ -115,6 +110,7 @@ export const homePetworld = () => {
   });
 
   // funcion para los posts
+
   const textPost = homeElement.querySelector('.textPost');
   const showPost = homeElement.querySelector('#showPost');
   let editStatus = false;
@@ -126,13 +122,13 @@ export const homePetworld = () => {
       const dataPost = doc.data();
       sectionPosts += `
         <div class="blockShowPost">
-          <div class="textShowPost">
-            <div class="petUserName" data-id="$">${dataPost.nameUser}</div>
-            
+          <div class="textShowPost">            
+            <h3 id="titleShowPost">${dataPost.title}</h3>
             <p id="descripShowPost">${dataPost.description}</p>
             <div class="petUserName" >
+               <p></p>
                <p>${dataPost.nameUser}</p>
-               <p id="datePost">Publicado ${dataPost.dateTime.toDate().toDateString()} a las ${dataPost.dateTime.toDate().toLocaleTimeString('es-PE')} hrs.</p>
+               <p id="datePostPet">Publicado ${dataPost.datePost.toDate().toDateString()} a las ${dataPost.datePost.toDate().toLocaleTimeString('es-PE')} hrs.</p>
             </div>
           </div>
           <div id="iconShowPost">
@@ -165,6 +161,7 @@ export const homePetworld = () => {
     const iconEdit = showPost.querySelectorAll('.iconEdit');
     iconEdit.forEach((edit) => {
       edit.addEventListener('click', async (e) => {
+        window.scrollTo(0, 0);
         const editTextPost = await editPosts(e.target.dataset.id);
         const dataPost = editTextPost.data();
         textPost.titlePost.value = dataPost.title;
@@ -174,6 +171,7 @@ export const homePetworld = () => {
         textPost.buttonPost.innerText = 'ACTUALIZAR';
       });
     });
+
     // función de likes
     const iconLike = showPost.querySelectorAll('.iconLike');
     iconLike.forEach((likes) => {
@@ -198,6 +196,8 @@ export const homePetworld = () => {
       });
     });
   });
+
+  // orderPosts(onGetPosts);
 
   textPost.addEventListener('submit', (e) => {
     e.preventDefault();

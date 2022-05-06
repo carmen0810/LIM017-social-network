@@ -1,5 +1,6 @@
 ### 1. Introducción
 
+
 [![portada.jpg](https://i.postimg.cc/CMs5Ptt5/portada.jpg)](https://postimg.cc/bddqd6qf)
 
 Cuando hablamos de **red social**, lo que viene a la mente en primer lugar son sitios como **Facebook**, **Twitter** y **LinkedIn** o aplicaciones como **TikTok** e **Instagram**, típicos de la actualidad. Pero la idea, sin embargo, es mucho más antigua: en la sociología, por ejemplo, el concepto de red social se utiliza para analizar interacciones entre individuos, grupos, organizaciones o hasta sociedades enteras desde el final del siglo XIX.
@@ -8,7 +9,16 @@ Las redes sociales son plataformas digitales formadas por **comunidades** de ind
 
 **PetWorld** es una red social dirigida a usuarios que tienen mascotas, sin importar si es perro, gato, hamster, iguana o cualquier otro animal. Su principal labor es **formar un comunidad** entre dichos usuarios con el fin de fomentar la cooperación, interactividad, y sobretodo la difusión de información acerca de las diferentes habilidades, condiciones, y otros aspectos de sus mascotas, los cuáles desglosamos en **secciones de fácil acceso** para una visualización más rápida.   
 
+
+![smartmockups-l2tu8g0o.jpg](https://i.postimg.cc/8PRv3W60/smartmockups-l2tu8g0o.jpg)
+
 ### 2. Historias de Usuario
+
+Para identificar las historias de usuario, realizamos un estudio de investigación e intereses del usuario, obteniendo las siguientes respuestas que podemos visualizar en las gráficas.
+
+![imagen1.png](https://i.postimg.cc/jdkybKjp/imagen1.png)
+![imagen2.png](https://i.postimg.cc/mDv2wXZ6/imagen2.png)
+![imagen3.png](https://i.postimg.cc/500FGRV4/imagen3.png)
 
 #### Historia de Usuario 01
 
@@ -116,6 +126,48 @@ El usuario registrado de **PetWorld** será capaz de **dar like** al contenido p
 [Reference link Figma][Animación petWorld]
 
 [id/name]: https://www.figma.com/proto/sbK1JtsDp1KTTch6sllRTw/petWorld?node-id=4%3A3&scaling=scale-down&page-id=0%3A1&starting-point-node-id=4%3A3&show-proto-sidebar=1
+
+
+
+### 5. Test de Usabilidad
+**Primera iteración:** En la primera iteración se observaron que los iconos (like, editar y eliminar) de los posts, generaban un cierto grado de delay (retraso) al momento  de la carga de la página, dado que estos inicialmente eran iconos proveniente de imágenes, como sugerencia, se optó utilizar iconos más amigables que puedan adaptarse a la  manipulación y carga de la página.
+![iteracionesdeusabilidad.jpg](https://i.postimg.cc/sXmpXnWq/iteracionesdeusabilidad.jpg)
+**Segunda iteración**: Se observó que la paleta de colores no reflejaba el concepto de la red social, por ende se optó por usar plataformas de diseño para obtener una paleta de colores enfocada al tema elegido (mascotas) logrando comunicar calidez y  conectar con el usuario.
+![paleta-de-colores.jpg](https://i.postimg.cc/0QVc35Vz/paleta-de-colores.jpg)
+### 6. Responsive
+Esta plataforma es responsivo para celulares, tablets y desktop. 
+![smartmockups-l2ulz9sr.jpg](https://i.postimg.cc/7hrd9Wch/smartmockups-l2ulz9sr.jpg)
+
+A continuación tenemos algunos ejemplos de los dispositivos móviles emulados.
+
+![emulated-device.png](https://i.postimg.cc/XYBhM3bq/emulated-device.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### 5. Objetivos de Aprendizaje - Autoras
 

@@ -14,13 +14,15 @@ import {
   doc,
   Timestamp,
   addDoc,
+  // query,
+  // orderBy,
   // getDocs,
   updateDoc,
   deleteDoc,
   // onAuthStateChanged,
   getFirestore,
   getUser,
-  // serverTimestamp,
+  Timestamp,
   sendPasswordResetEmail,
   signOut,
   onSnapshot,
@@ -68,10 +70,9 @@ export const sendConfirmEmail = () => sendEmailVerification(auth.currentUser);
 // recuperar contraseña
 export const resetPasswordPet = (email) => sendPasswordResetEmail(auth, email);
 // actualizar perfil
-export const updateUser = (fullName) => updateProfile(auth.currentUser, {
+export const updateUser = (fullName, photoUser) => updateProfile(auth.currentUser, {
   displayName: fullName,
-  // nameUser: name.uid,
-  // lasNameUser: lastName.uid,
+  photoURL: photoUser,
 });
 
 // Funcionespara crear posts
@@ -80,12 +81,18 @@ export const createPost = async (title, description) => {
     nameUser: getUser().displayName,
     title,
     description,
-    dateTime: Timestamp.fromDate(new Date()),
+    datePost: Timestamp.fromDate(new Date()),
     uid: getUser().uid,
+    photo: getUser().photoURL,
     likesPost: [],
     likesNum: 0,
   });
 };
+
+// const timePost = query(collection(dbfirestore, 'publicaciones'), orderBy('datePost', 'desc'));
+// export const orderPosts = async (queryPetSnapshot) => {
+//   await onSnapshot(timePost, queryPetSnapshot);
+// };
 
 // export const getPosts = () => getDocs(collection(dbfirestore, 'posts'));
 

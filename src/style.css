@@ -139,7 +139,7 @@
     width: 50%;
 }
 
-.registerPage,.fullName{
+.registerPage{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -190,14 +190,14 @@
     padding: 13px;
 }
 
-#name, #lastName, #emailRegister, #passwordRegister, #repeatPassword {
+#fullName, #emailRegister, #passwordRegister, #repeatPassword {
     margin:8px;
     border-radius:15px;
     width:60vw;
     padding: 10px;
     background-color: #59453936
 }
-#name::placeholder, #lastName::placeholder, #emailRegister::placeholder, #passwordRegister::placeholder, #repeatPassword::placeholder {
+#fullName::placeholder, #emailRegister::placeholder, #passwordRegister::placeholder, #repeatPassword::placeholder {
     color: #733B1A;
 }
 .passwords{
@@ -220,50 +220,55 @@
 /* Estilos Home */
 
 .homeHeader{
+
+    /* padding: 10px;  */
+    background-color: #a9852196;
+ 
     display: flex;
     flex-direction: row;
     width: 100vw;
     justify-content: space-between;
-    padding: 10px 20px;
-    background: #EEECF6;
+    /* padding: 10px 20px;
+    background: #EEECF6; */
 }
-#headerImg{
+/* #headerImg{
     display: flex;
     align-items: center;
     background: rgb(231, 146, 183);
     background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(189,181,219,1) 55%, rgb(196, 139, 158) 100%);
 
-}
-.homeNav{
-    /* display: none; */
-    flex-direction: column;
-    padding: 10px;
-    /* background-color: #D7B5E2; */
-    background-color: #a9852196;
+} */
+/* .homeNav{ */
+       /* display: none; */
+    /* flex-direction: column;
+    padding: 10px; */
+        /* background-color: #D7B5E2; */
+    /* background-color: #a9852196;
     height: 60vh;
-}
-.homeBar1 {
+} */
+/* .homeBar1 {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
     justify-content: space-evenly;
     list-style: none;
     padding: 5px;  
-}
+} */
 .homeBar2{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    /* flex-direction: column; */
     list-style: none;
     /* flex-grow: 1; */
     justify-content: space-evenly;
-    padding: 5px;
+    padding: 15px;
     /* margin-top: 50px; */
 }
 /* .homePage{
     
 } */
 #logoHome{
-    width: 100%;
+    width: 25%;
 }
 #checkMenu{
     display: none;
@@ -275,10 +280,12 @@ aside{
 .listNav, .listNav2{
     display: flex;
     align-items: center;
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 900;
-    color: white;
+    color: #753e1c;
     margin: 5px;
+    text-transform: uppercase;
+    padding:5px;
 }
 .imgIcon{
     margin: 5px;
@@ -287,10 +294,11 @@ aside{
 
 .listNav:hover, .listNav2:hover{
     cursor: pointer;
-    background-color: #d864b1;
-    transform: scale(1.1);
+    background-color: #7a442a;
+    /* transform: scale(1.0); */
     border-radius: 5px;
     padding: 2px;
+    color:white;
 }
 /* Estilos Menu hamburguesa */
 
@@ -325,17 +333,18 @@ aside{
     left: 0px;
     width: 100%;
     height: 125%;
-    /* background-color: #a39d9d99; */
-    background-color: #bf866594;
+    background-color: #a39d9d99;
+    /* background-color: #b59e91c2; */
     /* background-color: #d98c4a94; */
     /* background-color: #401f0cb8; */
     /* background-color: #401f0ca1; */
     display: flex;
     justify-content: center;
+    color:white;
 }
 .modalContent{
     /* background: #b27622; */
-    background: #c59147;
+    background: #cdb24cf7;
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -420,10 +429,11 @@ aside{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 80%;
+    width: 100%;
 }
 .containerPost{
-    width: 60%;
+    /* width: 60%; */
+    width: 90%;
     display: flex;
     justify-content: center;
 }
@@ -431,7 +441,7 @@ aside{
     display: flex;
     flex-direction: column;
     border-radius: 5px;
-    margin-top: 10px;
+    margin: 15px;
     width: 80%;
 }
 #titlePost{
@@ -441,7 +451,7 @@ aside{
 }
 #descriptionPost{
     background-color: #e2e1e3;
-    padding: 5px;
+    padding: 15px;
     border-radius: 5px 5px 0px 0px;
 }
 #descriptionPost::placeholder, #titlePost::placeholder{
@@ -492,7 +502,11 @@ width: 60%;
     #showPost{
         display: flex;
         flex-direction: column;
-        width: 60%;
+        width: 90%;
+        border-radius:5px;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
     }
     .imgShowPost{
         width: 25px;
@@ -505,6 +519,7 @@ width: 60%;
         justify-content: center;
         margin: 10px;
         border-radius: 10px;
+        width: 85%;
         background-color: #F2EEAC;
         /* background-color: #ffffff; */
         box-shadow: 0 0 20px rgb(138, 137, 137); 
@@ -517,12 +532,16 @@ width: 60%;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: 5px;
+        padding: 10px;
     }
     #titleShowPost{
         text-transform: uppercase;
         padding: 5px;
         text-align: center;
+        width: 100%;
+        border-color: #bf7d32;
+        border-style: double;
+        color: #bf7d32;
     }
     #descripShowPost{
         text-align: justify;
@@ -633,11 +652,11 @@ width: 60%;
     #gifWelcome{
         display:block;
     }
-    .homeNav{
+    /* .homeNav{
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-    }
+    } */
     /* .hide{
         display: block;
     } */
@@ -694,7 +713,7 @@ width: 60%;
         width: 20%;
     }
     .containerPost{
-        width: 80%;
+        width: 60%;
     }
    
     .registerPage{
@@ -705,15 +724,24 @@ width: 60%;
         padding: 10px;
         width: 50%;
     }
-    .fullName{
+    /* .fullName{
         display: flex;
         flex-direction: row;
-    }
-    #name, #lastName, #dateBirth { 
+    } */
+    /* #fullName, #dateBirth { 
         width:15vw;
-    }
-    #emailRegister, #passwordRegister, #repeatPassword {
+    } */
+    #fullName, #emailRegister, #passwordRegister, #repeatPassword {
         width:31vw;
+    }
+    #logoHome {
+        width: 10%;
+    }
+    .blockShowPost{
+        width:75%
+    }
+    #showPost{
+        width: 75%;
     }
     /* .dateBirthDiv{
         display: flex;
@@ -726,7 +754,20 @@ width: 60%;
     display: flex;
     /* background-color: #f4f7f9; */
     background-color: #bda96d9e;
+    background-image: url(./img/fondpo.png);
 }
+
+/*Barra personalizada*/
+body::-webkit-scrollbar{
+    width:10px;
+    background-color: #fff;
+  }
+  body::-webkit-scrollbar-thumb{
+   border-radius: 5px;
+   background-color: #a17627;
+   width: 8px;
+   margin: 2px
+  }
 
 /* .containerPost{
     display: flex;
