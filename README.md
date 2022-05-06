@@ -92,36 +92,35 @@ El usuario registrado de **PetWorld** será capaz de **dar like** al contenido p
 
 ![Prototipos de Baja Fidelidad]
 
-[![PBJ-1.png](https://i.postimg.cc/SN5hDfyj/PBJ-1.png)](https://postimg.cc/7fgdL7Jy)
-
-[![PBJ-2.png](https://i.postimg.cc/9XZMrB7d/PBJ-2.png)](https://postimg.cc/PNfh7YKJ)
-
-[![PBJ-3.png](https://i.postimg.cc/65ZPvYVh/PBJ-3.png)](https://postimg.cc/56xpc5RH)
-
-[![PBJ-4.png](https://i.postimg.cc/hjrDcKvf/PBJ-4.png)](https://postimg.cc/34k5Z5gT)
-
-[![PBJ-5.png](https://i.postimg.cc/VLwhXX7Q/PBJ-5.png)](https://postimg.cc/jC8vbn0Z)
-
-[![PBJ-6.png](https://i.postimg.cc/xCtXgvKx/PBJ-6.png)](https://postimg.cc/WFqp1JYg)
-
-[![PBJ-7.png](https://i.postimg.cc/yxD8Pw6x/PBJ-7.png)](https://postimg.cc/YLw72DWB)
-
-![](../LIM017-social-network/src/img/readme/PBJ%208.png)
-
-![](../LIM017-social-network/src/img/readme/PBJ%209.png)
-
-![](../LIM017-social-network/src/img/readme/PBJ%2010.png)
+[![PBJ1.png](https://i.postimg.cc/65gLKXDW/PBJ1.png)](https://postimg.cc/CzCfCWhX)
+[![PBJ2.png](https://i.postimg.cc/zXsWMkg3/PBJ2.png)](https://postimg.cc/dL9LZrnK)
+[![PBJ3.png](https://i.postimg.cc/0QyJmWLX/PBJ3.png)](https://postimg.cc/hJNjRr4V)
 
 
 ### 4. Diseño interfaz de Usuario - Prototipo de alta fidelidad
 > Se trabajó con un editor de gráficos vectorial y una herramienta de generación de prototipos ([Figma](http://www.figma.com/?fuid= "Figma")) para tener un diseño más profesional y reflejar lo que el usuario desea.
 
-![Prototipos de Alta Fidelidad](Images/pafpage01.png)
+![Prototipos de Alta Fidelidad]
 
+**Mobile**
+[![mobile1.png](https://i.postimg.cc/RC3LDhDs/mobile1.png)](https://postimg.cc/K42TKGFB)
+[![mobile2.png](https://i.postimg.cc/vZy7TzHk/mobile2.png)](https://postimg.cc/QH6Knc7J)
+[![mobile3.png](https://i.postimg.cc/QMxpkd7q/mobile3.png)](https://postimg.cc/RWy6v9X3)
+**Desktop**
+[![desktop1.png](https://i.postimg.cc/QNWcqPFv/desktop1.png)](https://postimg.cc/Lh2q9xBV)
+[![desktop2.png](https://i.postimg.cc/brQDf7bJ/desktop2.png)](https://postimg.cc/y38YFrL4)
+[![desktop3.png](https://i.postimg.cc/t4r1bt1h/desktop3.png)](https://postimg.cc/Wdkp6Zw3)
+**Tablet**
+[![tablet1.png](https://i.postimg.cc/3RGW2stB/tablet1.png)](https://postimg.cc/JD11L2VD)
+[![tablet2.png](https://i.postimg.cc/GhKtPJxZ/tablet2.png)](https://postimg.cc/6y7BtZS0)
+[![tablet3.png](https://i.postimg.cc/CMHxYHXz/tablet3.png)](https://postimg.cc/0rjs0m8s)
+[![tablet4.png](https://i.postimg.cc/zG3zCmBg/tablet4.png)](https://postimg.cc/QFGZDyc8)
+[![tablet5.png](https://i.postimg.cc/zGLNLntw/tablet5.png)](https://postimg.cc/RWzyynzq)
+[![tablet6.png](https://i.postimg.cc/FRvXnw9G/tablet6.png)](https://postimg.cc/LqxWJCgZ)
 
 [Reference link Figma][id/name]
 
-[id/name]: https://www.figma.com/proto/2cVktQV52vReP3YDmuxBbd/Untitled?node-id=1%3A2&scaling=scale-down&page-id=0%3A1&starting-point-node-id=1%3A2
+[id/name]: https://www.figma.com/proto/sbK1JtsDp1KTTch6sllRTw/petWorld?node-id=4%3A3&scaling=scale-down&page-id=0%3A1&starting-point-node-id=4%3A3&show-proto-sidebar=1
 
 ### 5. Objetivos de Aprendizaje - Autoras
 
