@@ -10,6 +10,7 @@
   ],
   "license": "MIT",
   "scripts": {
+    "deploy": "gh-pages -d src",
     "htmlhint": "htmlhint dist/*.html ",
     "eslint": "eslint --ext .js src/ test/",
     "stylelint": "stylelint --aei src/**/*.css",
@@ -36,6 +37,7 @@
     "node": ">=14"
   },
   "dependencies": {
-    "firebase": "^9.6.10"
+    "firebase": "^9.6.10",
+    "gh-pages": "^3.2.3"
   }
 }

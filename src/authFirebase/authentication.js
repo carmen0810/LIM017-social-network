@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
 /* eslint-disable import/no-cycle */
 import { app } from './fbconfig.js';
@@ -34,6 +35,7 @@ import {
 export const dbfirestore = getFirestore(app);
 
 let user = '';
+
 const auth = getAuth();
 
 // Registro nuevo usuario Petworld

@@ -112,11 +112,14 @@ El usuario registrado de **PetWorld** será capaz de **dar like** al contenido p
 [![desktop2.png](https://i.postimg.cc/brQDf7bJ/desktop2.png)](https://postimg.cc/y38YFrL4)
 [![desktop3.png](https://i.postimg.cc/t4r1bt1h/desktop3.png)](https://postimg.cc/Wdkp6Zw3)
 
-#### **Tablet**
+#### **Tablet Vista Horizontal**
 
 [![tablet1.png](https://i.postimg.cc/3RGW2stB/tablet1.png)](https://postimg.cc/JD11L2VD)
 [![tablet2.png](https://i.postimg.cc/GhKtPJxZ/tablet2.png)](https://postimg.cc/6y7BtZS0)
 [![tablet3.png](https://i.postimg.cc/CMHxYHXz/tablet3.png)](https://postimg.cc/0rjs0m8s)
+
+#### **Tablet Vista Vertical**
+
 [![tablet4.png](https://i.postimg.cc/zG3zCmBg/tablet4.png)](https://postimg.cc/QFGZDyc8)
 [![tablet5.png](https://i.postimg.cc/zGLNLntw/tablet5.png)](https://postimg.cc/RWzyynzq)
 [![tablet6.png](https://i.postimg.cc/FRvXnw9G/tablet6.png)](https://postimg.cc/LqxWJCgZ)
