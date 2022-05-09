@@ -23,7 +23,7 @@ export const login = () => {
           </span>
         </div>
         <p id="showMessageTag"></p>
-        <a href="/resetPassword" id="answerForgot">¿Olvidaste tu contraseña?</a>
+        <a id="answerForgot">¿Olvidaste tu contraseña?</a>
         <button class="btnLogin">INGRESAR</button>
         <p class="loginParagraph">o ingresa con: <img src="./img/imgLogin/google.png" alt="google" id="iconGmail" class="iconInto"></p>
         <p class="loginParagraph">¿eres nuevo en petworld?</p>
@@ -83,5 +83,9 @@ export const login = () => {
   // loginElement.querySelector('#iconFacebook').addEventListener('click', () => {
   //   loginFacebook();
   // });
+  loginElement.querySelector('#answerForgot').addEventListener('click', () => {
+    onNavigate('/resetPassword');
+  });
+
   return loginElement;
 };
