@@ -70,7 +70,10 @@
 #answerForgot{
     color: #A66D3C;
     margin: 5px;
+    cursor:pointer;
+    text-decoration: underline;
 }
+
 .loginView{
     display:flex;
     flex-direction: column;
